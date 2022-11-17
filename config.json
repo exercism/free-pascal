@@ -16,10 +16,18 @@
     "highlightjs_language": "delphi"
   },
   "files": {
-    "solution": [],
-    "test": [],
-    "example": [],
-    "exemplar": []
+    "solution": [
+      "u%{pascal_slug}.pas"
+    ],
+    "test": [
+      "u%{pascal_slug}Test.pas"
+    ],
+    "example": [
+      ".meta/u%{pascal_slug}Example.pas"
+    ],
+    "exemplar": [
+      ".meta/u%{pascal_slug}Examplar.pas"
+    ]
   },
   "exercises": {
     "concept": [],
