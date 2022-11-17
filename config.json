@@ -8,7 +8,7 @@
     "representer": false,
     "analyzer": false
   },
-  "blurb": "TODO: add blurb",
+  "blurb": "Both classic Pascal and Object Pascal based, Free Pascal is a free and open source alternative to Delphi. With Lazarus, it's main IDE, it contains a large builtin library of GUI components, making it great for developing cross-platform applications.",
   "version": 3,
   "online_editor": {
     "indent_style": "space",
