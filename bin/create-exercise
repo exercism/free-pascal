@@ -107,7 +107,7 @@ else
     echo "> Skipping example solution file $example_solution: file already exists"
 fi
 
-example="${folder}/.meta/u${pascal_name}.pas"
+example="${folder}/u${pascal_name}.pas"
 if [[ ! -f $example ]]; then
     echo "> Creating example file $example"
     applytemplate "example.pas.tmpl" $example $vars
