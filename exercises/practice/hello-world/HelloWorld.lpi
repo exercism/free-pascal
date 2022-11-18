@@ -34,9 +34,9 @@
         <UnitName Value="uHelloWorld"/>
       </Unit>
       <Unit>
-        <Filename Value="uHelloWorldTest.pas"/>
+        <Filename Value="uHelloWorldTests.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="uHelloWorldTest"/>
+        <UnitName Value="uHelloWorldTests"/>
       </Unit>
     </Units>
   </ProjectOptions>

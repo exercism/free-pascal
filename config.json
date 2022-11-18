@@ -20,7 +20,7 @@
       "u%{pascal_slug}.pas"
     ],
     "test": [
-      "u%{pascal_slug}Test.pas"
+      "u%{pascal_slug}Tests.pas"
     ],
     "example": [
       ".meta/u%{pascal_slug}Example.pas"

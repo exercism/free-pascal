@@ -1,7 +1,7 @@
 program HelloWorld;
 
 uses
-  uHelloWorld, uHelloWorldTest,
+  uHelloWorld, uHelloWorldTests,
   fpcunit, testregistry, testreport;
 
 var

@@ -9,7 +9,7 @@
       "uHelloWorld.pas"
     ],
     "test": [
-      "uHelloWorldTest.pas"
+      "uHelloWorldTests.pas"
     ],
     "example": [
       ".meta/uHelloWorldExample.pas"

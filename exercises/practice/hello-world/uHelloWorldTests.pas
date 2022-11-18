@@ -1,4 +1,4 @@
-unit uHelloWorldTest;
+unit uHelloWorldTests;
 
 {$mode ObjFPC}{$H+}
 
