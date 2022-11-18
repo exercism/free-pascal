@@ -41,8 +41,8 @@ function solve_exercise() {
     cp ${exercise_dir}/*.lpi ${build_folder}/
     example_solution_files="$(ls -1 ${exercise_dir}/.meta/*Example.pas)"
     for file in $example_solution_files; do
-        dest_file=$(echo "$file" | sed -r 's/Example.pas$/.pas/g')
-        cp $file $dest_file
+        dest_filename=$(echo "$(basename $file)" | sed -r 's/Example.pas$/.pas/g')
+        cp $file ${build_folder}/${dest_filename}
     done
 
     pushd "${build_folder}" > /dev/null
