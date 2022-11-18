@@ -33,7 +33,7 @@ jobs:
         run: |
           export DEBIAN_FRONTEND=noninteractive
           sudo apt-get update
-          sudo apt-get install -y fpc lazarus-id lcl
+          sudo apt-get install -y fpc lazarus-ide lcl
 
       - name: Run tests for all exercises
         run: bin/test
