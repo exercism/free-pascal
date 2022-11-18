@@ -13,7 +13,7 @@
 # Requires scripts:
 # - bin/test
 
-name: <track> / Test
+name: free-pascal / Test
 
 on:
   push:
@@ -23,17 +23,17 @@ on:
 
 jobs:
   ci:
-    runs-on: <image-name>
+    runs-on: ubuntu-22.04
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Use <setup tooling>
-        uses: <action to setup tooling>
-
-      - name: Install project dependencies
-        run: <install dependencies>
+      - name: Install free-pascal compiler and lazarus
+        run: |
+          export DEBIAN_FRONTEND=noninteractive
+          sudo apt-get update
+          sudo apt-get install -y fpc lazarus-id lcl
 
       - name: Run tests for all exercises
         run: bin/test
