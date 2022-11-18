@@ -37,3 +37,12 @@ jobs:
 
       - name: Run tests for all exercises
         run: bin/test
+
+      - name: Report
+        uses: dorny/test-reporter@v1
+        if: always()
+        with:
+          name: Junit Test Results
+          path: build/**/junit-report-*.xml
+          reporter: java-junit
+          fail-on-error: true
