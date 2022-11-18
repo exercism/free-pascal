@@ -1,25 +1,25 @@
 program {{pascal_name}};
 
 uses
-  u{{pascal_name}}, u{{pascal_name}}Tests,
-  fpcunit, testregistry, testreport;
+  u{{pascal_name}}, u{{pascal_name}}Tests, uShared,
+  fpcunit, testregistry;
 
 var
-  FPlainResultsWriter: TPlainResultsWriter;
+  FResultWriter: TCustomResultWriter;
   testResult: TTestResult;
 
 begin
   testResult := TTestResult.Create;
-  FPlainResultsWriter := TPlainResultsWriter.Create;
+  FResultWriter := TCustomResultWriter.Create;
   try
-    testResult.AddListener(FPlainResultsWriter);
-    FPlainResultsWriter.WriteHeader;
+    testResult.AddListener(FResultWriter);
+    FResultWriter.WriteHeader;
 
     GetTestRegistry.Run(testResult);
 
-    FPlainResultsWriter.WriteResult(testResult);
+    FResultWriter.WriteResult(testResult);
   finally
     testResult.Free;
-    FPlainResultsWriter.Free;
+    FResultWriter.Free;
   end;
 end.

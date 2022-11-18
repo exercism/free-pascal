@@ -50,7 +50,7 @@ function solve_exercise() {
 
     # then run the test
     echo ">>> Checking ${slug} exercise..."
-    "./$pascal_name"
+    "./$pascal_name" --xml=./junit-report-$slug.xml
 
     popd > /dev/null
 }

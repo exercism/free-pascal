@@ -1,0 +1,13 @@
+#!/bin/bash
+# Helper script to update common pascal files in each exercise
+cd "$(dirname "$0")/.."
+
+for practice_exercise_dir in ./exercises/practice/*/; do
+    if [ -d $practice_exercise_dir ]; then
+        slug=$(basename "${practice_exercise_dir}")
+        pascal_name=$(echo "${slug}" | sed -r 's/(^|[_-])([a-z])/\U\2/g')
+
+        echo "> Copy uShared.pas to ${practice_exercise_dir}"
+        cp './_template/uShared.pas' "${practice_exercise_dir}/uShared.pas"
+    fi
+done

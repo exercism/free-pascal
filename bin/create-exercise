@@ -139,4 +139,7 @@ else
     echo "> Skipping project file $proj_file: file already exists"
 fi
 
+echo "> Copy uShared.pas"
+cp './_template/uShared.pas' "${folder}/uShared.pas"
+
 echo "Done."

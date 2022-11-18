@@ -1,26 +1,25 @@
 program HelloWorld;
 
 uses
-  uHelloWorld, uHelloWorldTests,
-  fpcunit, testregistry, testreport;
+  uHelloWorld, uHelloWorldTests, uShared,
+  fpcunit, testregistry;
 
 var
-  FPlainResultsWriter: TPlainResultsWriter;
+  FResultWriter: TCustomResultWriter;
   testResult: TTestResult;
 
 begin
   testResult := TTestResult.Create;
-  FPlainResultsWriter := TPlainResultsWriter.Create;
+  FResultWriter := TCustomResultWriter.Create;
   try
-    testResult.AddListener(FPlainResultsWriter);
-    FPlainResultsWriter.WriteHeader;
+    testResult.AddListener(FResultWriter);
+    FResultWriter.WriteHeader;
 
     GetTestRegistry.Run(testResult);
 
-    FPlainResultsWriter.WriteResult(testResult);
+    FResultWriter.WriteResult(testResult);
   finally
     testResult.Free;
-    FPlainResultsWriter.Free;
+    FResultWriter.Free;
   end;
 end.
-
