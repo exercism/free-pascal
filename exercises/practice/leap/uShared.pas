@@ -13,15 +13,13 @@ uses
   sysutils, classes, getopts,
   fpcunit, testregistry, testreport, testutils;
 
-{$PUSH}
-{$WARN 5024 OFF : Parameter "$1" not used}
-
 type
   TCustomResultWriter = class(TNoRefCountObject, ITestListener)
   private
     fileOutput: TFileStream;
     lastNotSuccess: Boolean;
     procedure XmlWriteln(str: String);
+    function EscapeString(str: String): String;
 
   public
     constructor Create;
@@ -98,6 +96,31 @@ begin
   end;
 end;
 
+function TCustomResultWriter.EscapeString(str: String): String;
+var
+  C: Char;
+  StringBuilder: TStringBuilder;
+begin
+  StringBuilder := TStringBuilder.Create;
+  try
+    for C in str do
+    begin
+      case C of
+        '&' : StringBuilder.Append('&amp;');
+        '"' : StringBuilder.Append('&quot;');
+        '''': StringBuilder.Append('&apos;');
+        '<' : StringBuilder.Append('&lt;');
+        '>' : StringBuilder.Append('&gt;');
+      else
+        StringBuilder.Append(C);
+      end;
+    end;
+    Result := StringBuilder.ToString();
+  finally
+    StringBuilder.Free;
+  end;
+end;
+
 procedure TCustomResultWriter.SetXMLOutput(aXmlOutputPath: String);
 begin
   fileOutput := TFileStream.Create(aXmlOutputPath, fmCreate OR fmOpenWrite);
@@ -113,6 +136,9 @@ begin
 end;
 
 procedure TCustomResultWriter.WriteResult(aResult: TTestResult);
+var
+  i: LongInt;
+  f: TTestFailure;
 begin
   WriteLn('');
   WriteLn('');
@@ -121,7 +147,45 @@ begin
   if (fileOutput <> Nil) then
   begin
     XmlWriteln('</testlisting>');
-    XmlWriteln(TestResultAsXML(aResult));
+
+    with aResult do
+    begin
+      XmlWriteln('<NumberOfRunnedTests>' + intToStr(RunTests) + '</NumberOfRunnedTests>');
+      XmlWriteln('<NumberOfErrors>' + intToStr(NumberOfErrors) + '</NumberOfErrors>');
+      XmlWriteln('<NumberOfFailures>' + intToStr(NumberOfFailures) + '</NumberOfFailures>');
+      if NumberOfErrors <> 0 then
+      begin
+        XmlWriteln('<ListOfErrors>');
+        for i := 0 to Errors.Count - 1 do
+        begin
+          XmlWriteln('<Error>');
+          f := TTestFailure(Errors.Items[i]);
+          XmlWriteln('  <Message>' + EscapeString(f.AsString) + '</Message>');
+          XmlWriteln('  <ExceptionClass>' + EscapeString(f.ExceptionClassName) + '</ExceptionClass>');
+          XmlWriteln('  <ExceptionMessage>' + EscapeString(f.ExceptionMessage) + '</ExceptionMessage>');
+          XmlWriteln('  <SourceUnitName>' + f.SourceUnitName + '</SourceUnitName>');
+          XmlWriteln('  <LineNumber>' + IntToStr(f.LineNumber) + '</LineNumber>');
+          XmlWriteln('  <FailedMethodName>' + f.FailedMethodName + '</FailedMethodName>');
+          XmlWriteln('</Error>');
+        end;
+        XmlWriteln('</ListOfErrors>');
+      end;
+      if NumberOfFailures <> 0 then
+      begin
+        XmlWriteln('<ListOfFailures>');
+        for i := 0 to Failures.Count - 1 do
+        begin
+          XmlWriteln('<Failure>');
+          f := TTestFailure(Failures.Items[i]);
+          XmlWriteln('  <Message>' + EscapeString(f.AsString) + '</Message>');
+          XmlWriteln('  <ExceptionClass>' + EscapeString(f.ExceptionClassName) + '</ExceptionClass>');
+          XmlWriteln('  <ExceptionMessage>' + EscapeString(f.ExceptionMessage) + '</ExceptionMessage>');
+          XmlWriteln('</Failure>');
+        end;
+        XmlWriteln('</ListOfFailures>');
+      end;
+    end;
+
     XmlWriteln('</testresults>');
   end;
 end;
@@ -133,8 +197,8 @@ begin
 
   if (fileOutput <> Nil) then
   begin
-    XmlWriteln('<failure ExceptionClassName="' + AFailure.ExceptionClassName + '">');
-    XmlWriteln('<message>' + AFailure.ExceptionMessage + '</message>');
+    XmlWriteln('<failure ExceptionClassName="' + EscapeString(AFailure.ExceptionClassName) + '">');
+    XmlWriteln('<message>' + EscapeString(AFailure.ExceptionMessage) + '</message>');
     XmlWriteln('</failure>');
   end;
 end;
@@ -146,8 +210,8 @@ begin
 
   if (fileOutput <> Nil) then
   begin
-    XmlWriteln('<error ExceptionClassName="' + AError.ExceptionClassName + '">');
-    XmlWriteln('<message>' + AError.ExceptionMessage + '</message>');
+    XmlWriteln('<error ExceptionClassName="' + EscapeString(AError.ExceptionClassName) + '">');
+    XmlWriteln('<message>' + EscapeString(AError.ExceptionMessage) + '</message>');
     XmlWriteln('<sourceunit>' + AError.SourceUnitName + '</sourceunit>');
     XmlWriteln('<methodname>' + AError.FailedMethodName + '</methodname>');
     XmlWriteln('<linenumber>' + IntToStr(AError.LineNumber) + '</linenumber>');
@@ -161,7 +225,7 @@ begin
 
   if (fileOutput <> Nil) then
   begin
-    XmlWriteln('<test name="' + ATest.TestSuiteName + '.' + ATest.TestName + '">');
+    XmlWriteln('<test name="' + EscapeString(ATest.TestSuiteName) + '.' + EscapeString(ATest.TestName) + '">');
   end;
 end;
 
