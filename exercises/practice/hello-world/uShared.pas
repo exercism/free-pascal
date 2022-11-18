@@ -10,7 +10,7 @@ unit uShared;
 interface
 
 uses
-  sysutils, classes, getopts,
+  sysutils, classes, getopts, dom, xmlwrite, dateutils,
   fpcunit, testregistry, testreport, testutils;
 
 type
@@ -18,8 +18,10 @@ type
   private
     fileOutput: TFileStream;
     lastNotSuccess: Boolean;
-    procedure XmlWriteln(str: String);
-    function EscapeString(str: String): String;
+    doc: TXMLDocument;
+    rootNode: TDOMElement;
+    curTestCaseNode: TDOMElement;
+    testCount: Integer;
 
   public
     constructor Create;
@@ -49,7 +51,9 @@ var
   theopts: array[1..1] of TOption;
 begin
   fileOutput := Nil;
+  doc := Nil;
   lastNotSuccess := False;
+  testCount := 0;
 
   with theopts[1] do
   begin
@@ -75,157 +79,90 @@ end;
 
 destructor TCustomResultWriter.Destroy;
 begin
-  if (fileOutput <> Nil) then
+  if (doc <> Nil) then
   begin
     fileOutput.Destroy;
-  end;
-end;
-
-procedure TCustomResultWriter.XmlWriteln(str: String);
-var
-  len: Cardinal;
-  oString: UTF8String;
-begin
-  if (fileOutput <> Nil) then
-  begin
-    oString := UTF8String(str);
-    len := length(oString);
-    if len > 0 then
-      fileOutput.WriteBuffer( oString[1], len );
-    fileOutput.WriteByte(10); // newline
-  end;
-end;
-
-function TCustomResultWriter.EscapeString(str: String): String;
-var
-  C: Char;
-  StringBuilder: TStringBuilder;
-begin
-  StringBuilder := TStringBuilder.Create;
-  try
-    for C in str do
-    begin
-      case C of
-        '&' : StringBuilder.Append('&amp;');
-        '"' : StringBuilder.Append('&quot;');
-        '''': StringBuilder.Append('&apos;');
-        '<' : StringBuilder.Append('&lt;');
-        '>' : StringBuilder.Append('&gt;');
-      else
-        StringBuilder.Append(C);
-      end;
-    end;
-    Result := StringBuilder.ToString();
-  finally
-    StringBuilder.Free;
+    doc.Free;
   end;
 end;
 
 procedure TCustomResultWriter.SetXMLOutput(aXmlOutputPath: String);
 begin
   fileOutput := TFileStream.Create(aXmlOutputPath, fmCreate OR fmOpenWrite);
+  doc := TXMLDocument.Create;
+
+  rootNode := doc.CreateElement('testsuite');
+  doc.AppendChild(rootNode);
 end;
 
 procedure TCustomResultWriter.WriteHeader;
 begin
-  if (fileOutput <> Nil) then
-  begin
-    XmlWriteln('<testresults>');
-    XmlWriteln('<testlisting>');
-  end;
 end;
 
 procedure TCustomResultWriter.WriteResult(aResult: TTestResult);
-var
-  i: LongInt;
-  f: TTestFailure;
 begin
   WriteLn('');
   WriteLn('');
   WriteLn(TestResultAsPlain(aResult));
 
-  if (fileOutput <> Nil) then
+  if (doc <> Nil) then
   begin
-    XmlWriteln('</testlisting>');
+    rootNode.SetAttribute('failures', UnicodeString(IntToStr(aResult.NumberOfFailures)));
+    rootNode.SetAttribute('errors', UnicodeString(IntToStr(aResult.NumberOfErrors)));
+    rootNode.SetAttribute('skipped', UnicodeString(IntToStr(aResult.NumberOfSkippedTests)));
+    rootNode.SetAttribute('tests', UnicodeString(IntToStr(testCount)));
+    rootNode.SetAttribute('timestamp', UnicodeString(DateToISO8601(aResult.StartingTime, False)));
 
-    with aResult do
-    begin
-      XmlWriteln('<NumberOfRunnedTests>' + intToStr(RunTests) + '</NumberOfRunnedTests>');
-      XmlWriteln('<NumberOfErrors>' + intToStr(NumberOfErrors) + '</NumberOfErrors>');
-      XmlWriteln('<NumberOfFailures>' + intToStr(NumberOfFailures) + '</NumberOfFailures>');
-      if NumberOfErrors <> 0 then
-      begin
-        XmlWriteln('<ListOfErrors>');
-        for i := 0 to Errors.Count - 1 do
-        begin
-          XmlWriteln('<Error>');
-          f := TTestFailure(Errors.Items[i]);
-          XmlWriteln('  <Message>' + EscapeString(f.AsString) + '</Message>');
-          XmlWriteln('  <ExceptionClass>' + EscapeString(f.ExceptionClassName) + '</ExceptionClass>');
-          XmlWriteln('  <ExceptionMessage>' + EscapeString(f.ExceptionMessage) + '</ExceptionMessage>');
-          XmlWriteln('  <SourceUnitName>' + f.SourceUnitName + '</SourceUnitName>');
-          XmlWriteln('  <LineNumber>' + IntToStr(f.LineNumber) + '</LineNumber>');
-          XmlWriteln('  <FailedMethodName>' + f.FailedMethodName + '</FailedMethodName>');
-          XmlWriteln('</Error>');
-        end;
-        XmlWriteln('</ListOfErrors>');
-      end;
-      if NumberOfFailures <> 0 then
-      begin
-        XmlWriteln('<ListOfFailures>');
-        for i := 0 to Failures.Count - 1 do
-        begin
-          XmlWriteln('<Failure>');
-          f := TTestFailure(Failures.Items[i]);
-          XmlWriteln('  <Message>' + EscapeString(f.AsString) + '</Message>');
-          XmlWriteln('  <ExceptionClass>' + EscapeString(f.ExceptionClassName) + '</ExceptionClass>');
-          XmlWriteln('  <ExceptionMessage>' + EscapeString(f.ExceptionMessage) + '</ExceptionMessage>');
-          XmlWriteln('</Failure>');
-        end;
-        XmlWriteln('</ListOfFailures>');
-      end;
-    end;
-
-    XmlWriteln('</testresults>');
+    WriteXMLFile(doc, fileOutput);
   end;
 end;
 
 procedure TCustomResultWriter.AddFailure(ATest: TTest; AFailure: TTestFailure);
+var
+  failureNode: TDOMElement;
 begin
   Write('F');
   lastNotSuccess := True;
 
-  if (fileOutput <> Nil) then
+  if (doc <> Nil) then
   begin
-    XmlWriteln('<failure ExceptionClassName="' + EscapeString(AFailure.ExceptionClassName) + '">');
-    XmlWriteln('<message>' + EscapeString(AFailure.ExceptionMessage) + '</message>');
-    XmlWriteln('</failure>');
+    failureNode := doc.CreateElement('failure');
+    curTestCaseNode.AppendChild(failureNode);
+
+    failureNode.SetAttribute('message', UnicodeString(AFailure.ExceptionMessage));
+    failureNode.SetAttribute('type', UnicodeString(AFailure.ExceptionClassName));
   end;
 end;
 
 procedure TCustomResultWriter.AddError(ATest: TTest; AError: TTestFailure);
+var
+  errorNode: TDOMElement;
 begin
   Write('E');
   lastNotSuccess := True;
 
-  if (fileOutput <> Nil) then
+  if (doc <> Nil) then
   begin
-    XmlWriteln('<error ExceptionClassName="' + EscapeString(AError.ExceptionClassName) + '">');
-    XmlWriteln('<message>' + EscapeString(AError.ExceptionMessage) + '</message>');
-    XmlWriteln('<sourceunit>' + AError.SourceUnitName + '</sourceunit>');
-    XmlWriteln('<methodname>' + AError.FailedMethodName + '</methodname>');
-    XmlWriteln('<linenumber>' + IntToStr(AError.LineNumber) + '</linenumber>');
-    XmlWriteln('</error>');
+    errorNode := doc.CreateElement('error');
+    curTestCaseNode.AppendChild(errorNode);
+
+    errorNode.SetAttribute('message', UnicodeString(AError.ExceptionMessage));
+    errorNode.SetAttribute('type', UnicodeString(AError.ExceptionClassName));
   end;
 end;
 
 procedure TCustomResultWriter.StartTest(ATest: TTest);
 begin
   lastNotSuccess := False;
+  testCount := testCount + 1;
 
-  if (fileOutput <> Nil) then
+  if (doc <> Nil) then
   begin
-    XmlWriteln('<test name="' + EscapeString(ATest.TestSuiteName) + '.' + EscapeString(ATest.TestName) + '">');
+    curTestCaseNode := doc.CreateElement('testcase');
+    rootNode.AppendChild(curTestCaseNode);
+
+    curTestCaseNode.SetAttribute('name', UnicodeString(ATest.TestSuiteName + '.' + ATest.TestName));
+    curTestCaseNode.SetAttribute('classname', UnicodeString(ATest.UnitName + '.' + ATest.ClassName));
   end;
 end;
 
@@ -233,9 +170,6 @@ procedure TCustomResultWriter.EndTest(ATest: TTest);
 begin
   if (NOT lastNotSuccess) then
     Write('.');
-
-  if (fileOutput <> Nil) then
-    XmlWriteln('</test>');
 end;
 
 procedure TCustomResultWriter.StartTestSuite(ATestSuite: TTestSuite);
