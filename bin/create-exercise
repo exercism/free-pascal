@@ -1,0 +1,142 @@
+#!/bin/bash
+# Helper script to bootstrap a exercise's pascal files
+cd "$(dirname "$0")/.."
+
+print_usage() {
+    echo "Usage: create-exercise [options] <slug>"
+    echo "Options:"
+    echo " --sync-metadata / -m     Runs configlet to sync metadata files for the exercise; only available in --practice mode"
+    echo " --sync-tests / -t        Runs configlet to sync test data for the exercise; only available in --practice mode"
+    echo " --sync / -s              Combined option of --sync-metadata and --sync-tests"
+    echo " --practice / -p          Creates a practice exercise"
+    echo " --concept / -c           Creates a concept exercise"
+}
+
+TEMP=$(getopt -o mtspc --long sync-metadata,sync-tests,sync,practice,concept \
+              -n 'create-exercise' -u -- "$@")
+
+set -- $TEMP
+
+do_sync_meta=false
+do_sync_tests=false
+mode=""
+while true; do
+    case "$1" in
+        -m | --sync-meta ) do_sync_meta=true; shift ;;
+        -t | --sync-tests ) do_sync_tests=true; shift ;;
+        -s | --sync) do_sync_meta=true; do_sync_tests=true; shift ;;
+        -p | --practice) mode="practice"; shift ;;
+        -c | --concept) mode="concept"; shift ;;
+        --) shift; break ;;
+        *) print_usage; exit 1 ;;
+    esac
+done
+
+if [[ -z "$mode" ]]; then
+    echo "Please provide the type of exercise with the --practice or --concept options";
+    exit 1;
+fi
+
+slug=$1
+if [[ -z "$slug" ]]; then
+    echo "Please provide the slug name as first argument";
+    exit 1;
+fi
+
+# Make slug name into pascal case name for units
+pascal_name=$(echo "$slug" | sed -r 's/(^|[_-])([a-z])/\U\2/g')
+folder="exercises/${mode}/${slug}"
+
+echo "Creating exercise with slug $slug"
+echo " - pascal nameing $pascal_name"
+echo " - mode $mode"
+echo " - should sync metadata: $do_sync_meta"
+echo " - should sync tests: $do_sync_tests"
+echo " - folder: $folder"
+
+if [ "$do_sync_meta" = true ]; then
+    if [ "$mode" = "concept" ]; then
+        echo "Error: can only sync exercise meta when creating a practice"
+        exit 1;
+    fi
+    cmd="bin/configlet sync --update --yes --docs --metadata --exercise $slug"
+    echo "> Running $cmd"
+    $cmd
+fi
+
+if [ "$do_sync_tests" = true ]; then
+    if [ "$mode" = "concept" ]; then
+        echo "Error: can only sync exercise tests when creating a practice"
+        exit 1;
+    fi
+    cmd="bin/configlet sync --update --tests include --exercise $slug"
+    echo "> Running $cmd"
+    $cmd
+fi
+
+echo "> Creating folder(s)"
+mkdir -p "$folder"
+mkdir -p "$folder/.meta"
+
+function applytemplate() {
+    tmpl_file="_template/$1"
+    out_file=$2
+    vars=$3
+
+    cp $tmpl_file $out_file
+    for key in "${!vars[@]}"; do
+        val=${vars[$key]}
+        sed -i "s|{{$key}}|$val|g" $out_file
+    done
+}
+
+declare -A vars=( [pascal_name]="$pascal_name" )
+
+conf="${folder}/.meta/config.json"
+if [[ -f $conf ]]; then
+    echo "> Updateing config $conf"
+    tmp=$(mktemp)
+    jq ".files = { \"solution\": [ \"u${pascal_name}.pas\" ], \"test\": [ \"u${pascal_name}Tests.pas\" ], \"example\": [ \".meta/u${pascal_name}Example.pas\" ] }" $conf > "$tmp" && mv "$tmp" $conf
+fi
+
+example_solution="${folder}/.meta/u${pascal_name}Example.pas"
+if [[ ! -f $example_solution ]]; then
+    echo "> Creating example solution file $example_solution"
+    applytemplate "example.pas.tmpl" $example_solution $vars
+else
+    echo "> Skipping example solution file $example_solution: file already exists"
+fi
+
+example="${folder}/.meta/u${pascal_name}.pas"
+if [[ ! -f $example ]]; then
+    echo "> Creating example file $example"
+    applytemplate "example.pas.tmpl" $example $vars
+else
+    echo "> Skipping example file $example: file already exists"
+fi
+
+entry_file="${folder}/${pascal_name}.lpr"
+if [[ ! -f $entry_file ]]; then
+    echo "> Create entrypoint file $entry_file"
+    applytemplate "main.lpr.tmpl" $entry_file $vars
+else
+    echo "> Skipping entrypoint file $entry_file: file already exists"
+fi
+
+tests_file="${folder}/u${pascal_name}Tests.pas"
+if [[ ! -f $tests_file ]]; then
+    echo "> Create tests file $tests_file"
+    applytemplate "tests.pas.tmpl" $tests_file $vars
+else
+    echo "> Skipping tests file $tests_file: file already exists"
+fi
+
+proj_file="${folder}/${pascal_name}.lpi"
+if [[ ! -f $proj_file ]]; then
+    echo "> Create project file $proj_file"
+    applytemplate "proj.lpi.tmpl" $proj_file $vars
+else
+    echo "> Skipping project file $proj_file: file already exists"
+fi
+
+echo "Done."

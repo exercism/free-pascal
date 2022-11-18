@@ -1,0 +1,26 @@
+unit u{{pascal_name}}Tests;
+
+{$mode ObjFPC}{$H+}
+
+interface
+
+uses
+    Classes, SysUtils, fpcunit, testregistry;
+
+type
+  SomeTest = class(TTestCase)
+  published
+    procedure DoTest;
+  end;
+
+implementation
+uses u{{pascal_name}};
+
+procedure SomeTest.DoTest;
+begin
+end;
+
+initialization
+  RegisterTest(SomeTest);
+end.
+
