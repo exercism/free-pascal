@@ -42,6 +42,18 @@
         "topics": [
           "strings"
         ]
+      },
+      {
+        "slug": "leap",
+        "name": "Leap",
+        "uuid": "fd61bef1-09d2-433d-ad6c-bb126e19439a",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 1,
+        "topics": [
+          "conditionals",
+          "integers"
+        ]
       }
     ]
   },
