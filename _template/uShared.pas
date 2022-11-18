@@ -135,7 +135,7 @@ begin
 
     failureNode.SetAttribute('message', UnicodeString(AFailure.ExceptionMessage));
     failureNode.SetAttribute('type', UnicodeString(AFailure.ExceptionClassName));
-    failureNode.AppendChild( doc.CreateCDATASection(' ') );
+    failureNode.AppendChild( doc.CreateCDATASection(UnicodeString(AFailure.ExceptionMessage)) );
   end;
 end;
 
@@ -153,7 +153,7 @@ begin
 
     errorNode.SetAttribute('message', UnicodeString(AError.ExceptionMessage));
     errorNode.SetAttribute('type', UnicodeString(AError.ExceptionClassName));
-    errorNode.AppendChild( doc.CreateCDATASection(' ') );
+    errorNode.AppendChild( doc.CreateCDATASection(UnicodeString(AError.ExceptionMessage)) );
   end;
 end;
 
