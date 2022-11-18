@@ -50,7 +50,7 @@ end;
 
 procedure YearTest.year_divisible_by_4_and_5_still_leap_year;
 begin
-  AssertFalse(
+  AssertTrue(
     'Expected ''false'', 1960 is a leap year.',
     uLeap.IsLeapYear(1960)
   );

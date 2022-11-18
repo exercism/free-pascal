@@ -21,7 +21,7 @@ var
   Expected: string;
   Actual: string;
 begin
-  Expected := 'Hello, World';
+  Expected := 'Hello, World!';
   Actual := Hello;
   AssertEquals(Expected, Actual);
 end;
