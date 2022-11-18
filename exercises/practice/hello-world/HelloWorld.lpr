@@ -10,7 +10,7 @@ var
 
 begin
   testResult := TTestResult.Create;
-  FResultWriter := TCustomResultWriter.Create;
+  FResultWriter := TCustomResultWriter.Create('HelloWorld');
   try
     testResult.AddListener(FResultWriter);
     FResultWriter.WriteHeader;

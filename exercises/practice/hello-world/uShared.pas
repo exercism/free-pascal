@@ -22,9 +22,11 @@ type
     rootNode: TDOMElement;
     curTestCaseNode: TDOMElement;
     testCount: Integer;
+    suiteName: String;
 
   public
-    constructor Create;
+
+    constructor Create(aSuiteName: String);
     destructor Destroy; override;
 
     procedure SetXMLOutput(aXmlOutputPath: String);
@@ -44,7 +46,7 @@ implementation
 {$PUSH}
 {$WARN 5024 OFF : Parameter "$1" not used}
 
-constructor TCustomResultWriter.Create;
+constructor TCustomResultWriter.Create(aSuiteName: String);
 var
   c: char;
   optionindex: LongInt;
@@ -54,6 +56,7 @@ begin
   doc := Nil;
   lastNotSuccess := False;
   testCount := 0;
+  suiteName := aSuiteName;
 
   with theopts[1] do
   begin
@@ -112,6 +115,7 @@ begin
     rootNode.SetAttribute('skipped', UnicodeString(IntToStr(aResult.NumberOfSkippedTests)));
     rootNode.SetAttribute('tests', UnicodeString(IntToStr(testCount)));
     rootNode.SetAttribute('timestamp', UnicodeString(DateToISO8601(aResult.StartingTime, False)));
+    rootNode.SetAttribute('name', UnicodeString(suiteName));
 
     WriteXMLFile(doc, fileOutput);
   end;
@@ -131,6 +135,7 @@ begin
 
     failureNode.SetAttribute('message', UnicodeString(AFailure.ExceptionMessage));
     failureNode.SetAttribute('type', UnicodeString(AFailure.ExceptionClassName));
+    failureNode.AppendChild( doc.CreateCDATASection(' ') );
   end;
 end;
 
@@ -148,6 +153,7 @@ begin
 
     errorNode.SetAttribute('message', UnicodeString(AError.ExceptionMessage));
     errorNode.SetAttribute('type', UnicodeString(AError.ExceptionClassName));
+    errorNode.AppendChild( doc.CreateCDATASection(' ') );
   end;
 end;
 
