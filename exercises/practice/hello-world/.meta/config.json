@@ -1,9 +1,7 @@
 {
-  "blurb": "The classical introductory exercise. Just say \"Hello, World!\".",
   "authors": [
     "mai-lapyst"
   ],
-  "contributors": [],
   "files": {
     "solution": [
       "uHelloWorld.pas"
@@ -15,6 +13,7 @@
       ".meta/uHelloWorldExample.pas"
     ]
   },
+  "blurb": "The classical introductory exercise. Just say \"Hello, World!\".",
   "source": "This is an exercise to introduce users to using Exercism",
   "source_url": "https://en.wikipedia.org/wiki/%22Hello,_world!%22_program"
 }
