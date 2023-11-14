@@ -27,7 +27,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5
 
       - name: Install free-pascal compiler and lazarus
         run: |
@@ -39,7 +39,7 @@ jobs:
         run: bin/test
 
       - name: Report
-        uses: dorny/test-reporter@v1
+        uses: dorny/test-reporter@
         if: always()
         with:
           name: Junit Test Results
