@@ -39,7 +39,7 @@ jobs:
         run: bin/test
 
       - name: Report
-        uses: dorny/test-reporter@
+        uses: dorny/test-reporter@afe6793191b75b608954023a46831a3fe10048d4
         if: always()
         with:
           name: Junit Test Results
