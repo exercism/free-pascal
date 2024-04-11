@@ -38,7 +38,7 @@ jobs:
       - name: Run tests for all exercises
         run: bin/test
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v3  # Not @v4 -- dorny/test-reporter#419
         if: always()
         with:
           name: test-results
