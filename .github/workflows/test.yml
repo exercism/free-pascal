@@ -27,7 +27,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5
+        uses: actions/checkout@v4
 
       - name: Install free-pascal compiler and lazarus
         run: |
@@ -38,11 +38,8 @@ jobs:
       - name: Run tests for all exercises
         run: bin/test
 
-      - name: Report
-        uses: dorny/test-reporter@eaa763f6ffc21c7a37837f56cd5f9737f27fc6c8
+      - uses: actions/upload-artifact@v3
         if: always()
         with:
           name: test-results
-          path: junit-report.xml
-          reporter: java-junit
-          fail-on-error: true
+          path: build/**/junit-report-*.xml
