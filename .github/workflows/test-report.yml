@@ -1,7 +1,7 @@
 name: 'Test Report'
 on:
   workflow_run:
-    workflows: ['free-pascal / Test']     # runs after free-pascal / Test workflow
+    workflows: ['free-pascal / Test']      # runs after free-pascal / Test workflow
     types:
       - completed
 permissions:
@@ -14,7 +14,7 @@ jobs:
     steps:
     - uses: dorny/test-reporter@v1
       with:
-        artifact: test-results            # artifact name
-        name: test-results                  # Name of the check run which will be created
-        path: '*.xml'                     # Path to test results (inside artifact .zip)
-        reporter: java-junit              # Format of test results
+        artifact: test-results             # Artifact name
+        name: test-results                 # Name of the check run which will be created
+        path: build/**/junit-report-*.xml  # Path to test results (inside artifact .zip)
+        reporter: java-junit               # Format of test results
