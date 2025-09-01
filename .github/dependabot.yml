@@ -5,5 +5,9 @@ updates:
   # Keep dependencies for GitHub Actions up-to-date
   - package-ecosystem: 'github-actions'
     directory: '/'
+    groups:
+      github-actions:
+        patterns:
+          - "*"  # Group all Actions updates into a single larger pull request
     schedule:
       interval: 'monthly'
