@@ -8,7 +8,7 @@
     "representer": false,
     "analyzer": false
   },
-  "blurb": "Both classic Pascal and Object Pascal based, Free Pascal is a free and open source alternative to Delphi. With Lazarus, it's main IDE, it contains a large builtin library of GUI components, making it great for developing cross-platform applications.",
+  "blurb": "Free Pascal is an open-source variant to the classic languages Pascal and Object Pascal and it's compatible with ISO pascal, Mac Pascal, Turbo Pascal 7.0 and most (if not all) versions of Delphi",
   "version": 3,
   "online_editor": {
     "indent_style": "space",
@@ -17,69 +17,79 @@
   },
   "files": {
     "solution": [
-      "u%{pascal_slug}.pas"
+      "%{pascal_slug}.pas"
     ],
     "test": [
-      "u%{pascal_slug}Tests.pas"
+      "%{pascal_slug}Tests.pas"
     ],
     "example": [
-      ".meta/u%{pascal_slug}Example.pas"
+      ".meta/example.pas"
     ],
     "exemplar": [
-      ".meta/u%{pascal_slug}Examplar.pas"
+      ".meta/examplar.pas"
     ]
   },
   "exercises": {
-    "concept": [],
     "practice": [
       {
         "slug": "hello-world",
         "name": "Hello World",
-        "uuid": "caaca116-410d-44d0-ba62-d080686bbbab",
+        "uuid": "991c14cc-10a6-42f6-8c49-450f5790bffa",
         "practices": [],
         "prerequisites": [],
-        "difficulty": 1,
-        "topics": [
-          "strings"
-        ]
-      },
-      {
-        "slug": "leap",
-        "name": "Leap",
-        "uuid": "fd61bef1-09d2-433d-ad6c-bb126e19439a",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 1,
-        "topics": [
-          "conditionals",
-          "integers"
-        ]
+        "difficulty": 1
       }
     ]
   },
-  "concepts": [],
-  "key_features": [],
+  "key_features": [
+    {
+      "title": "Multitasking",
+      "content": "Free Pascal fully supports concurrency and multithreading.",
+      "icon": "concurrency"
+    },
+    {
+      "title": "Easy to learn",
+      "content": "Especially by beginners, the Pascal language is widely considered easy to learn.",
+      "icon": "easy"
+    },
+    {
+      "title": "Speed",
+      "content": "Free Pascal is fast run, especially compared to interpreted languages.",
+      "icon": "fast"
+    },
+    {
+      "title": "General-purpose",
+      "content": "Free Pascal is designed to be a versatile tool for creating all kinds of software.",
+      "icon": "general-purpose"
+    },
+    {
+      "title": "Multi-paradigm",
+      "content": "Free Pascal supports the major paradigms from the original Pascal language and its successors.",
+      "icon": "multi-paradigm"
+    },
+    {
+      "title": "Statically-typed",
+      "content": "Free Pascal is a statically-typed and strongly-typed language.",
+      "icon": "statically-typed"
+    }
+  ],
   "tags": [
+    "execution_mode/compiled",
     "paradigm/declarative",
     "paradigm/imperative",
     "paradigm/object_oriented",
     "paradigm/procedural",
+    "platform/android",
+    "platform/ios",
+    "platform/linux",
+    "platform/mac",
+    "platform/web",
+    "platform/windows",
+    "runtime/standalone_executable",
     "typing/static",
     "typing/strong",
-    "execution_mode/compiled",
-    "platform/windows",
-    "platform/mac",
-    "platform/linux",
-    "platform/ios",
-    "platform/android",
-    "platform/web",
-    "runtime/standalone_executable",
     "used_for/backends",
     "used_for/cross_platform_development",
-    "used_for/frontends",
-    "used_for/games",
-    "used_for/guis",
-    "used_for/web_development",
-    "used_for/mobile"
+    "used_for/frontends"
   ]
 }

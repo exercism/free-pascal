@@ -7,8 +7,6 @@ bin/configlet.exe
 *.lps
 
 # compile results
-**/practice/*/lib
-**/practice/*/backup
 
 # build directory
 build

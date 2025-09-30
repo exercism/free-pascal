@@ -1,9 +1,0 @@
-{
-    "files.associations": {
-        "*.lpi": "xml",
-        "**/bin/create-exercise": "shellscript",
-        "**/bin/update-exercises": "shellscript",
-        "**/bin/test": "shellscript",
-        "**/bin/fetch-configlet": "shellscript"
-    }
-}
