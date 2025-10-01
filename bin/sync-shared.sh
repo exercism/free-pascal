@@ -6,6 +6,12 @@ cd "$bindir" || exit 1
 
 while read -r dest; do
     echo "Syncing $dest..."
-    rsync --archive --out-format='%i %n' ../shared/ "$dest" |
-        awk '!(NR==1&&$0=".d..t...... ./")'
+    rsync \
+        --recursive \
+        --links \
+        --perms \
+        --group \
+        --checksum \
+        --out-format='%i %n' \
+        ../shared/ "$dest"
 done < <(find ../ -maxdepth 3 -type d -path '../exercises/practice/*')
