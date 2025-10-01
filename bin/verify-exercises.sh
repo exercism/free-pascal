@@ -12,9 +12,14 @@ TESTFILE   = $(BASENAME)Tests.pas
 EXECUTABLE = $(BASENAME)Tests
 COMMAND    = fpc -l- -v0 -Sehnw -Fu./lib "./$(TESTFILE)"
 test:
-        @#cp ./.meta/example.pas $(BASENAME).pas
-        @$(COMMAND) && "./$(EXECUTABLE)"
+\t@cp ./.meta/example.pas $(BASENAME).pas
+\t@$(COMMAND) && "./$(EXECUTABLE)"
 END_OF_MAKEFILE
+declare -r tab=$'\t'
+makefile="${makefile//\\t/$tab}"
+
+declare -i fails
+fails=0
 
 rm -fr build
 mkdir -p build || exit 1
@@ -24,15 +29,18 @@ for path in build/*; do
     pushd "$path" > /dev/null || exit 1
     echo "$makefile" > Makefile
     makeout=$(make 2>&1 | sed -e '1{/^1\.\.[0-9]\+$/d}' -e '/^ok [0-9]/d')
-    echo -n "exercise: $(basename "$path") = "
+    echo -n "[EXERCISE] $(basename "$path")... "
     if [[ "$makeout" == '' ]]; then
         echo 'pass'
     else
         echo 'fail'
         echo "$makeout"
         echo ''
+        let 'fails += 1'
     fi
     popd > /dev/null || exit 1
 done
 
 rm -fr build
+
+test $fails -eq 0 || exit 1
