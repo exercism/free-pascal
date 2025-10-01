@@ -1,5 +1,7 @@
 {
-  "authors": [],
+  "authors": [
+    "jimmytty"
+  ],
   "files": {
     "solution": [
       "HelloWorld.pas"
