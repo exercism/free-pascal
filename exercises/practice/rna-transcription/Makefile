@@ -6,13 +6,12 @@ TESTFILE    = $(BASENAME).pas
 EXECUTABLE  = $(DESTDIR)/$(BASENAME)
 COMMAND     = fpc -l- -v0 -Sehnw -Fu./lib "./$(TESTFILE)" -FE"./$(DESTDIR)"
 
-.PHONY: test clean
-
 test:
 	@$(MAKE) clean
 	@mkdir -p "./$(DESTDIR)"
 	@cp -r ./lib "./$(DESTDIR)"
-	@$(COMMAND) && "./$(EXECUTABLE)"
+	@$(COMMAND) && "./$(EXECUTABLE)" || $(MAKE) clean
+	@$(MAKE) clean
 
 clean:
 	@rm -fr "./$(DESTDIR)"
