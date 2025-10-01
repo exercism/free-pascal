@@ -1,9 +1,10 @@
 #!/bin/bash
 
-declare bindir="$(realpath $(dirname "$0"))"
-cd "${bindir%/*}" || exit 2
+declare bindir
+bindir="$(realpath "$(dirname "$0")")"
+cd "$bindir" || exit 1
 
-while read dest; do
+while read -r dest; do
     echo "Syncing $dest..."
     rsync --archive --out-format='%i %n' ../shared/ "$dest" |
         awk '!(NR==1&&$0=".d..t...... ./")'
