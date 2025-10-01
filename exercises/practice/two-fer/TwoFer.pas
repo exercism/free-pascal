@@ -7,9 +7,6 @@ Function RunExercise(name :  String) :   string;
 
 Implementation
 
-Var
-    phrase :   string;
-
 Function RunExercise(name :  String) :   string;
 Begin
 
