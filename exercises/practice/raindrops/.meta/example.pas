@@ -3,27 +3,27 @@ Unit Raindrops;
 {$mode ObjFPC}{$H+}
 
 Interface
-Function RunExercise(number: integer) : string;
+Function RunExercise(number: integer) :   string;
 
 Implementation
 
-uses sysUtils;
+Uses SysUtils;
 
-var
-   sounds : string;
+Var
+    sounds :   string;
 
-Function RunExercise(number: integer) : string;
+Function RunExercise(number: integer) :   string;
 Begin
 
-   sounds := '';
+    sounds := '';
 
-   if number mod 3 = 0 then sounds := sounds + 'Pling';
-   if number mod 5 = 0 then sounds := sounds + 'Plang';
-   if number mod 7 = 0 then sounds := sounds + 'Plong';
+    If number Mod 3 = 0 Then sounds := sounds + 'Pling';
+    If number Mod 5 = 0 Then sounds := sounds + 'Plang';
+    If number Mod 7 = 0 Then sounds := sounds + 'Plong';
 
-   if sounds = '' then sounds := intToStr(number);
+    If sounds = '' Then sounds := intToStr(number);
 
-   Result := sounds;
+    Result := sounds;
 
 End;
 
