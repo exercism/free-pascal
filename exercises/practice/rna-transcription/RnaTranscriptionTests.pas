@@ -3,7 +3,7 @@ Program RnaTranscriptionTests;
 Uses TAP, TAPCore, RnaTranscription;
 
 Begin
-    Plan(3);
+    Plan(6);
 
     TestIs(RunExercise(''), '', 'Empty RNA sequence');
     TestIs(RunExercise('C'), 'G', 'RNA complement of cytosine is guanine');

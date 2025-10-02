@@ -3,7 +3,7 @@ Program LeapTests;
 Uses TAP, TAPCore, Leap;
 
 Begin
-    Plan(3);
+    Plan(9);
 
     TestIs(RunExercise(2015), false, 'year not divisible by 4 in common year');
     TestIs(RunExercise(1970), false, 'year divisible by 2, not divisible by 4 in common year');
