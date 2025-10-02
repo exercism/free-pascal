@@ -1,0 +1,19 @@
+{
+  "authors": [
+    "jimmytty"
+  ],
+  "files": {
+    "solution": [
+      "Pangram.pas"
+    ],
+    "test": [
+      "PangramTests.pas"
+    ],
+    "example": [
+      ".meta/example.pas"
+    ]
+  },
+  "blurb": "Determine if a sentence is a pangram.",
+  "source": "Wikipedia",
+  "source_url": "https://en.wikipedia.org/wiki/Pangram"
+}
