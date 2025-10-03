@@ -4,8 +4,16 @@ Program SpaceAgeTests;
 
 Uses TAP, TAPCore, Math, SysUtils, SpaceAge;
 
-Var
-   ErrorMessage : string;
+Procedure TestExceptionMessage(
+    planet: String; seconds: LongInt;
+    Expected: String; TestName : String
+);
+Begin
+    Try RunExercise(planet, seconds);
+    Except On E: Exception Do
+        TestIs(E.Message, Expected, TestName);
+    End;
+End;
 
 Begin
     Plan(9);
@@ -18,11 +26,7 @@ Begin
     TestIs(RunExercise('Saturn' , 2000000000), RoundTo(  215 / 100, -2), 'age on Saturn' );
     TestIs(RunExercise('Uranus' , 1210123456), RoundTo(   46 / 100, -2), 'age on Uranus' );
     TestIs(RunExercise('Neptune', 1821023456), RoundTo(   35 / 100, -2), 'age on Neptune');
-
-    ErrorMessage := '';
-    Try RunExercise('Sun', 680804807);
-    Except On E: Exception do ErrorMessage := E.Message; End;
-    TestIs(ErrorMessage, 'not a planet', 'invalid planet causes error');
+    TestExceptionMessage('Sun', 680804807, 'not a planet', 'invalid planet causes error');
 
     DoneTesting;
 End.
