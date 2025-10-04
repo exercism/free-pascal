@@ -150,6 +150,14 @@
         "practices": [],
         "prerequisites": [],
         "difficulty": 3
+      },
+      {
+        "slug": "resistor-color",
+        "name": "Resistor Color",
+        "uuid": "be4bcb4c-3a16-4b45-99ba-86aaae2b38fc",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 3
       }
     ]
   },
