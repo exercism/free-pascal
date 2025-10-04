@@ -4,11 +4,11 @@ Unit EliudsEggs;
 
 Interface
 
-Function RunExercise(number : Integer) :   Int8;
+Function RunExercise(number : UInt32) :   Uint8;
 
 Implementation
 
-Function RunExercise(number : Integer) :   Int8;
+Function RunExercise(number : UInt32) :   Uint8;
 Begin
 
    // YOUR CODE GOES HERE
