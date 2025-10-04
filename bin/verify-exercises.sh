@@ -12,6 +12,7 @@ TESTFILE   = $(BASENAME)Tests.pas
 EXECUTABLE = $(BASENAME)Tests
 COMMAND    = fpc -l- -v0 -Sehnw -Fu./lib "./$(TESTFILE)"
 test:
+\t@jq -M -r '.authors | length | if . < 1 then ( "[ERROR] authors not set\n" | halt_error) end' ./.meta/config.json > /dev/null
 \t@cp ./.meta/example.pas $(BASENAME).pas
 \t@$(COMMAND) && "./$(EXECUTABLE)"
 END_OF_MAKEFILE
