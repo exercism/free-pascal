@@ -64,7 +64,8 @@ procedure TestIs(Got, Expected: Boolean; const TestName: String = '');
 procedure TestIs(Got: TObject; Expected: TClass; const TestName: String = '');
 
 // Expanding testing for exercism.org
-procedure TestIs(Got, Expected: Double; const TestName: String = '');
+Procedure TestIs(Got, Expected: Double; Const TestName: String = '');
+Procedure TestIs(Got, Expected: Array Of Integer; Const TestName: String = '');
 
 {
         Same as TestIs, but fails if the arguments are equal.
@@ -256,15 +257,52 @@ begin
 end;
 
 // Expanding testing for exercism.org
-procedure TestIs(Got, Expected: Double; const TestName: String = '');
-begin
-        TAPGlobalContext.Ok(
-                Got = Expected,
-                TestName,
-                FloatToStr(Expected),
-                FloatToStr(Got)
-        );
-end;
+Procedure TestIs(Got, Expected: Double; Const TestName: String = '');
+Begin
+    TAPGlobalContext.Ok(
+        Got = Expected,
+        TestName,
+        FloatToStr(Expected),
+        FloatToStr(Got)
+    );
+End;
+Function IntArrayToStr(AArray : Array Of integer):   string;
+
+Var 
+    i :   Integer;
+    s :   String;
+Begin
+    s := '';
+    For i := low(AArray) To high(AArray) Do
+        Begin
+            If s = '' Then s := inttostr(AArray[i])
+            Else s := s + ', ' + inttostr(AArray[i]);
+        End;
+    s := '[' + s + ']';
+    Result := s;
+End;
+Function CompareTwoIntegerArrays(
+    Const DynArray1 : Array Of Integer;
+    Const DynArray2 : Array Of Integer
+) :   Boolean;
+Var i :   Integer;
+Begin
+    If length(DynArray1) <> length(DynArray2) Then exit(false);
+    For i := low(DynArray1) To high(DynArray1) Do
+        Begin
+            If DynArray1[i] <> DynArray2[i] Then exit(false);
+        End;
+    result := true;
+End;
+Procedure TestIs(Got, Expected: Array Of Integer; Const TestName: String = '');
+Begin
+    TAPGlobalContext.Ok(
+        CompareTwoIntegerArrays(Got, Expected),
+        TestName,
+        IntArrayToStr(Expected),
+        IntArrayToStr(Got)
+    );
+End;
 
 procedure TestIsnt(Got, Expected: Int64; const TestName: String = '');
 begin
