@@ -1,6 +1,6 @@
 Program ReverseStringTests;
 
-Uses TAP, TAPCore, ReverseString;
+Uses TAP, ReverseString;
 
 Begin
     Plan(6);

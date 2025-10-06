@@ -1,6 +1,6 @@
 Program ArmstrongNumbersTests;
 
-Uses TAP, TAPCore, ArmstrongNumbers;
+Uses TAP, ArmstrongNumbers;
 
 Begin
 

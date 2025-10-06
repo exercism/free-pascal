@@ -2,7 +2,7 @@ Program BobTests;
 
 {$mode ObjFPC}{$H+}
 
-Uses TAP, TAPCore, SysUtils, Bob;
+Uses TAP, SysUtils, Bob;
 
 Begin
     Plan(25);

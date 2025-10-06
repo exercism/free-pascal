@@ -1,6 +1,6 @@
 Program RaindropsTests;
 
-Uses TAP, TAPCore, Raindrops;
+Uses TAP, Raindrops;
 
 Begin
     Plan(18);

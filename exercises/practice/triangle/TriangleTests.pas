@@ -1,6 +1,6 @@
 Program TriangleTests;
 
-Uses TAP, TAPCore, Triangle;
+Uses TAP, Triangle;
 
 Begin
     Plan(21);

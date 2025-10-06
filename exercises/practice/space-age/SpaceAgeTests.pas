@@ -2,7 +2,7 @@ Program SpaceAgeTests;
 
 {$mode ObjFPC}
 
-Uses TAP, TAPCore, Math, SysUtils, SpaceAge;
+Uses TAP, Math, SysUtils, SpaceAge;
 
 Procedure TestExceptionMessage(
     planet: String; seconds: LongInt;

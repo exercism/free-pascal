@@ -1,6 +1,6 @@
 Program LeapTests;
 
-Uses TAP, TAPCore, Leap;
+Uses TAP, Leap;
 
 Begin
     Plan(9);

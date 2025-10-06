@@ -2,7 +2,7 @@ Program CollatzConjectureTests;
 
 {$mode ObjFPC}{$H+}
 
-Uses TAP, TAPCore, SysUtils, CollatzConjecture;
+Uses TAP, SysUtils, CollatzConjecture;
 
 Procedure TestExceptionMessage(
     number: Integer;

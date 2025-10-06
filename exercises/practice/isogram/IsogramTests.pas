@@ -1,6 +1,6 @@
 Program IsogramTests;
 
-Uses TAP, TAPCore, Isogram;
+Uses TAP, Isogram;
 
 Begin
     Plan(14);

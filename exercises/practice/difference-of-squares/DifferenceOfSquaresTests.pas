@@ -1,6 +1,6 @@
 Program DifferenceOfSquaresTests;
 
-Uses TAP, TAPCore, DifferenceOfSquares;
+Uses TAP, DifferenceOfSquares;
 
 Begin
     Plan(9);

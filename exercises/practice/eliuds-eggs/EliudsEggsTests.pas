@@ -2,7 +2,7 @@ Program EliudsEggsTests;
 
 {$mode ObjFPC}{$H+}
 
-Uses TAP, TAPCore, SysUtils, EliudsEggs;
+Uses TAP, SysUtils, EliudsEggs;
 
 Begin
     Plan(4);

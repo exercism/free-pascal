@@ -2,7 +2,7 @@ Program HammingTests;
 
 {$mode ObjFPC}{$H+}
 
-Uses TAP, TAPCore, SysUtils, Hamming;
+Uses TAP, SysUtils, Hamming;
 
 Procedure TestExceptionMessage(
     strand1: String; strand2: String;

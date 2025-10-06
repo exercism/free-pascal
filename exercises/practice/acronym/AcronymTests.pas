@@ -2,7 +2,7 @@ Program AcronymTests;
 
 {$mode ObjFPC}{$H+}
 
-Uses TAP, TAPCore, SysUtils, Acronym;
+Uses TAP, SysUtils, Acronym;
 
 Begin
     Plan(9);

@@ -2,7 +2,7 @@ Program ResistorColorTests;
 
 {$mode ObjFPC}{$H+}
 
-Uses TAP, TAPCore, SysUtils, ResistorColor;
+Uses TAP, SysUtils, ResistorColor;
 
 Begin
     Plan(4);

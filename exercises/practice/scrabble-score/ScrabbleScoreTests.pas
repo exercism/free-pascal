@@ -2,7 +2,7 @@ Program ScrabbleScoreTests;
 
 {$mode ObjFPC}{$H+}
 
-Uses TAP, TAPCore, SysUtils, ScrabbleScore;
+Uses TAP, SysUtils, ScrabbleScore;
 
 Begin
     Plan(11);

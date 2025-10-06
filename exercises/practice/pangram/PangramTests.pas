@@ -1,6 +1,6 @@
 Program PangramTests;
 
-Uses TAP, TAPCore, Pangram;
+Uses TAP, Pangram;
 
 Begin
     Plan(10);

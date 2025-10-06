@@ -1,6 +1,6 @@
 Program TwoFerTests;
 
-Uses TAP, TAPCore, TwoFer;
+Uses TAP, TwoFer;
 
 Begin
     Plan(3);

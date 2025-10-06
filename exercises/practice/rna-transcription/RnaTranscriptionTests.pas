@@ -1,6 +1,6 @@
 Program RnaTranscriptionTests;
 
-Uses TAP, TAPCore, RnaTranscription;
+Uses TAP, RnaTranscription;
 
 Begin
     Plan(6);

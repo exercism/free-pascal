@@ -1,6 +1,6 @@
 Program DartsTests;
 
-Uses TAP, TAPCore, Darts;
+Uses TAP, Darts;
 
 Begin
    Plan(13);

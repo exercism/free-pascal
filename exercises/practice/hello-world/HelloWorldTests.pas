@@ -1,6 +1,6 @@
 Program HelloWorldTests;
 
-Uses TAP, TAPCore, HelloWorld;
+Uses TAP, HelloWorld;
 
 Begin
     Plan(1);
