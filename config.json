@@ -238,6 +238,14 @@
         "practices": [],
         "prerequisites": [],
         "difficulty": 3
+      },
+      {
+        "slug": "protein-translation",
+        "name": "Protein Translation",
+        "uuid": "b3ce29eb-d6f5-4d7a-ae6e-c846106056d7",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 3
       }
     ]
   },
