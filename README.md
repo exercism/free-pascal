@@ -1,12 +1,10 @@
 # Exercism Free Pascal Track
 
-[![configlet](https://github.com/exercism/free-pascal/workflows/configlet/badge.svg)](https://github.com/exercism/free-pascal/actions?query=workflow%3Aconfiglet) [![tests](https://github.com/exercism/free-pascal/workflows/test/badge.svg)](https://github.com/exercism/free-pascal/actions?query=workflow%3Atest)
-
 Exercism exercises in Free Pascal.
 
 ## Testing
 
-To test the exercises, run `./bin/test`.
+To test the exercises, run `./bin/verify-exercises.sh`.
 This command will iterate over all exercises and check to see if their exemplar/example implementation passes all the tests.
 
 ### Track linting
