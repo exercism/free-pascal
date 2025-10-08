@@ -66,6 +66,7 @@ procedure TestIs(Got: TObject; Expected: TClass; const TestName: String = '');
 // Expanding testing for exercism.org
 Procedure TestIs(Got, Expected: Double; Const TestName: String = '');
 Procedure TestIs(Got, Expected: Array Of Integer; Const TestName: String = '');
+Procedure TestIs(Got, Expected: Array Of String; Const TestName: String = '');
 
 {
         Same as TestIs, but fails if the arguments are equal.
@@ -267,8 +268,7 @@ Begin
     );
 End;
 Function IntArrayToStr(AArray : Array Of integer):   string;
-
-Var 
+Var
     i :   Integer;
     s :   String;
 Begin
@@ -303,7 +303,42 @@ Begin
         IntArrayToStr(Got)
     );
 End;
-
+Function StrArrayToStr(AArray : Array Of String):   string;
+Var
+    i :   Integer;
+    s :   String;
+Begin
+    s := '';
+    For i := low(AArray) To high(AArray) Do
+        Begin
+            If s = '' Then s := AArray[i]
+            Else s := s + ', ' + AArray[i];
+        End;
+    s := '[' + s + ']';
+    Result := s;
+End;
+Function CompareTwoStringArrays(
+    Const DynArray1 : Array Of String;
+    Const DynArray2 : Array Of String
+) :   Boolean;
+Var i :   Integer;
+Begin
+    If length(DynArray1) <> length(DynArray2) Then exit(false);
+    For i := low(DynArray1) To high(DynArray1) Do
+        Begin
+            If DynArray1[i] <> DynArray2[i] Then exit(false);
+        End;
+    result := true;
+End;
+Procedure TestIs(Got, Expected: Array Of String; Const TestName: String = '');
+Begin
+    TAPGlobalContext.Ok(
+        CompareTwoStringArrays(Got, Expected),
+        TestName,
+        StrArrayToStr(Expected),
+        StrArrayToStr(Got)
+    );
+End;
 procedure TestIsnt(Got, Expected: Int64; const TestName: String = '');
 begin
         TAPGlobalContext.Ok(
