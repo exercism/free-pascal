@@ -85,7 +85,7 @@ Begin
 
     For i := low(InputDigits) To high(InputDigits) Do
         Begin
-            If (InputDigits[i] < 0) Or (InputDigits[i] > InputBase) Then
+            If (InputDigits[i] < 0) Or (InputDigits[i] >= InputBase) Then
                 Raise Exception.Create(
                     'all digits must satisfy 0 <= d < input base'
                 );

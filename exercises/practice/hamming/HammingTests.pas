@@ -8,11 +8,12 @@ Procedure TestExceptionMessage(
     strand1: String; strand2: String;
     Expected: String; TestName : String
 );
+Var ErrorMessage :   String;
 Begin
+    ErrorMessage := '';
     Try RunExercise(strand1, strand2);
-    Except On E: Exception Do
-        TestIs(E.Message, Expected, TestName);
-    End;
+    Except On E: Exception Do ErrorMessage := E.Message End;
+    TestIs(ErrorMessage, Expected, TestName);
 End;
 
 Begin

@@ -10,11 +10,12 @@ Procedure TestExceptionMessage(
     Const OutputBase  : Integer;
     Const Expected: String; Const TestName : String
 );
+Var ErrorMessage :   String;
 Begin
+    ErrorMessage := '';
     Try RunExercise(InputBase, InputDigits, OutputBase);
-    Except On E: Exception Do
-        TestIs(E.Message, Expected, TestName);
-    End;
+    Except On E: Exception Do ErrorMessage := E.Message End;
+    TestIs(ErrorMessage, Expected, TestName);
 End;
 
 Begin
