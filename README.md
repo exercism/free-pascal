@@ -4,7 +4,7 @@ Exercism exercises in Free Pascal.
 
 ## Testing
 
-To test the exercises, run `./bin/verify-exercises.sh`.
+To test the exercises, run `./bin/verify-exercises`.
 This command will iterate over all exercises and check to see if their exemplar/example implementation passes all the tests.
 
 ### Track linting
