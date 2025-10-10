@@ -11,8 +11,9 @@ BASENAME   = $(shell basename "$$PWD" | sed -r 's/(^|-)([a-z])/\U\2/g')
 TESTFILE   = $(BASENAME)Tests.pas
 EXECUTABLE = $(BASENAME)Tests
 COMMAND    = fpc -l- -v0 -Sehnw -Fu./lib "./$(TESTFILE)"
+JQ_ERROR   = "[ERROR] authors not set\n"
 test:
-\t@jq -M -r '.authors | length | if . < 1 then ( "[ERROR] authors not set\n" | halt_error) end' ./.meta/config.json > /dev/null
+\t@jq -M -r '.authors | length | if . < 1 then ($(JQ_ERROR) | halt_error)  else empty end' ./.meta/config.json
 \t@cp ./.meta/example.pas $(BASENAME).pas
 \t@$(COMMAND) && "./$(EXECUTABLE)"
 END_OF_MAKEFILE
