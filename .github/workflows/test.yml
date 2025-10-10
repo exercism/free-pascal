@@ -29,17 +29,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v5
 
-      - name: Install free-pascal compiler and lazarus
+      - name: Install free-pascal
         run: |
-          export DEBIAN_FRONTEND=noninteractive
           sudo apt-get update
-          sudo apt-get install -y fpc lcl
+          sudo apt-get install -y fpc
 
       - name: Run tests for all exercises
-        run: bin/test
-
-      - uses: actions/upload-artifact@v4  # Not @v4 -- dorny/test-reporter#419
-        if: always()
-        with:
-          name: test-results
-          path: build/**/junit-report-*.xml
+        run: bin/verify-exercises
