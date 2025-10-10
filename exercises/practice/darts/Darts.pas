@@ -3,14 +3,14 @@ Unit Darts;
 {$mode ObjFPC}{$H+}
 
 Interface
-Function RunExercise(x: Single; y: Single) :   UInt8;
+Function RunExercise(Const x: Single; Const y: Single) :   UInt8;
 
 Implementation
 
-Function RunExercise(x: Single; y: Single) :   UInt8;
+Function RunExercise(Const x: Single; Const y: Single) :   UInt8;
 Begin
 
-   // YOUR CODE GOES HERE
+   { WRITE YOUR SOLUTION }
 
 End;
 

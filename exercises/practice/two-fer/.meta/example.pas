@@ -3,14 +3,14 @@ Unit TwoFer;
 {$mode ObjFPC}{$H+}
 
 Interface
-Function RunExercise(name :  String) :   string;
+Function RunExercise(Const name :  String) :   String;
 
 Implementation
 
 Var
     phrase :   string;
 
-Function RunExercise(name :  String) :   string;
+Function RunExercise(Const name :  String) :   String;
 Begin
 
     If name = '' Then

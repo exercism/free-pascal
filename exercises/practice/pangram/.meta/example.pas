@@ -3,7 +3,7 @@ Unit Pangram;
 {$mode ObjFPC}{$H+}
 
 Interface
-Function RunExercise(sentence: String) :   Boolean;
+Function RunExercise(Const sentence: String) :   Boolean;
 
 Implementation
 
@@ -15,7 +15,7 @@ Var
     temp     :   String;
     i, ascii :   Integer;
 
-Function RunExercise(sentence: String) :   Boolean;
+Function RunExercise(Const sentence: String) :   Boolean;
 Begin
 
     For i := Low(alpha) To High(alpha) Do

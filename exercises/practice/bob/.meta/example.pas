@@ -4,7 +4,7 @@ Unit Bob;
 
 Interface
 
-Function RunExercise(HeyBob: String) :   String;
+Function RunExercise(Const HeyBob: String) :   String;
 
 Implementation
 
@@ -15,7 +15,7 @@ Var
     answer             :   String;
     HasLetters, IsYell :   Boolean;
 
-Function RunExercise(HeyBob: String) :   String;
+Function RunExercise(Const HeyBob: String) :   String;
 Begin
 
     answer     := 'Whatever.';

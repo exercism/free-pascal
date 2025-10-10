@@ -3,7 +3,7 @@ Unit DifferenceOfSquares;
 {$mode ObjFPC}{$H+}
 
 Interface
-Function RunExercise(myproperty: String; number: longint):   longint;
+Function RunExercise(Const myproperty: String; Const number: LongInt): LongInt;
 
 Implementation
 
@@ -36,7 +36,7 @@ Begin
     Result := SquareOfSum(number) - SumOfSquares(number);
 End;
 
-Function RunExercise(myproperty     : String; number: longint):   longint;
+Function RunExercise(Const myproperty: String; Const number: LongInt): LongInt;
 Begin
     Case myproperty Of
         'squareOfSum'       :   Result := SquareOfSum(number);

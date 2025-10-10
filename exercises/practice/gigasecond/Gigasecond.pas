@@ -4,14 +4,14 @@ Unit Gigasecond;
 
 Interface
 
-Function RunExercise(moment : String ) :   String;
+Function RunExercise(Const moment : String ) :   String;
 
 Implementation
 
-Function RunExercise(moment : String ) :   String;
+Function RunExercise(Const moment : String ) :   String;
 Begin
 
-   // YOUR CODE GOES HERE
+   { WRITE YOUR SOLUTION }
 
 End;
 

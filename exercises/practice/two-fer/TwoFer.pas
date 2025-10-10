@@ -3,14 +3,14 @@ Unit TwoFer;
 {$mode ObjFPC}{$H+}
 
 Interface
-Function RunExercise(name :  String) :   string;
+Function RunExercise(Const name :  String) :   String;
 
 Implementation
 
-Function RunExercise(name :  String) :   string;
+Function RunExercise(Const name :  String) :   String;
 Begin
 
-   // YOUR SOLUTION GOES HERE
+   { WRITE YOUR SOLUTION }
 
 End;
 

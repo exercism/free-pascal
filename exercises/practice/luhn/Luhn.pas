@@ -11,7 +11,7 @@ Implementation
 Function RunExercise(Const InputValue : String) :   Boolean;
 Begin
 
-   // YOUR CODE GOES HERE
+   { WRITE YOUR SOLUTION }
 
 End;
 

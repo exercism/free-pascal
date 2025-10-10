@@ -3,14 +3,14 @@ Unit Raindrops;
 {$mode ObjFPC}{$H+}
 
 Interface
-Function RunExercise(number: integer) : string;
+Function RunExercise(Const number: Integer) : String;
 
 Implementation
 
-Function RunExercise(number: integer) : string;
+Function RunExercise(Const number: Integer) : String;
 Begin
 
-   // YOUR CODE GOES HERE
+   { WRITE YOUR SOLUTION }
 
 End;
 

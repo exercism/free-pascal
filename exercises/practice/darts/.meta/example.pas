@@ -3,7 +3,7 @@ Unit Darts;
 {$mode ObjFPC}{$H+}
 
 Interface
-Function RunExercise(x: Single; y: Single) :   UInt8;
+Function RunExercise(Const x: Single; Const y: Single) :   UInt8;
 
 Implementation
 
@@ -13,7 +13,7 @@ Var
     spot   :   Single;
     points :   UInt8;
 
-Function RunExercise(x: Single; y: Single) :   UInt8;
+Function RunExercise(Const x: Single; Const y: Single) :   UInt8;
 Begin
 
     spot   := x ** 2 + y ** 2;

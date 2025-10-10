@@ -3,7 +3,7 @@ Unit ArmstrongNumbers;
 {$mode ObjFPC}{$H+}
 
 Interface
-Function RunExercise(number: QWord) :   Boolean;
+Function RunExercise(Const number: QWord) :   Boolean;
 
 Implementation
 
@@ -13,7 +13,7 @@ Var
     tmp              :   QWord;
     nlen, digit, sum :   Integer;
 
-Function RunExercise(number: QWord) :   Boolean;
+Function RunExercise(Const number: QWord) :   Boolean;
 Begin
 
     tmp := number;

@@ -4,7 +4,7 @@ Unit SpaceAge;
 
 Interface
 
-Function RunExercise(planet: String; seconds: LongInt) :   Double;
+Function RunExercise(Const planet: String; Const seconds: LongInt) :   Double;
 
 Implementation
 
@@ -16,7 +16,7 @@ Const
 Var
     age, PlanetSeconds :   Double;
 
-Function RunExercise(planet: String; seconds: LongInt) :   Double;
+Function RunExercise(Const planet: String; Const seconds: LongInt) :   Double;
 Begin
 
     Case planet Of

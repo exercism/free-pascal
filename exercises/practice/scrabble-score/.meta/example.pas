@@ -4,7 +4,7 @@ Unit ScrabbleScore;
 
 Interface
 
-Function RunExercise(word: String) :   Integer;
+Function RunExercise(Const word: String) :   Integer;
 
 Implementation
 
@@ -14,7 +14,7 @@ Var
     i, score    :   Integer;
     temp :   String;
 
-Function RunExercise(word: String) :   Integer;
+Function RunExercise(Const word: String) :   Integer;
 Begin
 
     score := 0;

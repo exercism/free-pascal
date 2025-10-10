@@ -3,14 +3,14 @@ Unit Pangram;
 {$mode ObjFPC}{$H+}
 
 Interface
-Function RunExercise(sentence: String) :   Boolean;
+Function RunExercise(Const sentence: String) :   Boolean;
 
 Implementation
 
-Function RunExercise(sentence: String) :   Boolean;
+Function RunExercise(Const sentence: String) :   Boolean;
 Begin
 
-   // YOUR CODE GOES HERE
+   { WRITE YOUR SOLUTION }
 
 End;
 

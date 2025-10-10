@@ -3,7 +3,7 @@ Unit Isogram;
 {$mode ObjFPC}{$H+}
 
 Interface
-Function RunExercise(phrase: String) :   Boolean;
+Function RunExercise(Const phrase: String) :   Boolean;
 
 Implementation
 
@@ -15,7 +15,7 @@ Var
     temp     :   String;
     i, ascii :   Integer;
 
-Function RunExercise(phrase: String) :   Boolean;
+Function RunExercise(Const phrase: String) :   Boolean;
 Begin
 
     For i := Low(alpha) To High(alpha) Do

@@ -4,14 +4,14 @@ Unit EliudsEggs;
 
 Interface
 
-Function RunExercise(number : UInt32) :   Uint8;
+Function RunExercise(Const number : UInt32) :   Uint8;
 
 Implementation
 
-Function RunExercise(number : UInt32) :   Uint8;
+Function RunExercise(Const number : UInt32) :   Uint8;
 Begin
 
-   // YOUR CODE GOES HERE
+   { WRITE YOUR SOLUTION }
 
 End;
 

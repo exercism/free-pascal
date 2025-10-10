@@ -3,7 +3,7 @@ Unit Raindrops;
 {$mode ObjFPC}{$H+}
 
 Interface
-Function RunExercise(number: integer) :   string;
+Function RunExercise(Const number: Integer) :   String;
 
 Implementation
 
@@ -12,7 +12,7 @@ Uses SysUtils;
 Var
     sounds :   string;
 
-Function RunExercise(number: integer) :   string;
+Function RunExercise(Const number: Integer) :   String;
 Begin
 
     sounds := '';

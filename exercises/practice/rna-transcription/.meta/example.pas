@@ -3,7 +3,7 @@ Unit RnaTranscription;
 {$mode ObjFPC}{$H+}
 
 Interface
-Function RunExercise(dna : String ) :   string;
+Function RunExercise(Const dna : String ) :   string;
 
 Implementation
 
@@ -13,7 +13,7 @@ Var
     complement :   string;
     rna        :   string;
 
-Function RunExercise(dna : String ) :   string;
+Function RunExercise(Const dna : String ) :   string;
 Begin
 
     rna := '';

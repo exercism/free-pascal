@@ -15,7 +15,7 @@ Function RunExercise(
 ) :   Boolean;
 Begin
 
-   // YOUR CODE GOES HERE
+   { WRITE YOUR SOLUTION }
 
 End;
 

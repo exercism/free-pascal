@@ -4,14 +4,14 @@ Unit Acronym;
 
 Interface
 
-Function RunExercise(phrase: String) :   String;
+Function RunExercise(Const phrase: String) :   String;
 
 Implementation
 
-Function RunExercise(phrase: String) :   String;
+Function RunExercise(Const phrase: String) :   String;
 Begin
 
-   // YOUR CODE GOES HERE
+   { WRITE YOUR SOLUTION }
 
 End;
 

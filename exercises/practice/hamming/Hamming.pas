@@ -3,14 +3,14 @@ Unit Hamming;
 {$mode ObjFPC}{$H+}
 
 Interface
-Function RunExercise(strand1: String; strand2: String) :   integer;
+Function RunExercise(Const strand1: String; Const strand2: String) :   Integer;
 
 Implementation
 
-Function RunExercise(strand1: String; strand2: String) :   integer;
+Function RunExercise(Const strand1: String; Const strand2: String) :   Integer;
 Begin
 
-   // YOUR CODE GOES HERE
+   { WRITE YOUR SOLUTION }
 
 End;
 

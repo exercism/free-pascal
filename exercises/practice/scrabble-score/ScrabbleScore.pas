@@ -4,14 +4,14 @@ Unit ScrabbleScore;
 
 Interface
 
-Function RunExercise(word: String) :   Integer;
+Function RunExercise(Const word: String) :   Integer;
 
 Implementation
 
-Function RunExercise(word: String) :   Integer;
+Function RunExercise(Const word: String) :   Integer;
 Begin
 
-   // YOUR CODE GOES HERE
+   { WRITE YOUR SOLUTION }
 
 End;
 

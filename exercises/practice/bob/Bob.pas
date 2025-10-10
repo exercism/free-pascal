@@ -4,14 +4,14 @@ Unit Bob;
 
 Interface
 
-Function RunExercise(HeyBob: String) :   String;
+Function RunExercise(Const HeyBob: String) :   String;
 
 Implementation
 
-Function RunExercise(HeyBob: String) :   String;
+Function RunExercise(Const HeyBob: String) :   String;
 Begin
 
-   // YOUR CODE GOES HERE
+   { WRITE YOUR SOLUTION }
 
 End;
 

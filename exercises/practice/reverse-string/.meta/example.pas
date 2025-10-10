@@ -3,16 +3,16 @@ Unit ReverseString;
 {$mode ObjFPC}{$H+}
 
 Interface
-Function RunExercise(value: String) :   String;
+Function RunExercise(Const AValue: String) :   String;
 
 Implementation
 
 Uses StrUtils;
 
-Function RunExercise(value: String) :   String;
+Function RunExercise(Const AValue: String) :   String;
 Begin
 
-    Result := StrUtils.ReverseString(value);
+    Result := StrUtils.ReverseString(AValue);
 
 End;
 

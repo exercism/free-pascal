@@ -3,7 +3,7 @@ Unit Hamming;
 {$mode ObjFPC}{$H+}
 
 Interface
-Function RunExercise(strand1: String; strand2: String) :   integer;
+Function RunExercise(Const strand1: String; Const strand2: String) :   Integer;
 
 Implementation
 
@@ -13,7 +13,7 @@ Var
     i         :   integer;
     distance  :   integer;
 
-Function RunExercise(strand1: String; strand2: String) :   integer;
+Function RunExercise(Const strand1: String; Const strand2: String) :   Integer;
 Begin
 
     If Length(strand1) <> Length(strand2) Then

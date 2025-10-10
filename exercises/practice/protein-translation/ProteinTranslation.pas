@@ -16,7 +16,7 @@ Implementation
 Function RunExercise(Const strand : String ) :   DynStringArray;
 Begin
 
-   // YOUR CODE GOES HERE
+   { WRITE YOUR SOLUTION }
 
 End;
 

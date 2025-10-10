@@ -22,7 +22,7 @@ Function RunExercise(
 ) :   IntArray;
 Begin
 
-   // YOUR CODE GOES HERE
+   { WRITE YOUR SOLUTION }
 
 End;
 

@@ -3,7 +3,7 @@ Unit CollatzConjecture;
 {$mode ObjFPC}{$H+}
 
 Interface
-Function RunExercise(number: Integer) :   Integer;
+Function RunExercise(Const number: Integer) :   Integer;
 
 Implementation
 
@@ -12,7 +12,7 @@ Uses SysUtils;
 Var
     temp, steps :   Integer;
 
-Function RunExercise(number: Integer) :   Integer;
+Function RunExercise(Const number: Integer) :   Integer;
 Begin
 
     If number < 1 Then

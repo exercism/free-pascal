@@ -14,7 +14,7 @@ Implementation
 Function RunExercise(Const number : Integer) :   DynStringArray;
 Begin
 
-   // YOUR CODE GOES HERE
+   { WRITE YOUR SOLUTION }
 
 End;
 

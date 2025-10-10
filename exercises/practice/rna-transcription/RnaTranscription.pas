@@ -3,14 +3,14 @@ Unit RnaTranscription;
 {$mode ObjFPC}{$H+}
 
 Interface
-Function RunExercise(dna : String ) :   string;
+Function RunExercise(Const dna : String ) :   string;
 
 Implementation
 
-Function RunExercise(dna : String ) :   string;
+Function RunExercise(Const dna : String ) :   string;
 Begin
 
-   // YOUR CODE GOES HERE
+   { WRITE YOUR SOLUTION }
 
 End;
 

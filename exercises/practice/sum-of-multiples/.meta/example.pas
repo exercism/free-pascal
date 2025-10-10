@@ -4,12 +4,17 @@ Unit SumOfMultiples;
 
 Interface
 
-Function RunExercise(factors: Array Of Integer; limit: Integer) :   Integer;
+Function RunExercise(
+    Const factors: Array Of Integer; 
+    Const limit:   Integer
+) :   Integer;
 
 Implementation
 
-Function RunExercise(factors: Array Of Integer; limit: Integer) :   Integer;
-
+Function RunExercise(
+    Const factors: Array Of Integer; 
+    Const limit:   Integer
+) :   Integer;
 Var
     idx, i, j, sum :   Integer;
     exists         :   Boolean;

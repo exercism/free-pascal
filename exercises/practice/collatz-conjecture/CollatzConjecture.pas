@@ -3,14 +3,14 @@ Unit CollatzConjecture;
 {$mode ObjFPC}{$H+}
 
 Interface
-Function RunExercise(number: Integer) :   Integer;
+Function RunExercise(Const number: Integer) :   Integer;
 
 Implementation
 
-Function RunExercise(number: Integer) :   Integer;
+Function RunExercise(Const number: Integer) :   Integer;
 Begin
 
-   // YOUR CODE GOES HERE
+   { WRITE YOUR SOLUTION }
 
 End;
 

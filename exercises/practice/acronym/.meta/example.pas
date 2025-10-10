@@ -4,7 +4,7 @@ Unit Acronym;
 
 Interface
 
-Function RunExercise(phrase: String) :   String;
+Function RunExercise(Const phrase: String) :   String;
 
 Implementation
 
@@ -15,7 +15,7 @@ Var
     i     :   Integer;
     words :   Array Of String;
 
-Function RunExercise(phrase: String) :   String;
+Function RunExercise(Const phrase: String) :   String;
 Begin
 
     temp := UpperCase(DelChars(phrase, ''''));

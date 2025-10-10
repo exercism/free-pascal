@@ -4,7 +4,7 @@ Unit ResistorColor;
 
 Interface
 
-Function RunExercise(color: String) :   Int8;
+Function RunExercise(Const color: String) :   Int8;
 Function RunExercise() :              String;
 
 Implementation
@@ -17,10 +17,10 @@ Type
     );
 
 Var
-    id        :   ColorCodes;
+    id                   :   ColorCodes;
     ColorName, ColorList :   String;
 
-Function RunExercise(color: String) :   Int8;
+Function RunExercise(Const color: String) :   Int8;
 Begin
     Result := GetEnumValue(TypeInfo(ColorCodes), color);
 End;

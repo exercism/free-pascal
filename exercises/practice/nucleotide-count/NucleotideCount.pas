@@ -11,7 +11,7 @@ Implementation
 Function RunExercise(Const strand: String) :   String;
 Begin
 
-   // YOUR CODE GOES HERE
+   { WRITE YOUR SOLUTION }
 
 End;
 

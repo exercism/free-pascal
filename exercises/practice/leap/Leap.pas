@@ -3,14 +3,14 @@ Unit Leap;
 {$mode ObjFPC}{$H+}
 
 Interface
-Function RunExercise(year :  integer) :   boolean;
+Function RunExercise(Const year :  Integer) :   Boolean;
 
 Implementation
 
-Function RunExercise(year :  integer) :   boolean;
+Function RunExercise(Const year :  Integer) :   Boolean;
 Begin
 
-   // YOUR CODE GOES HERE
+   { WRITE YOUR SOLUTION }
 
 End;
 

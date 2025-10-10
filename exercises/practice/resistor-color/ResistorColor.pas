@@ -4,14 +4,14 @@ Unit ResistorColor;
 
 Interface
 
-Function RunExercise(color: String) :   Int8;
+Function RunExercise(Const color: String) :   Int8;
 
 Implementation
 
-Function RunExercise(color: String) :   Int8;
+Function RunExercise(Const color: String) :   Int8;
 Begin
 
-   // YOUR CODE GOES HERE
+   { WRITE YOUR SOLUTION }
 
 End;
 

@@ -11,7 +11,7 @@ Implementation
 Function RunExercise(Const digits : String; Const span: Integer) :   Integer;
 Begin
 
-   // YOUR CODE GOES HERE
+   { WRITE YOUR SOLUTION }
 
 End;
 

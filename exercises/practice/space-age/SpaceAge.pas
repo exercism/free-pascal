@@ -4,14 +4,14 @@ Unit SpaceAge;
 
 Interface
 
-Function RunExercise(planet: String; seconds: LongInt) :   Double;
+Function RunExercise(Const planet: String; Const seconds: LongInt) :   Double;
 
 Implementation
 
-Function RunExercise(planet: String; seconds: LongInt) :   Double;
+Function RunExercise(Const planet: String; Const seconds: LongInt) :   Double;
 Begin
 
-   // YOUR CODE GOES HERE
+   { WRITE YOUR SOLUTION }
 
 End;
 
