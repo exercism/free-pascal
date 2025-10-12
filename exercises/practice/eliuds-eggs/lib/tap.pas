@@ -11,6 +11,14 @@ interface
 
 uses TAPCore, sysutils;
 
+Type
+   DynBiDimIntArray = Array Of Array Of Integer;
+
+Procedure TestIs(Got, Expected: Double; Const TestName: String = '');
+Procedure TestIs(Got, Expected: Array Of Integer; Const TestName: String = '');
+Procedure TestIs(Got, Expected: Array Of String; Const TestName: String = '');
+Procedure TestIs(Got, Expected: DynBiDimIntArray; Const TestName: String = '');
+
 {
         Adds a note to the TAP output as a comment in a new line
 }
@@ -62,11 +70,6 @@ procedure TestIs(Got, Expected: Int64; const TestName: String = '');
 procedure TestIs(const Got, Expected: String; const TestName: String = '');
 procedure TestIs(Got, Expected: Boolean; const TestName: String = '');
 procedure TestIs(Got: TObject; Expected: TClass; const TestName: String = '');
-
-// Expanding testing for exercism.org
-Procedure TestIs(Got, Expected: Double; Const TestName: String = '');
-Procedure TestIs(Got, Expected: Array Of Integer; Const TestName: String = '');
-Procedure TestIs(Got, Expected: Array Of String; Const TestName: String = '');
 
 {
         Same as TestIs, but fails if the arguments are equal.
@@ -257,88 +260,6 @@ begin
         );
 end;
 
-// Expanding testing for exercism.org
-Procedure TestIs(Got, Expected: Double; Const TestName: String = '');
-Begin
-    TAPGlobalContext.Ok(
-        Got = Expected,
-        TestName,
-        FloatToStr(Expected),
-        FloatToStr(Got)
-    );
-End;
-Function IntArrayToStr(AArray : Array Of integer):   string;
-Var
-    i :   Integer;
-    s :   String;
-Begin
-    s := '';
-    For i := low(AArray) To high(AArray) Do
-        Begin
-            If s = '' Then s := inttostr(AArray[i])
-            Else s := s + ', ' + inttostr(AArray[i]);
-        End;
-    s := '[' + s + ']';
-    Result := s;
-End;
-Function CompareTwoIntegerArrays(
-    Const DynArray1 : Array Of Integer;
-    Const DynArray2 : Array Of Integer
-) :   Boolean;
-Var i :   Integer;
-Begin
-    If length(DynArray1) <> length(DynArray2) Then exit(false);
-    For i := low(DynArray1) To high(DynArray1) Do
-        Begin
-            If DynArray1[i] <> DynArray2[i] Then exit(false);
-        End;
-    result := true;
-End;
-Procedure TestIs(Got, Expected: Array Of Integer; Const TestName: String = '');
-Begin
-    TAPGlobalContext.Ok(
-        CompareTwoIntegerArrays(Got, Expected),
-        TestName,
-        IntArrayToStr(Expected),
-        IntArrayToStr(Got)
-    );
-End;
-Function StrArrayToStr(AArray : Array Of String):   string;
-Var
-    i :   Integer;
-    s :   String;
-Begin
-    s := '';
-    For i := low(AArray) To high(AArray) Do
-        Begin
-            If s = '' Then s := AArray[i]
-            Else s := s + ', ' + AArray[i];
-        End;
-    s := '[' + s + ']';
-    Result := s;
-End;
-Function CompareTwoStringArrays(
-    Const DynArray1 : Array Of String;
-    Const DynArray2 : Array Of String
-) :   Boolean;
-Var i :   Integer;
-Begin
-    If length(DynArray1) <> length(DynArray2) Then exit(false);
-    For i := low(DynArray1) To high(DynArray1) Do
-        Begin
-            If DynArray1[i] <> DynArray2[i] Then exit(false);
-        End;
-    result := true;
-End;
-Procedure TestIs(Got, Expected: Array Of String; Const TestName: String = '');
-Begin
-    TAPGlobalContext.Ok(
-        CompareTwoStringArrays(Got, Expected),
-        TestName,
-        StrArrayToStr(Expected),
-        StrArrayToStr(Got)
-    );
-End;
 procedure TestIsnt(Got, Expected: Int64; const TestName: String = '');
 begin
         TAPGlobalContext.Ok(
@@ -478,5 +399,132 @@ procedure SubtestEnd();
 begin
         TAPGlobalContext := TAPGlobalContext.SubtestEnd;
 end;
+
+// Expanding testing for exercism.org
+Function IntArrayToStr(Const AArray : Array Of Integer):   String;
+Var
+    i      :   Integer;
+    output :   String;
+Begin
+    output := '';
+    For i := Low(AArray) To High(AArray) Do
+        Begin
+            If output = '' Then output := IntToStr(AArray[i])
+            Else output := output + ', ' + IntToStr(AArray[i]);
+        End;
+    output := '[' + output + ']';
+    Result := output;
+End;
+
+Function BiDimIntArrayToStr(Const AArray : DynBiDimIntArray) :   String;
+Var
+    i :   Integer;
+    output :   String;
+Begin
+    output := '';
+    For i := Low(AArray) To High(AArray) Do
+        Begin
+            output := output + '  ' + IntArrayToStr(AArray[i]);
+            If i < High(AArray) Then output := output + ', ' + #10;
+        End;
+    output := '[' + #10 + output + #10 + ']';
+
+    Result := output;
+End;
+
+Function StrArrayToStr(AArray : Array Of String):   string;
+Var
+    i :   Integer;
+    s :   String;
+Begin
+    s := '';
+    For i := low(AArray) To high(AArray) Do
+        Begin
+            If s = '' Then s := AArray[i]
+            Else s := s + ', ' + AArray[i];
+        End;
+    s := '[' + s + ']';
+    Result := s;
+End;
+
+
+Function CompareTwoIntArrays(
+    Const ArrayOne : Array Of Integer;
+    Const ArrayTwo : Array Of Integer
+) :   Boolean;
+Var i :   Integer;
+Begin
+    If Length(ArrayOne) <> Length(ArrayTwo) Then Exit(False);
+    For i := Low(ArrayOne) To High(ArrayTwo) Do
+        Begin
+            If ArrayOne[i] <> ArrayTwo[i] Then Exit(False);
+        End;
+    Result := True;
+End;
+Function CompareTwoBiDimIntArrays(
+    Const ArrayOne : DynBiDimIntArray;
+    Const ArrayTwo : DynBiDimIntArray
+) :   Boolean;
+Var i :   Integer;
+Begin
+    If Length(ArrayOne) <> Length(ArrayTwo) Then Exit(False);
+    For i := Low(ArrayOne) To High(ArrayTwo) Do
+        Begin
+            If Not(CompareTwoIntArrays(ArrayOne[i], ArrayTwo[i])) Then
+                Exit(False);
+        End;
+    Result := True;
+End;
+
+Function CompareTwoStringArrays(
+    Const ArrayOne : Array Of String;
+    Const ArrayTwo : Array Of String
+) :   Boolean;
+Var i :   Integer;
+Begin
+    If Length(ArrayOne) <> Length(ArrayTwo) Then Exit(False);
+    For i := Low(ArrayOne) To High(ArrayOne) Do
+        Begin
+            If ArrayOne[i] <> ArrayTwo[i] Then Exit(False);
+        End;
+    Result := True;
+End;
+
+Procedure TestIs(Got, Expected: Double; Const TestName: String = '');
+Begin
+    TAPGlobalContext.Ok(
+        Got = Expected,
+        TestName,
+        FloatToStr(Expected),
+        FloatToStr(Got)
+    );
+End;
+Procedure TestIs(Got, Expected: Array Of Integer; Const TestName: String = '');
+Begin
+    TAPGlobalContext.Ok(
+        CompareTwoIntArrays(Got, Expected),
+        TestName,
+        IntArrayToStr(Expected),
+        IntArrayToStr(Got)
+    );
+End;
+Procedure TestIs(Got, Expected: Array Of String; Const TestName: String = '');
+Begin
+    TAPGlobalContext.Ok(
+        CompareTwoStringArrays(Got, Expected),
+        TestName,
+        StrArrayToStr(Expected),
+        StrArrayToStr(Got)
+    );
+End;
+Procedure TestIs(Got, Expected : DynBiDimIntArray; Const TestName: String = '');
+Begin
+    TAPGlobalContext.Ok(
+        CompareTwoBiDimIntArrays(Got, Expected),
+        TestName,
+        BiDimIntArrayToStr(Expected),
+        BiDimIntArrayToStr(Got)
+    );
+End;
 
 end.
