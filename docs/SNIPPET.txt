@@ -1,1 +1,4 @@
-TODO: add snippet
+program greetings;
+begin
+    writeln('Hi Free Pascal!');
+end.
