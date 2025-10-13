@@ -1,15 +1,9 @@
 # Installation
 
-<!-- TODO: write document
+Free Pascal Compiler version 3.2.2 can be installed directly from the package manager for a wide variety of platforms and systems.
+If it's not available for your system/platform or if you want to install the Free Pascal in your home directory, you can get binaries from [Free Pascal - Download][fpc-download], unpack the tarball, run the ```install.sh``` and append the ```$HOME/fpc-3.2.2/bin``` to the ```PATH``` environment variable.
 
-  This document should describe what the student needs to install
-  to allow working on the track on their local system using the CLI.
+For other installation options and/or a more detailed description, please visit [Installing the Free Pascal Compiler - Free Pascal wiki][fpc-install-wiki].
 
-  You can include the installation instructions in this document, but
-  usually it is better to link to a resource with the official installation
-  instructions, to prevent the instructions from becoming outdated.
-
-  The contents of this document are displayed on the track's documentation
-  page at `https://exercism.org/docs/tracks/<track>/installation`.
-
-  See https://exercism.org/docs/building/tracks/docs for more information. -->
+[fpc-download]: https://www.freepascal.org/download.html)
+[fpc-install-wiki]: https://wiki.freepascal.org/Installing_the_Free_Pascal_Compiler
