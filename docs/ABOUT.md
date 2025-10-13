@@ -1,14 +1,11 @@
 # About
 
-<!-- TODO: write document
+[Free Pascal][fpc-home] is one of the best programming languages ​​to learn how to code.
 
-  This document contains a short introduction to the language.
+**Free Pascal** is an open-source variant to the classic languages [Pascal][pascal] and [Object Pascal][obj-pascal] and it's compatible with ISO pascal, Mac Pascal, Turbo Pascal 7.0 and most (if not all) versions of Delphi.
 
-  The introduction should be relatively brief and touch upon what
-  makes the language interesting (and possibly unique). The goal
-  is to help students decide if they want to join this track.
+Compiled and strongly typed, **Free Pascal** offers robustness to develop any kind of program and/or project, from console programs to games and scientific applications.
 
-  The contents of this document are displayed on the track page,
-  provided the student has not joined the track.
-
-  See https://exercism.org/docs/building/tracks/docs for more information. -->
+[fpc-home]:   https://www.freepascal.org/
+[pascal]:     https://en.wikipedia.org/wiki/Pascal_(programming_language)
+[obj-pascal]: https://en.wikipedia.org/wiki/Object_Pascal
