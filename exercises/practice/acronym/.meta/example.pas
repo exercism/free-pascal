@@ -1,38 +1,38 @@
-Unit Acronym;
+unit Acronym;
 
 {$mode ObjFPC}{$H+}
 
-Interface
+interface
 
-Function RunExercise(Const phrase: String) :   String;
+function abbreviate(const phrase: string) : string;
 
-Implementation
+implementation
 
-Uses StrUtils, SysUtils;
+uses StrUtils, SysUtils;
 
-Var
-    temp, abbrev  :   String;
-    i     :   Integer;
-    words :   Array Of String;
+var
+  temp, abbrev  :   string;
+  i     : integer;
+  words : array of string;
 
-Function RunExercise(Const phrase: String) :   String;
-Begin
+function abbreviate(const phrase: string) : string;
+begin
 
-    temp := UpperCase(DelChars(phrase, ''''));
+  temp := UpperCase(DelChars(phrase, ''''));
 
-    For i := low(temp) To high(temp) Do
-        Begin
-            If (temp[i] < 'A') Or (temp[i] > 'Z') Then temp[i] := ' ';
-        End;
+  for i := low(temp) to high(temp) do
+    begin
+      if (temp[i] < 'A') or (temp[i] > 'Z') then temp[i] := ' ';
+    end;
 
-    words  := SplitString(temp, ' ');
-    abbrev := '';
+  words  := SplitString(temp, ' ');
+  abbrev := '';
 
-    For i:= low(words) To high(words) Do
-        abbrev := abbrev + Copy(words[i], 1, 1);
+  for i:= low(words) to high(words) do
+    abbrev := abbrev + Copy(words[i], 1, 1);
 
-    Result := abbrev;
+  result := abbrev;
 
-End;
+end;
 
-End.
+end.

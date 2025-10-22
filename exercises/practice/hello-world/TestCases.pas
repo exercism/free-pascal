@@ -8,8 +8,8 @@ uses Classes, SysUtils, FPCUnit, TestRegistry, FPCUnitTestUtils;
 
 type
   HelloWorldTest = class(TTestCase)
-    published
-      procedure SayHi;
+  published
+    procedure SayHi;
   end;
 
 implementation
@@ -18,14 +18,15 @@ uses HelloWorld;
 
 procedure HelloWorldTest.SayHi;
 const
-  Expected = 'Hello, World!';
+  expected = 'Hello, World!';
 var
-  Actual  : string;
-  Message : string;
+  actual  : string;
+  message : string;
 begin
-  Actual  := HelloWorld.SayHi();
-  Message := EncodeJsonMessage(TestName, Expected, Actual);
-  AssertTrue(Message, Expected = Actual);
+  // af9ffe10-dc13-42d8-a742-e7bdafac449d
+  actual  := HelloWorld.SayHi();
+  message := EncodeJsonMessage('Say Hi!', expected, actual);
+  AssertTrue(message, expected = actual);
 end;
 
 initialization
