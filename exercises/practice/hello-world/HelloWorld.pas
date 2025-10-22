@@ -1,13 +1,13 @@
-Unit HelloWorld;
+unit HelloWorld;
 
-Interface
-Function SayHi:   string;
+interface
+function SayHi : string;
 
-Implementation
+implementation
 
-Function SayHi:   string;
-Begin
-    SayHi := 'Goodbye, Mars!';
-End;
+function SayHi : string;
+begin
+  SayHi := 'Goodbye, Mars!';
+end;
 
-End.
+end.
