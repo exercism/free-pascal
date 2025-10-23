@@ -1,36 +1,37 @@
-Unit CollatzConjecture;
+unit CollatzConjecture;
 
 {$mode ObjFPC}{$H+}
 
-Interface
-Function RunExercise(Const number: Integer) :   Integer;
+interface
 
-Implementation
+function steps(const number: integer) : integer;
 
-Uses SysUtils;
+implementation
 
-Var
-    temp, steps :   Integer;
+uses SysUtils;
 
-Function RunExercise(Const number: Integer) :   Integer;
-Begin
+var
+  temp, count : integer;
 
-    If number < 1 Then
-        Raise Exception.Create('Only positive integers are allowed');
+function steps(const number: integer) : integer;
+begin
 
-    temp  := number;
-    steps := 0;
+  if number < 1 then
+    raise Exception.Create('Only positive integers are allowed');
 
-    While temp > 1 Do
-        Begin
-            Inc(steps);
-            If temp Mod 2 = 0 Then
-                temp := temp Div 2
-            Else temp := temp * 3 + 1;
-        End;
+  temp  := number;
+  count := 0;
 
-    Result := steps;
+  while temp > 1 do
+    begin
+      inc(count);
+      if temp mod 2 = 0 then
+        temp := temp div 2
+      else temp := temp * 3 + 1;
+    end;
 
-End;
+  result := count;
 
-End.
+end;
+
+end.

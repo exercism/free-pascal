@@ -1,18 +1,20 @@
-Unit CollatzConjecture;
+unit CollatzConjecture;
 
 {$mode ObjFPC}{$H+}
 
-Interface
-Function RunExercise(Const number: Integer) :   Integer;
+interface
 
-Implementation
+function steps(const number: integer) : integer;
 
-Function RunExercise(Const number: Integer) :   Integer;
-Begin
+implementation
 
-   { WRITE YOUR SOLUTION }
+uses SysUtils;
 
-End;
+function steps(const number: integer) : integer;
+begin
 
-End.
+  raise ENotImplemented.Create('Please implement your solution.'); result := number;
 
+end;
+
+end.
