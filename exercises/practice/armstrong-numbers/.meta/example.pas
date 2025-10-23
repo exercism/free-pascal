@@ -1,35 +1,36 @@
-Unit ArmstrongNumbers;
+unit ArmstrongNumbers;
 
 {$mode ObjFPC}{$H+}
 
-Interface
-Function RunExercise(Const number: QWord) :   Boolean;
+interface
 
-Implementation
+function IsArmstrongNumber(const number: qword) : boolean;
 
-Uses Math;
+implementation
 
-Var
-    tmp              :   QWord;
-    nlen, digit, sum :   Integer;
+uses Math;
 
-Function RunExercise(Const number: QWord) :   Boolean;
-Begin
+var 
+  tmp              : qword;
+  nlen, digit, sum : integer;
 
-    tmp := number;
-    nlen := 1;
-    If number > 0 Then nlen := Floor(Log10(number) + 1);
-    sum    := 0;
+function IsArmstrongNumber(const number: qword) : boolean;
+begin
 
-    While tmp > 0 Do
-        Begin
-            digit := tmp Mod 10;
-            tmp   := tmp Div 10;
-            sum   := sum + digit ** nlen;
-        End;
+  tmp := number;
+  nlen := 1;
+  if number > 0 then nlen := floor(log10(number) + 1);
+  sum    := 0;
 
-    Result := number = sum;
+  while tmp > 0 do
+    begin
+      digit := tmp mod 10;
+      tmp   := tmp div 10;
+      sum   := sum + digit ** nlen;
+    end;
 
-End;
+  result := number = sum;
 
-End.
+end;
+
+end.

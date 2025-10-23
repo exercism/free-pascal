@@ -1,16 +1,16 @@
 SHELL       = /bin/bash
 MAKEFLAGS  += --no-print-directory
 DESTDIR     = build
-BASENAME    = $(shell basename "$$PWD" | sed -r 's/(^|-)([a-z])/\U\2/g')Tests
-TESTFILE    = $(BASENAME).pas
-EXECUTABLE  = $(DESTDIR)/$(BASENAME)
-COMMAND     = fpc -l- -v0 -Sehnw -Fu./lib "./$(TESTFILE)" -FE"./$(DESTDIR)"
+EXECUTABLE  = $(DESTDIR)/test
+COMMAND     = fpc -l- -v0 -Sehnw -Fu./lib test.pas -FE"./$(DESTDIR)"
+
+.ONESHELL:
 
 test:
 	@$(MAKE) clean
 	@mkdir -p "./$(DESTDIR)"
 	@cp -r ./lib "./$(DESTDIR)"
-	@$(COMMAND) && "./$(EXECUTABLE)" || $(MAKE) clean
+	@$(COMMAND) && ./$(EXECUTABLE) $(test) || $(MAKE) clean
 	@$(MAKE) clean
 
 clean:

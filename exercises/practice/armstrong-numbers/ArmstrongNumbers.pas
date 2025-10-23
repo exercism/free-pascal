@@ -1,18 +1,20 @@
-Unit ArmstrongNumbers;
+unit ArmstrongNumbers;
 
 {$mode ObjFPC}{$H+}
 
-Interface
-Function RunExercise(Const number: QWord) :   Boolean;
+interface
 
-Implementation
+function IsArmstrongNumber(const number: qword) : boolean;
 
-Function RunExercise(Const number: QWord) :   Boolean;
-Begin
+implementation
 
-   { WRITE YOUR SOLUTION }
+uses SysUtils;
 
-End;
+function IsArmstrongNumber(const number: qword) : boolean;
+begin
 
-End.
+  raise ENotImplemented.Create('Please implement your solution.'); result := number <> number;
 
+end;
+
+end.
