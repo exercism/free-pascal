@@ -1,30 +1,31 @@
-Unit AllYourBase;
+unit AllYourBase;
 
 {$mode ObjFPC}{$H+}
 
-Interface
+interface
 
-Type
-    IntArray =   Array Of Integer;
+type
+  IntArray = array of integer;
 
-Function RunExercise(
-    Const InputBase   : Integer;
-    Const InputDigits : IntArray;
-    Const OutputBase  : Integer
-) :   IntArray;
+function rebase(
+  const InputBase   : integer;
+  const InputDigits : IntArray;
+  const OutputBase  : integer
+) : IntArray;
 
-Implementation
+implementation
 
-Function RunExercise(
-    Const InputBase   : Integer;
-    Const InputDigits : IntArray;
-    Const OutputBase  : Integer
-) :   IntArray;
-Begin
+uses SysUtils;
 
-   { WRITE YOUR SOLUTION }
+function rebase(
+  const InputBase   : integer;
+  const InputDigits : IntArray;
+  const OutputBase  : integer
+) : IntArray;
+begin
 
-End;
+  raise ENotImplemented.Create('Please implement your solution.'); result := [InputBase, length(InputDigits), OutputBase];
 
-End.
+end;
 
+end.
