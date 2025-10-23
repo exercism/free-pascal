@@ -1,45 +1,43 @@
-Unit Bob;
+unit Bob;
 
 {$mode ObjFPC}{$H+}
 
-Interface
+interface
 
-Function RunExercise(Const HeyBob: String) :   String;
+function response(const HeyBob: string) : string;
 
-Implementation
+implementation
 
-Uses SysUtils;
+uses SysUtils;
 
-Var
-    i                  :   Integer;
-    answer             :   String;
-    HasLetters, IsYell :   Boolean;
+var
+  i                  : integer;
+  answer             : string;
+  HasLetters, IsYell : boolean;
 
-Function RunExercise(Const HeyBob: String) :   String;
-Begin
+function response(const HeyBob: string) : string;
+begin
+  answer     := 'Whatever.';
+  HasLetters := false;
+  IsYell     := false;
 
-    answer     := 'Whatever.';
-    HasLetters := False;
-    IsYell     := False;
+  for i := low(HeyBob) to high(HeyBob) do
+    begin
+      if LowerCase(HeyBob[i]) in ['a'..'z'] then
+        begin
+          HasLetters := true;
+          break;
+        end;
+    end;
+  if HasLetters and (UpperCase(HeyBob) = HeyBob) then IsYell := true;
 
-    For i := low(HeyBob) To high(HeyBob) Do
-        Begin
-            If LowerCase(HeyBob[i]) In ['a'..'z'] Then
-                Begin
-                    HasLetters := True;
-                    break;
-                End;
-        End;
-    If HasLetters And (UpperCase(HeyBob) = HeyBob) Then IsYell := True;
+  if trim(HeyBob) = '' then answer := 'Fine. Be that way!'
+  else if copy(trim(HeyBob), length(trim(HeyBob))) = '?' then
+         if IsYell then answer := 'Calm down, I know what I''m doing!'
+  else answer := 'Sure.'
+  else if IsYell then answer := 'Whoa, chill out!';
 
-    If Trim(HeyBob) = '' Then answer := 'Fine. Be that way!'
-    Else If Copy(Trim(HeyBob), Length(Trim(HeyBob))) = '?' Then
-             If IsYell Then answer := 'Calm down, I know what I''m doing!'
-    Else answer := 'Sure.'
-    Else If IsYell Then answer := 'Whoa, chill out!';
+  result := answer;
+end;
 
-    Result := answer;
-
-End;
-
-End.
+end.

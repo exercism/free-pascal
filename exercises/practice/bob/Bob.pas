@@ -1,18 +1,20 @@
-Unit Bob;
+unit Bob;
 
 {$mode ObjFPC}{$H+}
 
-Interface
+interface
 
-Function RunExercise(Const HeyBob: String) :   String;
+function response(const HeyBob: string) : string;
 
-Implementation
+implementation
 
-Function RunExercise(Const HeyBob: String) :   String;
-Begin
+uses SysUtils;
 
-   { WRITE YOUR SOLUTION }
+function response(const HeyBob: string) : string;
+begin
 
-End;
+  raise ENotImplemented.Create('Please implement your solution.'); result := copy(HeyBob, 1, 0);
 
-End.
+end;
+
+end.
