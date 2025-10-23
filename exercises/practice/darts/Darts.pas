@@ -1,18 +1,20 @@
-Unit Darts;
+unit Darts;
 
 {$mode ObjFPC}{$H+}
 
-Interface
-Function RunExercise(Const x: Single; Const y: Single) :   UInt8;
+interface
 
-Implementation
+function score(const x: single; const y: single) : uint8;
 
-Function RunExercise(Const x: Single; Const y: Single) :   UInt8;
-Begin
+implementation
 
-   { WRITE YOUR SOLUTION }
+uses SysUtils;
 
-End;
+function score(const x: single; const y: single) : uint8;
+begin
 
-End.
+  raise ENotImplemented.Create('Please implement your solution.'); result := trunc(x) * trunc(y);
 
+end;
+
+end.

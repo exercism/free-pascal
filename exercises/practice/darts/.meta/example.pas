@@ -1,29 +1,27 @@
-Unit Darts;
+unit Darts;
 
 {$mode ObjFPC}{$H+}
 
-Interface
-Function RunExercise(Const x: Single; Const y: Single) :   UInt8;
+interface
 
-Implementation
+function score(const x: single; const y: single) : uint8;
 
-Uses Math;
+implementation
 
-Var
-    spot   :   Single;
-    points :   UInt8;
+uses Math;
 
-Function RunExercise(Const x: Single; Const y: Single) :   UInt8;
-Begin
+var
+  spot   : single;
+  points : uint8;
 
-    spot   := x ** 2 + y ** 2;
-    points := 0;
-    If      spot <=  1 ** 2 Then points := 10
-    Else If spot <=  5 ** 2 Then points :=  5
-    Else If spot <= 10 ** 2 Then points :=  1;
+function score(const x: single; const y: single) : uint8;
+begin
+  spot   := x ** 2 + y ** 2;
+  points := 0;
+  if      spot <=  1 ** 2 then points := 10
+  else if spot <=  5 ** 2 then points :=  5
+  else if spot <= 10 ** 2 then points :=  1;
+  result := points;
+end;
 
-    Result := points;
-
-End;
-
-End.
+end.
