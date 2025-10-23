@@ -1,22 +1,23 @@
-Unit BinarySearch;
+unit BinarySearch;
 
 {$mode ObjFPC}{$H+}
 
-Interface
+interface
 
-Function RunExercise(
-    Const AArray: Array Of Integer; AValue : Integer
-) :   Integer;
+type
+  IntArray = Array Of Integer;
 
-Implementation
+function find(const AArray: IntArray; AValue : integer) : integer;
 
-Function RunExercise(
-    Const AArray: Array Of Integer; AValue : Integer
-) :   Integer;
-Begin
+implementation
 
-   { WRITE YOUR SOLUTION }
+uses SysUtils;
 
-End;
+function find(const AArray: IntArray; AValue : integer) : integer;
+begin
 
-End.
+  raise ENotImplemented.Create('Please implement your solution.'); result := length(AArray) * Avalue;
+
+end;
+
+end.

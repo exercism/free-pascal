@@ -1,53 +1,51 @@
-Unit BinarySearch;
+unit BinarySearch;
 
 {$mode ObjFPC}{$H+}
 
-Interface
+interface
 
-Function RunExercise(
-    Const AArray: Array Of Integer; AValue : Integer
-) :   Integer;
+type
+  IntArray = Array Of Integer;
 
-Implementation
+function find(const AArray: IntArray; AValue : integer) : integer;
 
-Uses SysUtils;
+implementation
 
-Function RunExercise(
-    Const AArray: Array Of Integer; AValue : Integer
-) :   Integer;
+uses SysUtils;
 
-Var
-    i, j, mid :   Integer;
-    WasFound  :   Boolean;
-Begin
+function find(const AArray: IntArray; AValue : integer) : integer;
+var
+  i, j, mid : integer;
+  WasFound  : boolean;
+begin
 
-    If Length(AArray) = 0 Then
-        Raise Exception.Create('value not in array');
+  if length(AArray) = 0 then
+    raise Exception.Create('value not in array');
 
-    i := 0;
-    j := Length(AArray) - 1;
-    WasFound := False;
+  i := 0;
+  j := length(AArray) - 1;
+  WasFound := False;
 
-    Repeat
-        Begin
-            mid := (i + j) Div 2;
-            If AArray[mid] < AValue Then
-                i := mid + 1
-            Else If AArray[mid] > AValue Then
-                     j := mid - 1
-            Else
-                Begin
-                    WasFound := True;
-                    break;
-                End;
-        End;
-    Until (i + j < 0) Or (i > j);
+  repeat
+    begin
+      mid := (i + j) div 2;
+      if AArray[mid] < AValue then
+        i := mid + 1
+      else if AArray[mid] > AValue then
+             j := mid - 1
+      else
+        begin
+          WasFound := true;
+          break;
+        end;
+    end;
+  until (i + j < 0) or (i > j);
 
-    If WasFound Then
-        Result := mid
-    Else
-        Raise Exception.Create('value not in array');
+  if WasFound then
+    Result := mid
+  else
+    raise Exception.Create('value not in array');
 
-End;
+end;
 
-End.
+end.
