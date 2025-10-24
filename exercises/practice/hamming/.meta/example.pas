@@ -1,32 +1,30 @@
-Unit Hamming;
+unit Hamming;
 
 {$mode ObjFPC}{$H+}
 
-Interface
-Function RunExercise(Const strand1: String; Const strand2: String) :   Integer;
+interface
 
-Implementation
+function distance(const strand1: string; const strand2: string) : integer;
 
-Uses SysUtils;
+implementation
 
-Var
-    i         :   integer;
-    distance  :   integer;
+uses SysUtils;
 
-Function RunExercise(Const strand1: String; Const strand2: String) :   Integer;
-Begin
+var
+  i, count : integer;
 
-    If Length(strand1) <> Length(strand2) Then
-        Raise Exception.Create('strands must be of equal length');
+function distance(const strand1: string; const strand2: string) : integer;
+begin
 
-    distance := 0;
-    For i := 1 To Length(strand1) Do
-        Begin
-            If Copy(strand1, i, 1) <> Copy(strand2, i, 1) Then Inc(distance)
-        End;
+  if length(strand1) <> length(strand2) then
+    raise Exception.Create('strands must be of equal length');
 
-    Result := distance;
+  count := 0;
+  for i := 1 to length(strand1) do
+    if copy(strand1, i, 1) <> copy(strand2, i, 1) then inc(count);
 
-End;
+  result := count;
 
-End.
+end;
+
+end.

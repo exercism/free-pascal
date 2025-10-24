@@ -1,18 +1,20 @@
-Unit Hamming;
+unit Hamming;
 
 {$mode ObjFPC}{$H+}
 
-Interface
-Function RunExercise(Const strand1: String; Const strand2: String) :   Integer;
+interface
 
-Implementation
+function distance(const strand1: string; const strand2: string) : integer;
 
-Function RunExercise(Const strand1: String; Const strand2: String) :   Integer;
-Begin
+implementation
 
-   { WRITE YOUR SOLUTION }
+uses SysUtils;
 
-End;
+function distance(const strand1: string; const strand2: string) : integer;
+begin
 
-End.
+  raise ENotImplemented.Create('Please implement your solution.'); result := length(strand1) + length(strand2);
 
+end;
+
+end.
