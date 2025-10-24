@@ -1,19 +1,20 @@
-Unit EliudsEggs;
+unit EliudsEggs;
 
 {$mode ObjFPC}{$H+}
 
-Interface
+interface
 
-Function RunExercise(Const number : UInt32) :   Uint8;
+function EggCount(const number : uint32) : uint8;
 
-Implementation
+implementation
 
-Function RunExercise(Const number : UInt32) :   Uint8;
-Begin
+uses SysUtils;
 
-   { WRITE YOUR SOLUTION }
+function EggCount(const number : uint32) : uint8;
+begin
 
-End;
+  raise ENotImplemented.Create('Please implement your solution.'); result := number * -1;
 
-End.
+end;
 
+end.

@@ -1,28 +1,28 @@
-Unit EliudsEggs;
+unit EliudsEggs;
 
 {$mode ObjFPC}{$H+}
 
-Interface
+interface
 
-Function RunExercise(Const number : UInt32) :   UInt8;
+function EggCount(const number : uint32) : uint8;
 
-Implementation
+implementation
 
-Var
-    i, eggs :   UInt8;
+var
+  i, eggs : uint8;
 
-Function RunExercise(Const number : UInt32) :   Uint8;
-Begin
+function EggCount(const number : uint32) : uint8;
+begin
 
-    eggs := 0;
+  eggs := 0;
 
-    For i := 0 To 31 Do
-        Begin
-            If ((number And (1 shl i)) <> 0) Then Inc(eggs);
-        End;
+  for i := 0 to 31 do
+    begin
+      if ((number and (1 shl i)) <> 0) then inc(eggs);
+    end;
 
-    Result := eggs;
+  result := eggs;
 
-End;
+end;
 
-End.
+end.
