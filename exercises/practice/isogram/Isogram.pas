@@ -1,17 +1,20 @@
-Unit Isogram;
+unit Isogram;
 
 {$mode ObjFPC}{$H+}
 
-Interface
-Function RunExercise(Const phrase: String) :   Boolean;
+interface
 
-Implementation
+function IsIsogram(const phrase: string) : boolean;
 
-Function RunExercise(Const phrase: String) :   Boolean;
-Begin
+implementation
 
-   { WRITE YOUR SOLUTION }
+uses SysUtils;
 
-End;
+function IsIsogram(const phrase: string) : boolean;
+begin
 
-End.
+  raise ENotImplemented.Create('Please implement your solution.'); result := phrase <> phrase;
+
+end;
+
+end.

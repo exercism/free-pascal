@@ -1,39 +1,40 @@
-Unit Isogram;
+unit Isogram;
 
 {$mode ObjFPC}{$H+}
 
-Interface
-Function RunExercise(Const phrase: String) :   Boolean;
+interface
 
-Implementation
+function IsIsogram(const phrase: string) : boolean;
 
-Type
-    Letters =   Array [Ord('a') .. Ord('z')] Of Integer;
+implementation
 
-Var
-    alpha    :   Letters;
-    temp     :   String;
-    i, ascii :   Integer;
+type
+  Letters = Array [ord('a') .. ord('z')] Of Integer;
 
-Function RunExercise(Const phrase: String) :   Boolean;
-Begin
+var
+  alpha    : Letters;
+  temp     : string;
+  i, ascii : integer;
 
-    For i := Low(alpha) To High(alpha) Do
-        alpha[i] := 0;
-    temp := LowerCase(phrase);
+function IsIsogram(const phrase: string) : boolean;
+begin
 
-    For i := 1 To length(phrase) Do
-        Begin
-            If (temp[i] < 'a') Or (temp[i] > 'z') Then continue;
-            ascii := Ord(temp[i]);
-            Inc(alpha[ascii]);
-        End;
+  for i := low(alpha) to high(alpha) do
+    alpha[i] := 0;
+  temp := LowerCase(phrase);
 
-    For i := Low(alpha) To High(alpha) Do
-        If alpha[i] > 1 Then Exit(False);
+  for i := 1 to length(phrase) do
+    begin
+      if (temp[i] < 'a') or (temp[i] > 'z') then continue;
+      ascii := ord(temp[i]);
+      inc(alpha[ascii]);
+    end;
 
-    Result := True;
+  for i := low(alpha) to high(alpha) do
+    if alpha[i] > 1 then exit(false);
 
-End;
+  result := true;
 
-End.
+end;
+
+end.
