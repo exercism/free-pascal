@@ -1,17 +1,36 @@
-Unit DifferenceOfSquares;
+unit DifferenceOfSquares;
 
 {$mode ObjFPC}{$H+}
 
-Interface
-Function RunExercise(Const myproperty: String; Const number: LongInt): LongInt;
+interface
 
-Implementation
+function SquareOfSum(number : longint) : longint;
+function SumOfSquares(number : longint) : longint;
+function DifferenceOfSquares(number : longint) : longint;
 
-Function RunExercise(Const myproperty: String; Const number: LongInt): LongInt;
-Begin
+implementation
 
-    // YOUR SOLUTION GOES HERE
+uses SysUtils;
 
-End;
+function SquareOfSum(number : longint) : longint;
+begin
 
-End.
+  raise ENotImplemented.Create('Please implement your solution.'); result := number * -1;
+
+end;
+
+function SumOfSquares(number : longint) : longint;
+begin
+
+  raise ENotImplemented.Create('Please implement your solution.'); result := number * -1;
+
+end;
+
+function DifferenceOfSquares(number : longint) : longint;
+begin
+
+  raise ENotImplemented.Create('Please implement your solution.'); result := number * -1;
+
+end;
+
+end.

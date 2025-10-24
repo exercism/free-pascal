@@ -1,48 +1,44 @@
-Unit DifferenceOfSquares;
+unit DifferenceOfSquares;
 
 {$mode ObjFPC}{$H+}
 
-Interface
-Function RunExercise(Const myproperty: String; Const number: LongInt): LongInt;
+interface
 
-Implementation
+function SquareOfSum(number : longint) : longint;
+function SumOfSquares(number : longint) : longint;
+function DifferenceOfSquares(number : longint) : longint;
 
-Var
-    i :   integer;
-    acc :   longint;
+implementation
 
-Function SquareOfSum(number: longint):   longint;
-Begin
-    acc := 0;
-    For i := 1 To number Do
-        Begin
-            acc := acc + i;
-        End;
-    Result := acc * acc;
-End;
+function SquareOfSum(number : longint) : longint;
+var
+  i   : integer;
+  acc : longint;
+begin
+  acc := 0;
+  for i := 1 to number do
+    begin
+      acc := acc + i;
+    end;
+  result := acc * acc;
+end;
 
-Function SumOfSquares(number: longint):   longint;
-Begin
-    acc := 0;
-    For i := 1 To number Do
-        Begin
-            acc := acc + i * i;
-        End;
-    Result := acc;
-End;
+function SumOfSquares(number : longint) : longint;
+var
+  i   : integer;
+  acc : longint;
+begin
+  acc := 0;
+  for i := 1 to number do
+    begin
+      acc := acc + i * i;
+    end;
+  result := acc;
+end;
 
-Function DifferenceOfSquares(number :  longint):   longint;
-Begin
-    Result := SquareOfSum(number) - SumOfSquares(number);
-End;
+function DifferenceOfSquares(number : longint) : longint;
+begin
+  result := SquareOfSum(number) - SumOfSquares(number);
+end;
 
-Function RunExercise(Const myproperty: String; Const number: LongInt): LongInt;
-Begin
-    Case myproperty Of
-        'squareOfSum'       :   Result := SquareOfSum(number);
-        'sumOfSquares'      :   Result := SumOfSquares(number);
-        'differenceOfSquares' :   Result := DifferenceOfSquares(number);
-    End;
-End;
-
-End.
+end.
