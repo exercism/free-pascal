@@ -1,19 +1,20 @@
-Unit Gigasecond;
+unit Gigasecond;
 
 {$mode ObjFPC}{$H+}
 
-Interface
+interface
 
-Function RunExercise(Const moment : String ) :   String;
+function add(const moment : string) : string;
 
-Implementation
+implementation
 
-Function RunExercise(Const moment : String ) :   String;
-Begin
+uses SysUtils;
 
-   { WRITE YOUR SOLUTION }
+function add(const moment : string) : string;
+begin
 
-End;
+  raise ENotImplemented.Create('Please implement your solution.'); result := copy(moment, 1, 0);
 
-End.
+end;
 
+end.

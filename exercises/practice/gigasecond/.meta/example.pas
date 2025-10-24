@@ -1,32 +1,29 @@
-Unit Gigasecond;
+unit Gigasecond;
 
 {$mode ObjFPC}{$H+}
 
-Interface
+interface
 
-Function RunExercise(Const moment : String ) :   String;
+function add(const moment : string) : string;
 
-Implementation
+implementation
 
-Uses SysUtils, DateUtils, RegExpr;
+uses SysUtils, DateUtils, RegExpr;
 
-Const
-    seconds :   UInt64 =   1000000000;
+const
+  seconds : uint64 = 1000000000;
 
-Function RunExercise(Const moment : String ) :   String;
-Var
-    TmpStr, mask:   String;
-Begin
+function add(const moment : string) : string;
+var
+  TmpStr, mask : string;
+begin
+  TmpStr := moment;
+  mask   := ReplaceRegExpr('[0-9]', TmpStr, '#', true);
+  if mask = '####-##-##' then TmpStr := TmpStr + 'T00:00:00';
+  result := FormatDateTime(
+    'YYYY-MM-DD"T"hh:mm:ss',
+    IncSecond(ISO8601ToDate(TmpStr), seconds)
+  );
+end;
 
-    TmpStr := moment;
-    mask := ReplaceRegExpr('[0-9]', TmpStr, '#', true);
-    If mask = '####-##-##' Then TmpStr := TmpStr + 'T00:00:00';
-
-    Result := FormatDateTime(
-        'YYYY-MM-DD"T"hh:mm:ss',
-        IncSecond(ISO8601ToDate(TmpStr), seconds)
-    );
-
-End;
-
-End.
+end.
