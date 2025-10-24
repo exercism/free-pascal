@@ -1,46 +1,43 @@
-Unit LargestSeriesProduct;
+unit LargestSeriesProduct;
 
 {$mode ObjFPC}{$H+}
 
-Interface
+interface
 
-Function RunExercise(Const digits : String; Const span: Integer) :   Integer;
+function LargestProduct(const digits : string; const span: integer) : integer;
 
-Implementation
+implementation
 
-Uses SysUtils, Character;
+uses SysUtils, Character;
 
-Function RunExercise(Const digits : String; Const span: Integer) :   Integer;
+function LargestProduct(const digits : string; const span: integer) : integer;
+var
+  chr                       : string;
+  i, j, product, MaxProduct : integer;
+begin
 
-Var
-    character   :   String;
-    i, j, product, MaxProduct :   Integer;
-Begin
+  if span < 0 then
+    raise Exception.Create('span must not be negative');
 
-    If span < 0 Then
-        Raise Exception.Create('span must not be negative');
+  if span > length(digits) then
+    raise Exception.Create('span must not exceed string length');
 
-    If span > Length(digits) Then
-        raise Exception.Create('span must not exceed string length');
+  MaxProduct := -1;
+  for i := 1 to length(digits) - span + 1 do
+    begin
+      product := 1;
+      for j := i to i + span - 1 do
+        begin
+          chr := copy(digits, j, 1);
+          if not(IsNumber(chr[1])) then
+            raise Exception.Create('digits input must only contain digits');
+          product *= StrToInt(chr);
+        end;
+      if product > MaxProduct then MaxProduct := product;
+    end;
 
-    MaxProduct := -1;
-    For i := 1 To Length(digits) - span + 1 Do
-        Begin
-            product := 1;
-            For j := i To i + span - 1 Do
-                Begin
-                    character := Copy(digits, j, 1);
-                    If Not(IsNumber(character[1])) Then
-                        Raise Exception.Create(
-                            'digits input must only contain digits'
-                        );
-                    product *= StrToInt(character);
-                End;
-            If product > MaxProduct Then MaxProduct := product;
-        End;
+  result := MaxProduct;
 
-    Result := MaxProduct;
+end;
 
-End;
-
-End.
+end.

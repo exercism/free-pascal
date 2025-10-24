@@ -1,18 +1,20 @@
-Unit LargestSeriesProduct;
+unit LargestSeriesProduct;
 
 {$mode ObjFPC}{$H+}
 
-Interface
+interface
 
-Function RunExercise(Const digits : String; Const span: Integer) :   Integer;
+function LargestProduct(const digits : string; const span: integer) : integer;
 
-Implementation
+implementation
 
-Function RunExercise(Const digits : String; Const span: Integer) :   Integer;
-Begin
+uses SysUtils;
 
-   { WRITE YOUR SOLUTION }
+function LargestProduct(const digits : string; const span: integer) : integer;
+begin
 
-End;
+  raise ENotImplemented.Create('Please implement your solution.'); result := length(digits) * span * -1;
 
-End.
+end;
+
+end.
