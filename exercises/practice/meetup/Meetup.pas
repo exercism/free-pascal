@@ -1,23 +1,24 @@
-Unit Meetup;
+unit Meetup;
 
 {$mode ObjFPC}{$H+}
 
-Interface
+interface
 
-Function RunExercise(
-    Const year, month: Integer; Const week, ADayOfWeek : String
-) :   String;
+function meetup(
+  const year, month: integer; const week, ADayOfWeek : string
+) : string;
 
+implementation
 
-Implementation
+uses SysUtils;
 
-Function RunExercise(
-    Const year, month: Integer; Const week, ADayOfWeek : String
-) :   String;
-Begin
+function meetup(
+  const year, month: integer; const week, ADayOfWeek : string
+) : string;
+begin
 
-   { WRITE YOUR SOLUTION }
+  raise ENotImplemented.Create('Please implement your solution.');result:=format('%s%d%s%d',[ADayOfWeek,month,week,year]);
 
-End;
+end;
 
-End.
+end.
