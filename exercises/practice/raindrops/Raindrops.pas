@@ -1,18 +1,20 @@
-Unit Raindrops;
+unit Raindrops;
 
 {$mode ObjFPC}{$H+}
 
-Interface
-Function RunExercise(Const number: Integer) : String;
+interface
 
-Implementation
+function convert(const number: integer) : string;
 
-Function RunExercise(Const number: Integer) : String;
-Begin
+implementation
 
-   { WRITE YOUR SOLUTION }
+uses SysUtils;
 
-End;
+function convert(const number: integer) : string;
+begin
 
-End.
+  raise ENotImplemented.Create('Please implement your solution.'); result := format('"%.5d"', [number]);
 
+end;
+
+end.

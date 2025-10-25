@@ -1,30 +1,28 @@
-Unit Raindrops;
+unit Raindrops;
 
 {$mode ObjFPC}{$H+}
 
-Interface
-Function RunExercise(Const number: Integer) :   String;
+interface
 
-Implementation
+function convert(const number: integer) : string;
 
-Uses SysUtils;
+implementation
 
-Var
-    sounds :   string;
+uses SysUtils;
 
-Function RunExercise(Const number: Integer) :   String;
-Begin
+function convert(const number: integer) : string;
+var
+  sounds : string;
+begin
+  sounds := '';
 
-    sounds := '';
+  if number mod 3 = 0 then sounds := sounds + 'Pling';
+  if number mod 5 = 0 then sounds := sounds + 'Plang';
+  if number mod 7 = 0 then sounds := sounds + 'Plong';
 
-    If number Mod 3 = 0 Then sounds := sounds + 'Pling';
-    If number Mod 5 = 0 Then sounds := sounds + 'Plang';
-    If number Mod 7 = 0 Then sounds := sounds + 'Plong';
+  if sounds = '' then sounds := IntToStr(number);
 
-    If sounds = '' Then sounds := intToStr(number);
+  result := sounds;
+end;
 
-    Result := sounds;
-
-End;
-
-End.
+end.
