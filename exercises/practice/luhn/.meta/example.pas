@@ -1,42 +1,41 @@
-Unit Luhn;
+unit Luhn;
 
 {$mode ObjFPC}{$H+}
 
-Interface
+interface
 
-Function RunExercise(Const InputValue : String) :   Boolean;
+function valid(const value : string) : boolean;
 
-Implementation
+implementation
 
-Uses SysUtils, StrUtils, Character;
+uses SysUtils, StrUtils, Character;
 
-Function RunExercise(Const InputValue : String) :   Boolean;
+function valid(const value : string) : boolean;
+var
+  TempStr          : string;
+  character        : char;
+  i, j, digit, sum : integer;
+begin
 
-Var
-    TempStr          :   String;
-    character        :   Char;
-    i, j, digit, sum :   Integer;
-Begin
+  TempStr := ReplaceStr(value, ' ', '');
 
-    TempStr := ReplaceStr(InputValue, ' ', '');
+  if TempStr = '0' then exit(false);
 
-    If TempStr = '0' Then Exit(False);
+  sum := 0;
+  j   := 1;
+  for i := length(TempStr) downto 1 do
+    begin
+      character := copy(TempStr, i, 1)[1];
+      if not(IsNumber(character)) then exit(false);
+      digit := StrToInt(character);
+      if j and 1 = 0 then digit *= 2;
+      inc(j);
+      if digit > 9 then dec(digit, 9);
+      inc(sum, digit);
+    end;
 
-    sum := 0;
-    j   := 1;
-    For i := Length(TempStr) Downto 1 Do
-        Begin
-            character := Copy(TempStr, i, 1)[1];
-            If Not(IsNumber(character)) Then Exit(False);
-            digit := StrToInt(character);
-            If j And 1 = 0 Then digit *= 2;
-            Inc(j);
-            If digit > 9 Then Dec(digit, 9);
-            Inc(sum, digit);
-        End;
+  result := sum mod 10 = 0;
 
-    Result := sum Mod 10 = 0;
+end;
 
-End;
-
-End.
+end.

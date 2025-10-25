@@ -1,18 +1,20 @@
-Unit Luhn;
+unit Luhn;
 
 {$mode ObjFPC}{$H+}
 
-Interface
+interface
 
-Function RunExercise(Const InputValue : String) :   Boolean;
+function valid(const value : string) : boolean;
 
-Implementation
+implementation
 
-Function RunExercise(Const InputValue : String) :   Boolean;
-Begin
+uses SysUtils;
 
-   { WRITE YOUR SOLUTION }
+function valid(const value : string) : boolean;
+begin
 
-End;
+  raise ENotImplemented.Create('Please implement your solution.'); result := value <> value;
 
-End.
+end;
+
+end.
