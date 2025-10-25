@@ -1,63 +1,61 @@
-Unit PigLatin;
+unit PigLatin;
 
 {$mode ObjFPC}{$H+}
 
-Interface
+interface
 
-Function RunExercise(Const phrase : String ) :   String;
+function translate(const phrase : string) : string;
 
-Implementation
+implementation
 
-Uses Character, StrUtils;
+uses Character, StrUtils;
 
-Function IsVowel(Const chr : Char) :   Boolean;
-Begin
-    Result := chr In ['a', 'e', 'i', 'o', 'u'];
-End;
+function IsVowel(const chr : char) : boolean;
+begin
+  result := chr in ['a', 'e', 'i', 'o', 'u'];
+end;
 
-Function IsConsonant(Const chr : Char) :   Boolean;
-Begin
-    Result := IsLetter(chr) And Not(IsVowel(chr));
-End;
+function IsConsonant(const chr : char) : boolean;
+begin
+  result := IsLetter(chr) and not(IsVowel(chr));
+end;
 
-Function RunExercise(Const phrase : String ) :   String;
+function translate(const phrase : string) : string;
+var
+  translated  : string;
+  words      : Array Of String;
+  i, j, clen : integer;
+begin
+  words := SplitString(phrase, ' ');
+  for i := low(words) to high(words) do
+   begin
+     if IsVowel(words[i][1])          or
+        (copy(words[i], 1, 2) = 'xr') or
+        (copy(words[i], 1, 2) = 'yt') then
+       words[i] := words[i] + 'ay'
+    else if IsConsonant(words[i][1]) then
+    begin
+      clen := 1;
+      for j := 2 to length(words[i]) do
+      begin
+        if IsConsonant(words[i][j]) and
+          (words[i][j] <> 'y') then
+          inc(clen)
+        else break;
+      end;
+      if (copy(words[i], clen, 2) = 'qu') then inc(clen);
+      words[i] := copy(words[i], clen + 1) +
+                  copy(words[i], 1, clen)  +
+                  'ay';
+    end;
+  end;
 
-Var
-    translate  :   String;
-    words      :   Array Of String;
-    i, j, clen :   Integer;
-Begin
-    words := SplitString(phrase, ' ');
-    For i := Low(words) To High(words) Do
-        Begin
-            If IsVowel(words[i][1]) Or
-               (Copy(words[i], 1, 2) = 'xr') Or
-               (Copy(words[i], 1, 2) = 'yt') Then
-                words[i] := words[i] + 'ay'
-            Else If IsConsonant(words[i][1]) Then
-                     Begin
-                         clen := 1;
-                         For j := 2 To Length(words[i]) Do
-                             Begin
-                                 If IsConsonant(words[i][j]) And
-                                    (words[i][j] <> 'y') Then
-                                     Inc(clen)
-                                 Else break;
-                             End;
-                         If (Copy(words[i], clen, 2) = 'qu') Then Inc(clen);
-                         words[i] := Copy(words[i], clen + 1) +
-                                     Copy(words[i], 1, clen)  +
-                                     'ay';
-                     End;
-        End;
+  translated := '';
+  for i := low(words) to high(words) do
+    if translated = '' then translated := words[i]
+    else translated := translated + ' ' + words[i];
 
-    translate := '';
-    For i := Low(words) To High(words) Do
-        If translate = '' Then translate := words[i]
-        Else translate := translate + ' ' + words[i];
+  result := translated;
+end;
 
-    Result := translate;
-
-End;
-
-End.
+end.

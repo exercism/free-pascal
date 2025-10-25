@@ -1,19 +1,20 @@
-Unit PigLatin;
+unit PigLatin;
 
 {$mode ObjFPC}{$H+}
 
-Interface
+interface
 
-Function RunExercise(Const phrase : String ) :   String;
+function translate(const phrase : string) : string;
 
-Implementation
+implementation
 
-Function RunExercise(Const phrase : String ) :   String;
-Begin
+uses SysUtils;
 
-   { WRITE YOUR SOLUTION }
+function translate(const phrase : string) : string;
+begin
 
-End;
+  raise ENotImplemented.Create('Please implement your solution.'); result := phrase;
 
-End.
+end;
 
+end.
