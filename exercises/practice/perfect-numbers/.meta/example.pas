@@ -1,41 +1,37 @@
-Unit PerfectNumbers;
+unit PerfectNumbers;
 
 {$mode ObjFPC}{$H+}
 
-Interface
+interface
 
-Function RunExercise(Const number : Integer ) :   String;
+function classify(const number : integer) : string;
 
-Implementation
+implementation
 
-Uses SysUtils;
+uses SysUtils;
 
-Function RunExercise(Const number : Integer ) :   String;
+function classify(const number : integer) : string;
+var
+  factor, AliquotSum : integer;
+  classification     : string;
+begin
+  if number < 1 then
+    raise Exception.Create(
+      'Classification is only possible for positive integers.'
+    );
 
-Var
-    factor, AliquotSum :   Integer;
-    classification :   String;
-Begin
+  AliquotSum := 0;
+  for factor := 1 to number - 1 do
+    begin
+      if number mod factor <> 0 then continue;
+      AliquotSum := AliquotSum + factor;
+    end;
 
-    If number < 1 Then
-        Raise Exception.Create(
-            'Classification is only possible for positive integers.'
-        );
+  if      number = AliquotSum then classification := 'perfect'
+  else if number < AliquotSum then classification := 'abundant'
+  else                             classification := 'deficient';
 
-    AliquotSum := 0;
+  result := classification;
+end;
 
-    For factor := 1 To number - 1 Do
-        Begin
-            If number Mod factor <> 0 Then continue;
-            AliquotSum := AliquotSum + factor;
-        End;
-
-    If      number = AliquotSum Then classification := 'perfect'
-    Else If number < AliquotSum Then classification := 'abundant'
-    Else                             classification := 'deficient';
-
-    Result := classification;
-
-End;
-
-End.
+end.

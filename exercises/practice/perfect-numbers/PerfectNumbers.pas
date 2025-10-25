@@ -1,18 +1,20 @@
-Unit PerfectNumbers;
+unit PerfectNumbers;
 
 {$mode ObjFPC}{$H+}
 
-Interface
+interface
 
-Function RunExercise(Const number : Integer ) :   String;
+function classify(const number : integer) : string;
 
-Implementation
+implementation
 
-Function RunExercise(Const number : Integer ) :   String;
-Begin
+uses SysUtils;
 
-   { WRITE YOUR SOLUTION }
+function classify(const number : integer) : string;
+begin
 
-End;
+  raise ENotImplemented.Create('Please implement your solution.'); result := IntToStr(number);
 
-End.
+end;
+
+end.
