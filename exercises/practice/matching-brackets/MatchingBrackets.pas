@@ -1,18 +1,20 @@
-Unit MatchingBrackets;
+unit MatchingBrackets;
 
 {$mode ObjFPC}{$H+}
 
-Interface
+interface
 
-Function RunExercise(Const input : String) :   Boolean;
+function IsPaired(const value : string) : boolean;
 
-Implementation
+implementation
 
-Function RunExercise(Const input : String) :   Boolean;
-Begin
+uses SysUtils;
 
-   { WRITE YOUR SOLUTION }
+function IsPaired(const value : string) : boolean;
+begin
 
-End;
+  raise ENotImplemented.Create('Please implement your solution.'); result := value <> value;
 
-End.
+end;
+
+end.

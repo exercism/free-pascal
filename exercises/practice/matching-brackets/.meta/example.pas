@@ -1,40 +1,39 @@
-Unit MatchingBrackets;
+unit MatchingBrackets;
 
 {$mode ObjFPC}{$H+}
 
-Interface
+interface
 
-Function RunExercise(Const input : String) :   Boolean;
+function IsPaired(const value : string) : boolean;
 
-Implementation
+implementation
 
-Uses StrUtils;
+uses StrUtils;
 
-Function RunExercise(Const input : String) :   Boolean;
+function IsPaired(const value : string) : boolean;
+var
+  i      : integer;
+  TmpStr : string;
+begin
 
-Var
-    i      :   Integer;
-    TmpStr :   String;
-Begin
+  TmpStr := '';
+  for i := 1 to length(value) do
+    begin
+      if value[i] in ['{','}','[',']','(',')'] then
+        TmpStr := TmpStr + value[i]
+    end;
 
-    TmpStr := '';
-    For i := 1 To Length(input) Do
-        Begin
-            If input[i] In ['{','}','[',']','(',')'] Then
-                TmpStr := TmpStr + input[i]
-        End;
+  while (ContainsStr(TmpStr, '{}')) or
+        (ContainsStr(TmpStr, '[]')) or
+        (ContainsStr(TmpStr, '()')) do
+    begin
+      TmpStr := ReplaceStr(TmpStr, '{}', '');
+      TmpStr := ReplaceStr(TmpStr, '[]', '');
+      TmpStr := ReplaceStr(TmpStr, '()', '');
+    end;
 
-    While (ContainsStr(TmpStr, '{}')) Or
-          (ContainsStr(TmpStr, '[]')) Or
-          (ContainsStr(TmpStr, '()')) Do
-        Begin
-            TmpStr := ReplaceStr(TmpStr, '{}', '');
-            TmpStr := ReplaceStr(TmpStr, '[]', '');
-            TmpStr := ReplaceStr(TmpStr, '()', '');
-        End;
+  result := TmpStr = '';
 
-    Result := TmpStr = '';
+end;
 
-End;
-
-End.
+end.
