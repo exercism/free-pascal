@@ -1,56 +1,48 @@
-Unit NucleotideCount;
+unit NucleotideCount;
 
 {$mode ObjFPC}{$H+}
 
-Interface
+interface
 
-Function RunExercise(Const strand: String) :   String;
+function NucleotideCounts(const strand: string) : string;
 
-Implementation
+implementation
 
-Uses SysUtils;
+uses SysUtils;
 
-Const
-    nucleotides :   Array [0..3] Of Char =   ('A', 'C', 'G', 'T');
+const
+  nucleotides : Array [0..3] Of Char = ('A', 'C', 'G', 'T');
 
-Function GetNucleotideIdx (Const Nucleotide : Char) :   Integer;
+function GetNucleotideIdx (const nucleotide : char) : integer;
+var i : integer;
+begin
+  for i := low(nucleotides) to high(nucleotides) do
+    if nucleotide = nucleotides[i] then exit(i);
+  result := -1;
+end;
 
-Var i :   Integer;
-Begin
-    For i := Low(nucleotides) To High(nucleotides) Do
-        If Nucleotide = nucleotides[i] Then Exit(i);
-    Result := -1;
-End;
+function NucleotideCounts(const strand: string) : string;
+var
+  i, idx : integer;
+  counts : Array [0..3] Of Integer = (0, 0, 0, 0);
+  output : string;
+begin
+  for i := low(strand) to high(strand) do
+    begin
+      idx := GetNucleotideIdx(strand[i]);
+      if idx = -1 then
+        raise Exception.Create('Invalid nucleotide in strand');
+      inc(counts[idx]);
+    end;
+  output := '';
+  for i:= low(nucleotides) to high(nucleotides) do
+    begin
+      if output = '' then
+        output := format('%s: %d', [nucleotides[i], counts[i]])
+      else
+        output := output + #10 + format('%s: %d', [nucleotides[i], counts[i]]);
+    end;
+  result := output;
+end;
 
-Function RunExercise(Const strand: String) :   String;
-
-Var
-    i, idx :   Integer;
-    counts :   Array [0..3] Of Integer =   (0, 0, 0, 0);
-    output :   String;
-Begin
-
-    For i := Low(strand) To High(strand) Do
-        Begin
-            idx := GetNucleotideIdx(strand[i]);
-            If idx = -1 Then
-                Raise Exception.Create('Invalid nucleotide in strand');
-            Inc(counts[idx]);
-        End;
-
-    output := '';
-    For i:= low(nucleotides) To high(nucleotides) Do
-        Begin
-            If output = '' Then
-                output := Format('%s:%d', [nucleotides[i], counts[i]])
-            Else
-                output := Format(
-                    '%s, %s:%d', [output, nucleotides[i], counts[i]]
-                );
-        End;
-
-    Result := output;
-
-End;
-
-End.
+end.

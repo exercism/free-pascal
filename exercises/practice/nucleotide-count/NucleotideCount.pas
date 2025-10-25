@@ -1,18 +1,20 @@
-Unit NucleotideCount;
+unit NucleotideCount;
 
 {$mode ObjFPC}{$H+}
 
-Interface
+interface
 
-Function RunExercise(Const strand: String) :   String;
+function NucleotideCounts(const strand: string) : string;
 
-Implementation
+implementation
 
-Function RunExercise(Const strand: String) :   String;
-Begin
+uses SysUtils;
 
-   { WRITE YOUR SOLUTION }
+function NucleotideCounts(const strand: string) : string;
+begin
 
-End;
+  raise ENotImplemented.Create('Please implement your solution.'); result := strand;
 
-End.
+end;
+
+end.
