@@ -1,17 +1,20 @@
-Unit Pangram;
+unit Pangram;
 
 {$mode ObjFPC}{$H+}
 
-Interface
-Function RunExercise(Const sentence: String) :   Boolean;
+interface
 
-Implementation
+function IsPangram(const sentence: string) : boolean;
 
-Function RunExercise(Const sentence: String) :   Boolean;
-Begin
+implementation
 
-   { WRITE YOUR SOLUTION }
+uses SysUtils;
 
-End;
+function IsPangram(const sentence: string) : boolean;
+begin
 
-End.
+  raise ENotImplemented.Create('Please implement your solution.'); result := sentence <> sentence;
+
+end;
+
+end.
