@@ -1,21 +1,23 @@
-Unit PascalsTriangle;
+unit PascalsTriangle;
 
 {$mode ObjFPC}{$H+}
 
-Interface
+interface
 
-Type
-    DynBiDimIntArray =   Array Of Array Of Integer;
+type
+  TIntArray2D = Array Of Array Of Integer;
 
-Function RunExercise(Const count : Integer) :   DynBiDimIntArray;
+function rows(const count : integer) : TIntArray2D;
 
-Implementation
+implementation
 
-Function RunExercise(Const count : Integer) :   DynBiDimIntArray;
-Begin
+uses SysUtils;
 
-   { WRITE YOUR SOLUTION }
+function rows(const count : integer) : TIntArray2D;
+begin
 
-End;
+  raise ENotImplemented.Create('Please implement your solution.'); result := [[count * -1]];
 
-End.
+end;
+
+end.
