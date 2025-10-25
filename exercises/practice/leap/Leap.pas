@@ -1,18 +1,22 @@
-Unit Leap;
+unit Leap;
 
 {$mode ObjFPC}{$H+}
 
-Interface
-Function RunExercise(Const year :  Integer) :   Boolean;
+interface
 
-Implementation
+function LeapYear(const year : integer) : boolean;
 
-Function RunExercise(Const year :  Integer) :   Boolean;
-Begin
+implementation
 
-   { WRITE YOUR SOLUTION }
-   // Try writing a simple algorithm using conditional expressions instead of the built-in function.
+uses SysUtils;
 
-End;
+function LeapYear(const year : integer) : boolean;
+begin
 
-End.
+  raise ENotImplemented.Create('Please implement your solution.'); result := year <> year;
+
+  // Try writing a simple algorithm using conditional expressions instead of the built-in function.
+
+end;
+
+end.

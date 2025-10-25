@@ -1,20 +1,18 @@
-Unit Leap;
+unit Leap;
 
 {$mode ObjFPC}{$H+}
 
-Interface
-Function RunExercise(Const year :  Integer) :   Boolean;
+interface
 
-Implementation
+function LeapYear(const year : integer) : boolean;
 
-Function RunExercise(Const year :  Integer) :   Boolean;
-Begin
+implementation
 
-    Result := (
-        (year Mod 400 = 0) Or
-        ((year Mod 4 = 0) And (year Mod 100 <> 0))
-    );
+function LeapYear(const year : integer) : boolean;
+begin
+  result := (
+    (year mod 400 = 0) or ((year mod 4 = 0) and (year mod 100 <> 0))
+  );
+end;
 
-End;
-
-End.
+end.
