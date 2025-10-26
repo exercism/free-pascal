@@ -1,19 +1,31 @@
-Unit ResistorColor;
+unit ResistorColor;
 
 {$mode ObjFPC}{$H+}
 
-Interface
+interface
 
-Function RunExercise(Const color: String) :   Int8;
+type
+  TStrArray = Array Of String;
 
-Implementation
+function ColorCode(const color: string) : int8;
+function colors : TStrArray;
 
-Function RunExercise(Const color: String) :   Int8;
-Begin
+implementation
 
-   { WRITE YOUR SOLUTION }
+uses SysUtils;
 
-End;
+function ColorCode(const color: string) : int8;
+begin
 
-End.
+  raise ENotImplemented.Create('Please implement your solution.'); result := length(color) * -1;
 
+end;
+
+function colors : TStrArray;
+begin
+
+  raise ENotImplemented.Create('Please implement your solution.'); result := [];
+
+end;
+
+end.

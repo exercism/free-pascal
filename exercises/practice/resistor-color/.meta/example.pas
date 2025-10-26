@@ -1,40 +1,44 @@
-Unit ResistorColor;
+unit ResistorColor;
 
 {$mode ObjFPC}{$H+}
 
-Interface
+interface
 
-Function RunExercise(Const color: String) :   Int8;
-Function RunExercise() :              String;
+type
+  TStrArray = Array Of String;
 
-Implementation
+function ColorCode(const color: string) : int8;
+function colors : TStrArray;
 
-Uses TypInfo;
+implementation
 
-Type
-    ColorCodes =   (
-        black, brown, red, orange, yellow, green, blue, violet, grey, white
-    );
+uses TypInfo;
 
-Var
-    id                   :   ColorCodes;
-    ColorName, ColorList :   String;
+type
+  ColorCodes = (
+    black, brown, red, orange, yellow, green, blue, violet, grey, white
+  );
 
-Function RunExercise(Const color: String) :   Int8;
-Begin
-    Result := GetEnumValue(TypeInfo(ColorCodes), color);
-End;
+function ColorCode(const color: string) : int8;
+begin
+  result := GetEnumValue(TypeInfo(ColorCodes), color);
+end;
 
-Function RunExercise() :   String;
-Begin
-    ColorList := '';
-    For id := Low(ColorCodes) To High(ColorCodes) Do
-        Begin
-            WriteStr(ColorName, id);
-            If ColorList = '' Then ColorList := ColorName
-            Else ColorList := ColorList + ', ' + ColorName;
-        End;
-    Result := ColorList;
-End;
+function colors : TStrArray;
+var
+  i         : integer = 0;
+  id        : ColorCodes;
+  ColorName : string;
+  ColorList : TStrArray;
+begin
+  ColorList := [];
+  for id := low(ColorCodes) to high(ColorCodes) do
+    begin
+      WriteStr(ColorName, id);
+      insert(ColorName, ColorList, length(ColorList));
+      inc(i);
+    end;
+  result := ColorList;
+end;
 
-End.
+end.
