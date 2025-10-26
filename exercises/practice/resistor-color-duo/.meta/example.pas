@@ -1,26 +1,26 @@
-Unit ResistorColorDuo;
+unit ResistorColorDuo;
 
 {$mode ObjFPC}{$H+}
 
-Interface
+interface
 
-Function RunExercise(colors: Array Of String) : Int8;
+function value(colors: Array Of String) : int8;
 
-Implementation
+implementation
 
-Uses TypInfo;
+uses TypInfo;
 
-Type
-    ColorCodes =   (
-        black, brown, red, orange, yellow, green, blue, violet, grey, white
-    );
+type
+  ColorCodes = (
+    black, brown, red, orange, yellow, green, blue, violet, grey, white
+ );
 
-Function RunExercise(colors: Array Of String) : Int8;
-Begin
+function value(colors: Array Of String) : int8;
+begin
 
-   Result := GetEnumValue(TypeInfo(ColorCodes), colors[0]) * 10
-           + GetEnumValue(TypeInfo(ColorCodes), colors[1]);
+  result := GetEnumValue(TypeInfo(ColorCodes), colors[0]) * 10 +
+            GetEnumValue(TypeInfo(ColorCodes), colors[1]);
 
-End;
+end;
 
-End.
+end.

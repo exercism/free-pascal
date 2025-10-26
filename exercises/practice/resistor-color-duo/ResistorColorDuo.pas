@@ -1,19 +1,20 @@
-Unit ResistorColorDuo;
+unit ResistorColorDuo;
 
 {$mode ObjFPC}{$H+}
 
-Interface
+interface
 
-Function RunExercise(colors: Array Of String) : Int8;
+function value(colors: Array Of String) : int8;
 
-Implementation
+implementation
 
-Function RunExercise(colors: Array Of String) : Int8;
-Begin
+uses SysUtils;
 
-   { WRITE YOUR SOLUTION }
+function value(colors: Array Of String) : int8;
+begin
 
-End;
+  raise ENotImplemented.Create('Please implement your solution.'); result := length(colors) * -1;
 
-End.
+end;
 
+end.
