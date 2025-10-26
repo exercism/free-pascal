@@ -1,18 +1,21 @@
-Unit ReverseString;
+unit ReverseString;
 
 {$mode ObjFPC}{$H+}
 
-Interface
-Function RunExercise(Const AValue: String) :   String;
+interface
 
-Implementation
+function reverse(const value: string) : string;
 
-Function RunExercise(Const AValue: String) :   String;
-Begin
+implementation
 
-   { WRITE YOUR SOLUTION }
-   // Try writing a simple algorithm instead of using the built-in function.
+uses SysUtils;
 
-End;
+function reverse(const value: string) : string;
+begin
 
-End.
+  raise ENotImplemented.Create('Please implement your solution.'); result := value;
+  // Try writing a simple algorithm instead of using the built-in function.
+
+end;
+
+end.

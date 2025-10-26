@@ -1,22 +1,22 @@
-Unit ReverseString;
+unit ReverseString;
 
 {$mode ObjFPC}{$H+}
 
-Interface
+interface
 
-Function RunExercise(Const AValue: String) :   String;
+function reverse(const value: string) : string;
 
-Implementation
+implementation
 
-Function RunExercise(Const AValue: String) :   String;
+function reverse(const value: string) : string;
+var
+  TmpStr : string;
+  i      : integer;
+begin
+  TmpStr := '' ;
+  for i := length(value) downto 1 do
+    TmpStr := TmpStr + value[i];
+  result := TmpStr;
+end;
 
-Var
-    TmpStr :   String;
-    i      :   Integer;
-Begin
-    TmpStr := '' ;
-    For i := Length(AValue) Downto 1 Do TmpStr := TmpStr + AValue[i];
-    Result := TmpStr;
-End;
-
-End.
+end.
