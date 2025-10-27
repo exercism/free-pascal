@@ -1,52 +1,40 @@
-Unit SumOfMultiples;
+unit SumOfMultiples;
 
 {$mode ObjFPC}{$H+}
 
-Interface
+interface
 
-Function RunExercise(
-    Const factors: Array Of Integer; 
-    Const limit:   Integer
-) :   Integer;
+function sum(const factors: Array Of Integer; const limit: integer) : integer;
 
-Implementation
+implementation
 
-Function RunExercise(
-    Const factors: Array Of Integer; 
-    Const limit:   Integer
-) :   Integer;
-Var
-    idx, i, j, sum :   Integer;
-    exists         :   Boolean;
-    multiples      :   Array Of Integer;
-Begin
+function sum(const factors: Array Of Integer; const limit: integer) : integer;
+var
+  idx, i, j, acc : integer;
+  exists         : boolean;
+  multiples      : Array Of Integer;
+begin
+  multiples := [];
+  for idx := low(factors) to high(factors) do
+    begin
+      if factors[idx] = 0 then continue;
+      for i := factors[idx] to limit - 1 do
+        if i mod factors[idx] = 0 then
+          begin
+            exists := false;
+            for j := low(multiples) to high(multiples) do
+              if multiples[j] = i then
+              begin
+                exists := true;
+                break;
+              end;
+            if not exists then insert(i, multiples, 0);
+          end;
+    end;
+  acc := 0;
+  for idx := low(multiples) to high(multiples) do
+    acc := acc + multiples[idx];
+  result := acc;
+end;
 
-    multiples := [];
-    For idx := Low(factors) To High(factors) Do
-        Begin
-            If factors[idx] = 0 Then Continue;
-            For i := factors[idx] To limit - 1 Do
-                If i Mod factors[idx] = 0 Then
-                    Begin
-                        exists := false;
-                        For j := Low(multiples) To High(multiples) Do
-                            Begin
-                                If multiples[j] = i Then
-                                    Begin
-                                        exists := true;
-                                        break;
-                                    End;
-                            End;
-                        If Not exists Then Insert(i, multiples, 0);
-                    End;
-        End;
-
-    sum := 0;
-    For idx := Low(multiples) To High(multiples) Do
-        sum := sum + multiples[idx];
-
-    Result := sum;
-
-End;
-
-End.
+end.

@@ -1,25 +1,20 @@
-Unit SumOfMultiples;
+unit SumOfMultiples;
 
 {$mode ObjFPC}{$H+}
 
-Interface
+interface
 
-Function RunExercise(
-    Const factors: Array Of Integer; 
-    Const limit:   Integer
-) :   Integer;
+function sum(const factors: Array Of Integer; const limit: integer) : integer;
 
-Implementation
+implementation
 
-Function RunExercise(
-    Const factors: Array Of Integer; 
-    Const limit:   Integer
-) :   Integer;
-Begin
+uses SysUtils;
 
-   { WRITE YOUR SOLUTION }
+function sum(const factors: Array Of Integer; const limit: integer) : integer;
+begin
 
-End;
+  raise ENotImplemented.Create('Please implement your solution.'); result := length(factors) * limit * -1;
 
-End.
+end;
 
+end.
