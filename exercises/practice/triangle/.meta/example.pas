@@ -1,35 +1,34 @@
-Unit Triangle;
+unit Triangle;
 
 {$mode ObjFPC}{$H+}
 
-Interface
-Function RunExercise(
-    AProperty: String; a: Double; b: Double; c: Double
-) :   Boolean;
+interface
 
-Implementation
+function equilateral(a: double; b: double; c: double): boolean;
+function   isosceles(a: double; b: double; c: double): boolean;
+function     scalene(a: double; b: double; c: double): boolean;
 
-Var
-    bool :   Boolean;
+implementation
 
-Function RunExercise(
-    AProperty: String; a: Double; b: Double; c: Double
-) :   Boolean;
-Begin
+function IsTriangle(a: double; b: double; c: double): boolean;
+begin
+  result := (a > 0) and (b > 0) and (c > 0) and
+            (a + b >= c) and (b + c >= a) and (a + c >= b);
+end;
 
-    bool := false;
+function equilateral(a: double; b: double; c: double): boolean;
+begin
+  result := IsTriangle(a, b, c) and (a = b) and (a = c);
+end;
 
-    If (a = b) And (a = c) And (a = 0) Then bool := false
-    Else If (a + b < c) Or (b + c < a) Or (a + c < b) Then bool := false
-    Else If (AProperty = 'equilateral') And (a = b) And (a = c) Then
-             bool := true
-    Else If (AProperty = 'isosceles') And ((a = b) Or (a = c) Or (b = c)) Then
-             bool := true
-    Else If (AProperty = 'scalene') And (a <> b) And (a <> c) And (b <> c) Then
-             bool := true;
+function isosceles(a: double; b: double; c: double): boolean;
+begin
+  result := IsTriangle(a, b, c) and ((a = b) or (a = c) or (b = c));
+end;
 
-    Result := bool;
+function scalene(a: double; b: double; c: double): boolean;
+begin
+  result := IsTriangle(a, b, c) and (a <> b) and (a <> c) and (b <> c);
+end;
 
-End;
-
-End.
+end.

@@ -1,22 +1,36 @@
-Unit Triangle;
+unit Triangle;
 
 {$mode ObjFPC}{$H+}
 
-Interface
+interface
 
-Function RunExercise(
-    AProperty: String; a: Double; b: Double; c: Double
-) :   Boolean;
+function equilateral(a: double; b: double; c: double): boolean;
+function   isosceles(a: double; b: double; c: double): boolean;
+function     scalene(a: double; b: double; c: double): boolean;
 
-Implementation
+implementation
 
-Function RunExercise(
-    AProperty: String; a: Double; b: Double; c: Double
-) :   Boolean;
-Begin
+uses SysUtils;
 
-   { WRITE YOUR SOLUTION }
+function equilateral(a: double; b: double; c: double): boolean;
+begin
 
-End;
+  raise ENotImplemented.Create('Please implement your solution.'); result := a + b + c <> a + b + c;
 
-End.
+end;
+
+function isosceles(a: double; b: double; c: double): boolean;
+begin
+
+  raise ENotImplemented.Create('Please implement your solution.'); result := a + b + c <> a + b + c;
+
+end;
+
+function scalene(a: double; b: double; c: double): boolean;
+begin
+
+  raise ENotImplemented.Create('Please implement your solution.'); result := a + b + c <> a + b + c;
+
+end;
+
+end.
