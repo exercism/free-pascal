@@ -1,18 +1,20 @@
-Unit SquareRoot;
+unit SquareRoot;
 
 {$mode ObjFPC}{$H+}
 
-Interface
+interface
 
-Function RunExercise(Const radicand :Integer) :   Integer;
+function SquareRoot(const radicand : integer) : integer;
 
-Implementation
+implementation
 
-Function RunExercise(Const radicand :Integer) :   Integer;
-Begin
+uses SysUtils;
 
-   { WRITE YOUR SOLUTION }
+function SquareRoot(const radicand : integer) : integer;
+begin
 
-End;
+  raise ENotImplemented.Create('Please implement your solution.'); result := radicand * -1;
 
-End.
+end;
+
+end.

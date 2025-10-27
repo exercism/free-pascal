@@ -1,33 +1,30 @@
-Unit SquareRoot;
+unit SquareRoot;
 
 {$mode ObjFPC}{$H+}
 
-Interface
+interface
 
-Function RunExercise(Const radicand :Integer) :   Integer;
+function SquareRoot(const radicand : integer) : integer;
 
-Implementation
+implementation
 
-Function RunExercise(Const radicand :Integer) :   Integer;
+function SquareRoot(const radicand : integer) : integer;
+var
+  i, j, mid : integer;
+begin
+  i := 0;
+  j := radicand;
 
-Var
-    i, j, mid :   Integer;
-Begin
+  repeat
+    mid := (i + j) div 2;
+    if mid * mid < radicand then
+      i := mid + 1
+    else if mid * mid > radicand then
+      j := mid - 1
+    else break;
+  until (i + j < 0);
 
-    i := 0;
-    j := radicand;
+  result := mid;
+end;
 
-    Repeat
-        mid := (i + j) Div 2;
-        If      mid * mid < radicand Then
-            i := mid + 1
-        Else If mid * mid > radicand Then
-                 j := mid - 1
-        Else break;
-    Until (i + j < 0);
-
-    Result := mid;
-
-End;
-
-End.
+end.
