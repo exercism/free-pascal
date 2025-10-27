@@ -1,18 +1,20 @@
-Unit RnaTranscription;
+unit RnaTranscription;
 
 {$mode ObjFPC}{$H+}
 
-Interface
-Function RunExercise(Const dna : String ) :   string;
+interface
 
-Implementation
+function ToRna(const dna : string) : string;
 
-Function RunExercise(Const dna : String ) :   string;
-Begin
+implementation
 
-   { WRITE YOUR SOLUTION }
+uses SysUtils;
 
-End;
+function ToRna(const dna : string) : string;
+begin
 
-End.
+  raise ENotImplemented.Create('Please implement your solution.'); result := dna;
 
+end;
+
+end.

@@ -1,37 +1,36 @@
-Unit RnaTranscription;
+unit RnaTranscription;
 
 {$mode ObjFPC}{$H+}
 
-Interface
-Function RunExercise(Const dna : String ) :   string;
+interface
 
-Implementation
+function ToRna(const dna : string) : string;
 
-Var
-    i          :   integer;
-    nucleotide :   string;
-    complement :   string;
-    rna        :   string;
+implementation
 
-Function RunExercise(Const dna : String ) :   string;
-Begin
+var
+  i          : integer;
+  nucleotide : string;
+  complement : string;
+  rna        : string;
 
-    rna := '';
+function ToRna(const dna : string) : string;
+begin
+  rna := '';
 
-    For i:= 1 To Length(dna) Do
-        Begin
-            nucleotide := Copy(dna, i, 1);
-            Case nucleotide Of
-                'G':   complement := 'C';
-                'C':   complement := 'G';
-                'T':   complement := 'A';
-                'A':   complement := 'U';
-            End;
-            rna := rna + complement;
-        End;
+  for i:= 1 to length(dna) do
+    begin
+      nucleotide := copy(dna, i, 1);
+      case nucleotide of
+        'G' : complement := 'C';
+        'C' : complement := 'G';
+        'T' : complement := 'A';
+        'A' : complement := 'U';
+      end;
+      rna := rna + complement;
+    end;
 
-    Result := rna;
+  result := rna;
+end;
 
-End;
-
-End.
+end.
