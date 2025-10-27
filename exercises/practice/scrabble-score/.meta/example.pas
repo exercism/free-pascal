@@ -1,40 +1,38 @@
-Unit ScrabbleScore;
+unit ScrabbleScore;
 
 {$mode ObjFPC}{$H+}
 
-Interface
+interface
 
-Function RunExercise(Const word: String) :   Integer;
+function score(const word: string) : integer;
 
-Implementation
+implementation
 
-Uses SysUtils;
+uses SysUtils;
 
-Var
-    i, score    :   Integer;
-    temp :   String;
+var 
+  i, count : integer;
+  temp     : string;
 
-Function RunExercise(Const word: String) :   Integer;
-Begin
+function score(const word: string) : integer;
+begin
+  count := 0;
+  temp := UpperCase(word);
 
-    score := 0;
-    temp := UpperCase(word);
+  for i := 1 to length(temp) do
+    begin
+      case copy(temp, i, 1) of 
+        'A','E','I','O','U','L','N','R','S','T' : inc(count,  1);
+        'D','G'                                 : inc(count,  2);
+        'B','C','M','P'                         : inc(count,  3);
+        'F','H','V','W','Y'                     : inc(count,  4);
+        'K'                                     : inc(count,  5);
+        'J','X'                                 : inc(count,  8);
+        'Q','Z'                                 : inc(count, 10);
+      end;
+    end;
 
-    For i := 1 To Length(temp) Do
-        Begin
-            Case Copy(temp, i, 1) Of
-                'A','E','I','O','U','L','N','R','S','T' :   score := score +  1;
-                'D','G'                                 :   score := score +  2;
-                'B','C','M','P'                         :   score := score +  3;
-                'F','H','V','W','Y'                     :   score := score +  4;
-                'K'                                     :   score := score +  5;
-                'J','X'                                 :   score := score +  8;
-                'Q','Z'                                 :   score := score + 10;
-            End;
-        End;
+  result := count;
+end;
 
-    Result := score;
-
-End;
-
-End.
+end.

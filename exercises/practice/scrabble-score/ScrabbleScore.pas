@@ -1,19 +1,20 @@
-Unit ScrabbleScore;
+unit ScrabbleScore;
 
 {$mode ObjFPC}{$H+}
 
-Interface
+interface
 
-Function RunExercise(Const word: String) :   Integer;
+function score(const word: string) : integer;
 
-Implementation
+implementation
 
-Function RunExercise(Const word: String) :   Integer;
-Begin
+uses SysUtils;
 
-   { WRITE YOUR SOLUTION }
+function score(const word: string) : integer;
+begin
 
-End;
+  raise ENotImplemented.Create('Please implement your solution.'); result := length(word) * -1;
+  
+end;
 
-End.
-
+end.
