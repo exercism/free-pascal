@@ -7,8 +7,10 @@ interface
 type
   TIntArray   = Array Of Integer;
   TIntArray2D = Array Of Array Of Integer;
+  TStrArray   = Array Of String;
 
 function CompareArrays(const ArrayOne, ArrayTwo : TIntArray) : boolean;
+function CompareArrays(const ArrayOne, ArrayTwo : TStrArray) : boolean;
 function Compare2DArrays(const ArrayOne, ArrayTwo : TIntArray2D) : boolean;
 function EncodeJsonMessage(const AMessage : string; const Expected : boolean; const Actual : boolean) : string;
 function EncodeJsonMessage(const AMessage : string; const Expected : string;  const Actual : string ) : string;
@@ -16,12 +18,31 @@ function EncodeJsonMessage(const AMessage : string; const Expected : integer; co
 function EncodeJsonMessage(const AMessage : string; const Expected : single;  const Actual : single ) : string;
 function EncodeJsonMessage(const AMessage : string; const Expected : TIntArray;   const Actual : TIntArray  ) : string;
 function EncodeJsonMessage(const AMessage : string; const Expected : TIntArray2D; const Actual : TIntArray2D) : string;
+function EncodeJsonMessage(const AMessage : string; const Expected : TStrArray;   const Actual : TStrArray  ) : string;
 
 implementation
 
 uses FpJson, SysUtils;
 
 function CompareArrays(const ArrayOne, ArrayTwo : TIntArray) : boolean;
+var
+  i : integer;
+begin
+  if length(ArrayOne) <> length(ArrayTwo) then
+    begin
+      result := false;
+      exit;
+    end;
+  for i := low(ArrayOne) to high(ArrayOne) do
+    if ArrayOne[i] <> ArrayTwo[i] then
+    begin
+      result := false;
+      exit;
+    end;
+  result := true;
+end;
+
+function CompareArrays(const ArrayOne, ArrayTwo : TStrArray) : boolean;
 var
   i : integer;
 begin
@@ -190,6 +211,36 @@ begin
       JOuterArray.Add(JInnerArray);
     end;
   JObject.Add('actual', JOuterArray);
+
+  JsonMessage := JObject.AsJson;
+  JOBJECT.Free;
+
+  result := JsonMessage;
+end;
+
+function EncodeJsonMessage(const AMessage : string; const Expected : TStrArray;   const Actual : TStrArray  ) : string;
+var
+  JObject     : TJSONObject;
+  JArray      : TJSONArray;
+  JsonMessage : string;
+  i           : integer;
+begin
+  JObject := TJSONObject.Create;
+  JObject.Add('message', AMessage);
+
+  JArray := TJSONArray.Create;
+  for i := low(Expected) to high(Expected) do
+    begin
+      JArray.Add(Expected[i]);
+    end;
+  JObject.Add('expected', JArray);
+
+  JArray := TJSONArray.Create;
+  for i := low(Actual) to high(Actual) do
+    begin
+      JArray.Add(Actual[i]);
+    end;
+  JObject.Add('actual', JArray);
 
   JsonMessage := JObject.AsJson;
   JOBJECT.Free;

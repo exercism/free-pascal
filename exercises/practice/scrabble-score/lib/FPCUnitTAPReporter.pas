@@ -109,7 +109,7 @@ begin
   if (AError.ExceptionClassName = 'ENotImplemented') and
      (AError.ExceptionMessage = 'Please implement your solution.') then
   begin
-    writeln(AError.ExceptionMessage);
+    writeln(format('not ok %d - %s', [0, AError.ExceptionMessage]));
     halt;
   end;
 

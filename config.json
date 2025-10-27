@@ -20,7 +20,7 @@
       "%{pascal_slug}.pas"
     ],
     "test": [
-      "%{pascal_slug}Tests.pas"
+      "TestCases.pas"
     ],
     "example": [
       ".meta/example.pas"

@@ -88,7 +88,7 @@ begin
   if pos(#10, LGot) > 0 then
     begin
       writeln('    got: |');
-      writeln('      ' + ReplaceStr(LExpected, #10, #10 + '      '));
+      writeln('      ' + ReplaceStr(LGot, #10, #10 + '      '));
     end
   else
     writeln('    got: ', LGot);
@@ -109,7 +109,7 @@ begin
   if (AError.ExceptionClassName = 'ENotImplemented') and
      (AError.ExceptionMessage = 'Please implement your solution.') then
   begin
-    writeln(AError.ExceptionMessage);
+    writeln(format('not ok %d - %s', [0, AError.ExceptionMessage]));
     halt;
   end;
 

@@ -58,22 +58,23 @@ begin
            TypeInfo(TJSONtype), ord(JData.FindPath('expected').JSONType)
          ) = 'jtArray' then
         LExpected := JData.FindPath('expected').FormatJSON
-      else LExpected := JData.FindPath('expected').AsJSON;
+      else LExpected := JData.FindPath('expected').AsString;
       if GetEnumName(
            TypeInfo(TJSONtype), ord(JData.FindPath('actual').JSONType)
          ) = 'jtArray' then
         LGot := JData.FindPath('actual').FormatJSON
-      else LGot := JData.FindPath('actual').AsJSON;
-        LGot := JData.FindPath('actual').AsJSON;
+      else LGot := JData.FindPath('actual').AsString;
     finally
       JData.Free;
     end
   except
     on E: Exception do
       begin
-        writeln('[Exception Message] ', E.message);
-        writeln('[Failure Class] ', AFailure.ExceptionClassName);
-        writeln('[Failure Message] ', AFailure.ExceptionMessage);
+        writeln('[TestName] ', ATest.TestName);
+        writeln('[Message] ', AFailure.ExceptionMessage);
+        writeln('[ExceptionMessage] ', E.message);
+        writeln('[FailureClass] ', AFailure.ExceptionClassName);
+        writeln('[FailureMessage] ', AFailure.ExceptionMessage);
         exit;
       end
   end;
@@ -87,7 +88,7 @@ begin
   if pos(#10, LGot) > 0 then
     begin
       writeln('    got: |');
-      writeln('      ' + ReplaceStr(LExpected, #10, #10 + '      '));
+      writeln('      ' + ReplaceStr(LGot, #10, #10 + '      '));
     end
   else
     writeln('    got: ', LGot);
@@ -108,7 +109,7 @@ begin
   if (AError.ExceptionClassName = 'ENotImplemented') and
      (AError.ExceptionMessage = 'Please implement your solution.') then
   begin
-    writeln(AError.ExceptionMessage);
+    writeln(format('not ok %d - %s', [0, AError.ExceptionMessage]));
     halt;
   end;
 
