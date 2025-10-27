@@ -1,17 +1,20 @@
-Unit TwoFer;
+unit TwoFer;
 
 {$mode ObjFPC}{$H+}
 
-Interface
-Function RunExercise(Const name :  String) :   String;
+interface
 
-Implementation
+function TwoFer(const name : string) : string;
 
-Function RunExercise(Const name :  String) :   String;
-Begin
+implementation
 
-   { WRITE YOUR SOLUTION }
+uses SysUtils;
 
-End;
+function TwoFer(const name : string) : string;
+begin
 
-End.
+  raise ENotImplemented.Create('Please implement your solution.'); result := name;
+
+end;
+
+end.

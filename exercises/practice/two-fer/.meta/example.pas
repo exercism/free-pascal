@@ -1,25 +1,22 @@
-Unit TwoFer;
+unit TwoFer;
 
 {$mode ObjFPC}{$H+}
 
-Interface
-Function RunExercise(Const name :  String) :   String;
+interface
 
-Implementation
+function TwoFer(const name : string) : string;
 
-Var
-    phrase :   string;
+implementation
 
-Function RunExercise(Const name :  String) :   String;
-Begin
+uses SysUtils;
 
-    If name = '' Then
-        phrase := 'One for you, one for me.'
-    Else
-        phrase := concat('One for ', name, ', one for me.');
+function TwoFer(const name : string) : string;
+var
+  who : string;
+begin
+  who := name;
+  if who = '' then who := 'you';
+  result := format('One for %s, one for me.', [who]);
+end;
 
-    Result := phrase;
-
-End;
-
-End.
+end.
