@@ -1,19 +1,20 @@
-Unit SpaceAge;
+unit SpaceAge;
 
 {$mode ObjFPC}{$H+}
 
-Interface
+interface
 
-Function RunExercise(Const planet: String; Const seconds: LongInt) :   Double;
+function age(const planet: string; const seconds: LongInt) : double;
 
-Implementation
+implementation
 
-Function RunExercise(Const planet: String; Const seconds: LongInt) :   Double;
-Begin
+uses SysUtils;
 
-   { WRITE YOUR SOLUTION }
+function age(const planet: string; const seconds: LongInt) : double;
+begin
 
-End;
+  raise ENotImplemented.Create('Please implement your solution.'); result := length(planet) * seconds;
 
-End.
+end;
 
+end.
