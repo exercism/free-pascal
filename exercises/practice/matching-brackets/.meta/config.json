@@ -7,7 +7,7 @@
       "MatchingBrackets.pas"
     ],
     "test": [
-      "MatchingBracketsTests.pas"
+      "TestCases.pas"
     ],
     "example": [
       ".meta/example.pas"

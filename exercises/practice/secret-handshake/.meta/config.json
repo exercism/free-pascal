@@ -7,7 +7,7 @@
       "SecretHandshake.pas"
     ],
     "test": [
-      "SecretHandshakeTests.pas"
+      "TestCases.pas"
     ],
     "example": [
       ".meta/example.pas"

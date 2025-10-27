@@ -7,7 +7,7 @@
       "AllYourBase.pas"
     ],
     "test": [
-      "AllYourBaseTests.pas"
+      "TestCases.pas"
     ],
     "example": [
       ".meta/example.pas"

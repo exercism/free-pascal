@@ -7,7 +7,7 @@
       "SquareRoot.pas"
     ],
     "test": [
-      "SquareRootTests.pas"
+      "TestCases.pas"
     ],
     "example": [
       ".meta/example.pas"

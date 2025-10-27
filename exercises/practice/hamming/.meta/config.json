@@ -7,7 +7,7 @@
       "Hamming.pas"
     ],
     "test": [
-      "HammingTests.pas"
+      "TestCases.pas"
     ],
     "example": [
       ".meta/example.pas"

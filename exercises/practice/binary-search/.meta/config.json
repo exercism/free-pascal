@@ -7,7 +7,7 @@
       "BinarySearch.pas"
     ],
     "test": [
-      "BinarySearchTests.pas"
+      "TestCases.pas"
     ],
     "example": [
       ".meta/example.pas"

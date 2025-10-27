@@ -7,7 +7,7 @@
       "Meetup.pas"
     ],
     "test": [
-      "MeetupTests.pas"
+      "TestCases.pas"
     ],
     "example": [
       ".meta/example.pas"

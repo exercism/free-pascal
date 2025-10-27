@@ -7,7 +7,7 @@
       "PhoneNumber.pas"
     ],
     "test": [
-      "PhoneNumberTests.pas"
+      "TestCases.pas"
     ],
     "example": [
       ".meta/example.pas"

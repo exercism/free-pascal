@@ -7,7 +7,7 @@
       "PerfectNumbers.pas"
     ],
     "test": [
-      "PerfectNumbersTests.pas"
+      "TestCases.pas"
     ],
     "example": [
       ".meta/example.pas"

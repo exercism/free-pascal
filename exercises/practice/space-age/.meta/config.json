@@ -7,7 +7,7 @@
       "SpaceAge.pas"
     ],
     "test": [
-      "SpaceAgeTests.pas"
+      "TestCases.pas"
     ],
     "example": [
       ".meta/example.pas"

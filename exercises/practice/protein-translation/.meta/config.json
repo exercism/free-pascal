@@ -7,7 +7,7 @@
       "ProteinTranslation.pas"
     ],
     "test": [
-      "ProteinTranslationTests.pas"
+      "TestCases.pas"
     ],
     "example": [
       ".meta/example.pas"

@@ -7,7 +7,7 @@
       "RnaTranscription.pas"
     ],
     "test": [
-      "RnaTranscriptionTests.pas"
+      "TestCases.pas"
     ],
     "example": [
       ".meta/example.pas"

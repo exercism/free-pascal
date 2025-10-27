@@ -7,7 +7,7 @@
       "ScrabbleScore.pas"
     ],
     "test": [
-      "ScrabbleScoreTests.pas"
+      "TestCases.pas"
     ],
     "example": [
       ".meta/example.pas"

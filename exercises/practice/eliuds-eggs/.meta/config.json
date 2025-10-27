@@ -7,7 +7,7 @@
       "EliudsEggs.pas"
     ],
     "test": [
-      "EliudsEggsTests.pas"
+      "TestCases.pas"
     ],
     "example": [
       ".meta/example.pas"

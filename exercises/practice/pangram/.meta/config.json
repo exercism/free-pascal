@@ -7,7 +7,7 @@
       "Pangram.pas"
     ],
     "test": [
-      "PangramTests.pas"
+      "TestCases.pas"
     ],
     "example": [
       ".meta/example.pas"

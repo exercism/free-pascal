@@ -7,7 +7,7 @@
       "Gigasecond.pas"
     ],
     "test": [
-      "GigasecondTests.pas"
+      "TestCases.pas"
     ],
     "example": [
       ".meta/example.pas"

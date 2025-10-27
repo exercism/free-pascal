@@ -7,7 +7,7 @@
       "LargestSeriesProduct.pas"
     ],
     "test": [
-      "LargestSeriesProductTests.pas"
+      "TestCases.pas"
     ],
     "example": [
       ".meta/example.pas"

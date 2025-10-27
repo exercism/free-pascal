@@ -7,7 +7,7 @@
       "Triangle.pas"
     ],
     "test": [
-      "TriangleTests.pas"
+      "TestCases.pas"
     ],
     "example": [
       ".meta/example.pas"

@@ -7,7 +7,7 @@
       "SumOfMultiples.pas"
     ],
     "test": [
-      "SumOfMultiplesTests.pas"
+      "TestCases.pas"
     ],
     "example": [
       ".meta/example.pas"

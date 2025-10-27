@@ -7,7 +7,7 @@
       "CollatzConjecture.pas"
     ],
     "test": [
-      "CollatzConjectureTests.pas"
+      "TestCases.pas"
     ],
     "example": [
       ".meta/example.pas"

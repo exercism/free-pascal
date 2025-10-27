@@ -7,7 +7,7 @@
       "ArmstrongNumbers.pas"
     ],
     "test": [
-      "ArmstrongNumbersTests.pas"
+      "TestCases.pas"
     ],
     "example": [
       ".meta/example.pas"

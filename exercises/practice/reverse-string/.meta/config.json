@@ -7,7 +7,7 @@
       "ReverseString.pas"
     ],
     "test": [
-      "ReverseStringTests.pas"
+      "TestCases.pas"
     ],
     "example": [
       ".meta/example.pas"

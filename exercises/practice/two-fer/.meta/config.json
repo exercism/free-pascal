@@ -7,7 +7,7 @@
       "TwoFer.pas"
     ],
     "test": [
-      "TwoFerTests.pas"
+      "TestCases.pas"
     ],
     "example": [
       ".meta/example.pas"

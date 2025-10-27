@@ -7,7 +7,7 @@
       "NucleotideCount.pas"
     ],
     "test": [
-      "NucleotideCountTests.pas"
+      "TestCases.pas"
     ],
     "example": [
       ".meta/example.pas"

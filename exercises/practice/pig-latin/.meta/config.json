@@ -7,7 +7,7 @@
       "PigLatin.pas"
     ],
     "test": [
-      "PigLatinTests.pas"
+      "TestCases.pas"
     ],
     "example": [
       ".meta/example.pas"

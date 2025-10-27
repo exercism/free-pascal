@@ -7,7 +7,7 @@
       "Leap.pas"
     ],
     "test": [
-      "LeapTests.pas"
+      "TestCases.pas"
     ],
     "example": [
       ".meta/example.pas"

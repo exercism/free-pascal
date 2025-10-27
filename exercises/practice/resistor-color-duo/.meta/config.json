@@ -7,7 +7,7 @@
       "ResistorColorDuo.pas"
     ],
     "test": [
-      "ResistorColorDuoTests.pas"
+      "TestCases.pas"
     ],
     "example": [
       ".meta/example.pas"

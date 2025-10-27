@@ -7,7 +7,7 @@
       "DifferenceOfSquares.pas"
     ],
     "test": [
-      "DifferenceOfSquaresTests.pas"
+      "TestCases.pas"
     ],
     "example": [
       ".meta/example.pas"

@@ -7,7 +7,7 @@
       "Raindrops.pas"
     ],
     "test": [
-      "RaindropsTests.pas"
+      "TestCases.pas"
     ],
     "example": [
       ".meta/example.pas"

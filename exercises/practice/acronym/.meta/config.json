@@ -7,7 +7,7 @@
       "Acronym.pas"
     ],
     "test": [
-      "AcronymTests.pas"
+      "TestCases.pas"
     ],
     "example": [
       ".meta/example.pas"

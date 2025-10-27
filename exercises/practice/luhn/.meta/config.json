@@ -7,7 +7,7 @@
       "Luhn.pas"
     ],
     "test": [
-      "LuhnTests.pas"
+      "TestCases.pas"
     ],
     "example": [
       ".meta/example.pas"

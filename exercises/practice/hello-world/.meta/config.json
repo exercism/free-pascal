@@ -7,7 +7,7 @@
       "HelloWorld.pas"
     ],
     "test": [
-      "HelloWorldTests.pas"
+      "TestCases.pas"
     ],
     "example": [
       ".meta/example.pas"

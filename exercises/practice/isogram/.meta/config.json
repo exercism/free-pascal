@@ -7,7 +7,7 @@
       "Isogram.pas"
     ],
     "test": [
-      "IsogramTests.pas"
+      "TestCases.pas"
     ],
     "example": [
       ".meta/example.pas"
