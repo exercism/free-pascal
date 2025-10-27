@@ -1,46 +1,46 @@
-Unit SecretHandshake;
+unit SecretHandshake;
 
 {$mode ObjFPC}{$H+}
 
-Interface
+interface
 
-Type
-    DynStringArray =   Array Of String;
+type 
+  TStrArray = Array Of String;
 
-Function RunExercise(Const number : Integer) :   DynStringArray;
+function commands(const number : integer) : TStrArray;
 
-Implementation
+implementation
 
-Type
-    TOperation     =   Record
-        bit  :   Integer;
-        action :   String
-    End;
+type 
+  TOperation = record
+    bit    : integer;
+    action : string
+  end;               
 
-Const
-    OperationList:   Array Of TOperation =   (
-        (bit: %00001; action: 'wink'           ),
-        (bit: %00010; action: 'double blink'   ),
-        (bit: %00100; action: 'close your eyes'),
-        (bit: %01000; action: 'jump'           )
-    );
+const 
+  OperationList : Array of TOperation = (
+    (bit: %00001; action: 'wink'           ),
+    (bit: %00010; action: 'double blink'   ),
+    (bit: %00100; action: 'close your eyes'),
+    (bit: %01000; action: 'jump'           )
+ );
 
-Function RunExercise(Const number : Integer ) :   DynStringArray;
-Var
-    i, idx     :   integer;
-    operations :   DynStringArray;
-Begin
-    operations := [];
-    For i := Low(OperationList) To High(OperationList) Do
-        Begin
-            If number And OperationList[i].bit <> 0 Then
-                Begin
-                    If number And %10000 <> 0 Then idx := 0
-                    else idx := Length(operations);
-                    Insert(OperationList[i].action, operations, idx);
-                End;
-        End;
-    Result := operations;
-End;
+function commands(const number : integer) : TStrArray;
+var 
+  i, idx     : integer;
+  operations : TStrArray;
+begin
+  operations := [];
+  for i := low(OperationList) to high(OperationList) do
+    begin
+      if number and OperationList[i].bit <> 0 then
+        begin
+          if number and %10000 <> 0 then idx := 0
+          else idx := length(operations);
+          insert(OperationList[i].action, operations, idx);
+        end;
+    end;
+  result := operations;
+end;
 
-End.
+end.

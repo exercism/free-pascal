@@ -1,21 +1,23 @@
-Unit SecretHandshake;
+unit SecretHandshake;
 
 {$mode ObjFPC}{$H+}
 
-Interface
+interface
 
-Type
-    DynStringArray =   Array Of String;
+type
+  TStrArray = Array Of String;
 
-Function RunExercise(Const number : Integer) :   DynStringArray;
+function commands(const number : integer) : TStrArray;
 
-Implementation
+implementation
 
-Function RunExercise(Const number : Integer) :   DynStringArray;
-Begin
+uses SysUtils;
 
-   { WRITE YOUR SOLUTION }
+function commands(const number : integer) : TStrArray;
+begin
 
-End;
+  raise ENotImplemented.Create('Please implement your solution.'); result := [ IntToStr(number) ];
 
-End.
+end;
+
+end.
