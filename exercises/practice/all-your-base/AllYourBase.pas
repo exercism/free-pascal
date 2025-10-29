@@ -4,14 +4,13 @@ unit AllYourBase;
 
 interface
 
-type
-  IntArray = array of integer;
+type TIntArray = array of integer;
 
 function rebase(
   const InputBase   : integer;
   const InputDigits : IntArray;
   const OutputBase  : integer
-) : IntArray;
+) : TIntArray;
 
 implementation
 
@@ -21,7 +20,7 @@ function rebase(
   const InputBase   : integer;
   const InputDigits : IntArray;
   const OutputBase  : integer
-) : IntArray;
+) : TIntArray;
 begin
 
   raise ENotImplemented.Create('Please implement your solution.'); result := [InputBase, length(InputDigits), OutputBase];
