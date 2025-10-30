@@ -8,7 +8,7 @@ type TIntArray = array of integer;
 
 function rebase(
   const InputBase   : integer;
-  const InputDigits : IntArray;
+  const InputDigits : TIntArray;
   const OutputBase  : integer
 ) : TIntArray;
 
@@ -18,7 +18,7 @@ uses SysUtils;
 
 function rebase(
   const InputBase   : integer;
-  const InputDigits : IntArray;
+  const InputDigits : TIntArray;
   const OutputBase  : integer
 ) : TIntArray;
 begin

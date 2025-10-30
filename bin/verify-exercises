@@ -10,8 +10,11 @@ SHELL      = /bin/bash
 BASENAME   = $(shell basename "$$PWD" | sed -r 's/(^|-)([a-z])/\U\2/g')
 COMMAND    = fpc -l- -v0 -Sehnw -Fu./lib test.pas
 JQ_ERROR   = "[ERROR] authors not set\n"
+test-stub:
+\t@$(COMMAND) && ./test
+\t@rm -f *.o *.ppu
 test:
-\t@jq -M -r '.authors | length | if . < 1 then ($(JQ_ERROR) | halt_error)  else empty end' ./.meta/config.json
+\t@jq -M -r '.authors | length | if . < 1 then ($(JQ_ERROR) | halt_error) else empty end' ./.meta/config.json
 \t@cp ./.meta/example.pas $(BASENAME).pas
 \t@$(COMMAND) && ./test --all
 END_OF_MAKEFILE
@@ -28,19 +31,40 @@ cp -r exercises/practice/* build/ || exit 1
 for path in build/*; do
     pushd "$path" > /dev/null || exit 1
     echo "$makefile" > Makefile
-    makeout=$(
-        make 2>&1 |
-        sed -e '1,2{/^TAP version 14$/d;/^1\.\.[0-9]\+$/d}' \
-            -e '/^ok [0-9]/d'
-    )
     echo -n "[EXERCISE] $(basename "$path")... "
-    if [[ "$makeout" == '' ]]; then
-        echo 'pass'
+    make_test_stub=$(
+        make test-stub 2>&1 |
+            sed -e '1{/^TAP version 14$/d}' \
+                -e '2{/^1\.\.[0-9]\+$/d}' \
+                -e '3{/^not ok 0 - Please implement your solution.$/d}'
+        )
+    if [[ "$path" == 'build/hello-world' ]]; then
+        if ! grep -q '^not ok 1 - SayHi$' <<<"$make_test_stub"; then
+            echo 'stub file fail'
+            echo "$make_test_stub"
+            (( fails += 1 ))
+        else
+            echo 'pass'
+        fi
+    elif [[ "$make_test_stub" != '' ]]; then
+        echo 'stub file fail'
+        echo "$make_test_stub"
+        (( fails += 1 ))
     else
-        echo 'fail'
-        echo "$makeout"
-        echo ''
-        let 'fails += 1'
+        make_test_example=$(
+            make -B test 2>&1 |
+                sed -e '1{/^TAP version 14$/d}' \
+                    -e '2{/^1\.\.[0-9]\+$/d}' \
+                    -e '/^ok [0-9]\+ - [0-9A-Za-z_]\+$/d'
+            )
+        if [[ "$make_test_example" == '' ]]; then
+            echo 'pass'
+        else
+            echo 'fail'
+            echo "$make_test_example"
+            echo ''
+            (( fails += 1 ))
+        fi
     fi
     popd > /dev/null || exit 1
 done

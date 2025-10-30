@@ -16,7 +16,7 @@ uses SysUtils;
 function find(const AArray: TIntArray; const AValue : integer) : integer;
 begin
 
-  { raise ENotImplemented.Create('Please implement your solution.'); } result := length(AArray) * Avalue;
+  raise ENotImplemented.Create('Please implement your solution.'); result := length(AArray) * Avalue;
 
 end;
 
