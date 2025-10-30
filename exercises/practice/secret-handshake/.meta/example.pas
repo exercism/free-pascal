@@ -4,20 +4,20 @@ unit SecretHandshake;
 
 interface
 
-type 
+type
   TStrArray = Array Of String;
 
 function commands(const number : integer) : TStrArray;
 
 implementation
 
-type 
+type
   TOperation = record
     bit    : integer;
     action : string
-  end;               
+  end;
 
-const 
+const
   OperationList : Array of TOperation = (
     (bit: %00001; action: 'wink'           ),
     (bit: %00010; action: 'double blink'   ),
@@ -26,7 +26,7 @@ const
  );
 
 function commands(const number : integer) : TStrArray;
-var 
+var
   i, idx     : integer;
   operations : TStrArray;
 begin

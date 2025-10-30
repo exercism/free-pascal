@@ -5,18 +5,18 @@ unit BinarySearch;
 interface
 
 type
-  IntArray = Array Of Integer;
+  TIntArray = Array Of Integer;
 
-function find(const AArray: IntArray; AValue : integer) : integer;
+function find(const AArray: TIntArray; const AValue : integer) : integer;
 
 implementation
 
 uses SysUtils;
 
-function find(const AArray: IntArray; AValue : integer) : integer;
+function find(const AArray: TIntArray; const AValue : integer) : integer;
 begin
 
-  raise ENotImplemented.Create('Please implement your solution.'); result := length(AArray) * Avalue;
+  { raise ENotImplemented.Create('Please implement your solution.'); } result := length(AArray) * Avalue;
 
 end;
 

@@ -4,7 +4,7 @@ unit CollatzConjecture;
 
 interface
 
-function steps(const number: integer) : integer;
+function steps(const number : integer) : integer;
 
 implementation
 
@@ -13,7 +13,7 @@ uses SysUtils;
 var
   temp, count : integer;
 
-function steps(const number: integer) : integer;
+function steps(const number : integer) : integer;
 begin
 
   if number < 1 then

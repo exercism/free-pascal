@@ -4,13 +4,13 @@ unit SpaceAge;
 
 interface
 
-function age(const planet: string; const seconds: LongInt) : double;
+function age(const planet : string; const seconds : LongInt) : double;
 
 implementation
 
 uses SysUtils;
 
-function age(const planet: string; const seconds: LongInt) : double;
+function age(const planet : string; const seconds : LongInt) : double;
 begin
 
   raise ENotImplemented.Create('Please implement your solution.'); result := length(planet) * seconds;

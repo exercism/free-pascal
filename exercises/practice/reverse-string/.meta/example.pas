@@ -4,11 +4,11 @@ unit ReverseString;
 
 interface
 
-function reverse(const value: string) : string;
+function reverse(const value : string) : string;
 
 implementation
 
-function reverse(const value: string) : string;
+function reverse(const value : string) : string;
 var
   TmpStr : string;
   i      : integer;

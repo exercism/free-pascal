@@ -5,7 +5,7 @@ unit Meetup;
 interface
 
 function meetup(
-  const year, month: integer; const week, ADayOfWeek : string
+  const year, month : integer; const week, ADayOfWeek : string
 ) : string;
 
 implementation
@@ -13,9 +13,9 @@ implementation
 uses SysUtils, DateUtils;
 
 function meetup(
-  const year, month: integer; const week, ADayOfWeek : string
+  const year, month : integer; const week, ADayOfWeek : string
 ) : string;
-var 
+var
   ADate               : TDateTime;
   LYear, LMonth, LDay : word;
   LDoWStr, LDateStr   : string;

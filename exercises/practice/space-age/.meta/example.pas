@@ -4,7 +4,7 @@ unit SpaceAge;
 
 interface
 
-function age(const planet: string; const seconds: LongInt) : double;
+function age(const planet : string; const seconds : LongInt) : double;
 
 implementation
 
@@ -16,7 +16,7 @@ const
 var
   PlanetSeconds : double;
 
-function age(const planet: string; const seconds: LongInt) : double;
+function age(const planet : string; const seconds : LongInt) : double;
 begin
   case planet of
     'Mercury' : PlanetSeconds :=   0.2408467 ;

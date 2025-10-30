@@ -4,7 +4,7 @@ unit Darts;
 
 interface
 
-function score(const x: single; const y: single) : uint8;
+function score(const x : single; const y : single) : uint8;
 
 implementation
 
@@ -14,7 +14,7 @@ var
   spot   : single;
   points : uint8;
 
-function score(const x: single; const y: single) : uint8;
+function score(const x : single; const y : single) : uint8;
 begin
   spot   := x ** 2 + y ** 2;
   points := 0;

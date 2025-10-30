@@ -10,7 +10,7 @@ implementation
 
 uses Math;
 
-var 
+var
   tmp              : qword;
   nlen, digit, sum : integer;
 

@@ -4,13 +4,13 @@ unit Pangram;
 
 interface
 
-function IsPangram(const sentence: string) : boolean;
+function IsPangram(const sentence : string) : boolean;
 
 implementation
 
 uses SysUtils;
 
-function IsPangram(const sentence: string) : boolean;
+function IsPangram(const sentence : string) : boolean;
 begin
 
   raise ENotImplemented.Create('Please implement your solution.'); result := sentence <> sentence;

@@ -4,8 +4,7 @@ unit AllYourBase;
 
 interface
 
-type
-  IntArray = array of integer;
+type IntArray = Array Of Integer;
 
 function rebase(
   const InputBase   : integer;

@@ -4,11 +4,11 @@ unit SumOfMultiples;
 
 interface
 
-function sum(const factors: Array Of Integer; const limit: integer) : integer;
+function sum(const factors : Array Of Integer; const limit : integer) : integer;
 
 implementation
 
-function sum(const factors: Array Of Integer; const limit: integer) : integer;
+function sum(const factors : Array Of Integer; const limit : integer) : integer;
 var
   idx, i, j, acc : integer;
   exists         : boolean;

@@ -4,7 +4,7 @@ unit Isogram;
 
 interface
 
-function IsIsogram(const phrase: string) : boolean;
+function IsIsogram(const phrase : string) : boolean;
 
 implementation
 
@@ -16,7 +16,7 @@ var
   temp     : string;
   i, ascii : integer;
 
-function IsIsogram(const phrase: string) : boolean;
+function IsIsogram(const phrase : string) : boolean;
 begin
 
   for i := low(alpha) to high(alpha) do

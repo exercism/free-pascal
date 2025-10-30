@@ -7,7 +7,7 @@ interface
 type
   TStrArray = Array Of String;
 
-function ColorCode(const color: string) : int8;
+function ColorCode(const color : string) : int8;
 function colors : TStrArray;
 
 implementation
@@ -19,7 +19,7 @@ type
     black, brown, red, orange, yellow, green, blue, violet, grey, white
   );
 
-function ColorCode(const color: string) : int8;
+function ColorCode(const color : string) : int8;
 begin
   result := GetEnumValue(TypeInfo(ColorCodes), color);
 end;

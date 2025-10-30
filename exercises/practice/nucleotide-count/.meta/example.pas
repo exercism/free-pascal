@@ -4,7 +4,7 @@ unit NucleotideCount;
 
 interface
 
-function NucleotideCounts(const strand: string) : string;
+function NucleotideCounts(const strand : string) : string;
 
 implementation
 
@@ -21,7 +21,7 @@ begin
   result := -1;
 end;
 
-function NucleotideCounts(const strand: string) : string;
+function NucleotideCounts(const strand : string) : string;
 var
   i, idx : integer;
   counts : Array [0..3] Of Integer = (0, 0, 0, 0);

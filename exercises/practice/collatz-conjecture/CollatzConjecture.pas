@@ -4,13 +4,13 @@ unit CollatzConjecture;
 
 interface
 
-function steps(const number: integer) : integer;
+function steps(const number : integer) : integer;
 
 implementation
 
 uses SysUtils;
 
-function steps(const number: integer) : integer;
+function steps(const number : integer) : integer;
 begin
 
   raise ENotImplemented.Create('Please implement your solution.'); result := number;

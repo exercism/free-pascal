@@ -4,13 +4,13 @@ unit LargestSeriesProduct;
 
 interface
 
-function LargestProduct(const digits : string; const span: integer) : integer;
+function LargestProduct(const digits : string; const span : integer) : integer;
 
 implementation
 
 uses SysUtils;
 
-function LargestProduct(const digits : string; const span: integer) : integer;
+function LargestProduct(const digits : string; const span : integer) : integer;
 begin
 
   raise ENotImplemented.Create('Please implement your solution.'); result := length(digits) * span * -1;

@@ -4,14 +4,64 @@ unit FPCUnitTestUtils;
 
 interface
 
+uses FPCUnit;
+
 type
   TIntArray   = Array Of Integer;
   TIntArray2D = Array Of Array Of Integer;
   TStrArray   = Array Of String;
 
-function CompareArrays(const ArrayOne, ArrayTwo : TIntArray) : boolean;
-function CompareArrays(const ArrayOne, ArrayTwo : TStrArray) : boolean;
-function Compare2DArrays(const ArrayOne, ArrayTwo : TIntArray2D) : boolean;
+procedure TapAssertTrue(
+  ACase          : TTestCase;
+  const AMessage : string;
+  const Expected : boolean;
+  const Actual   : boolean
+);
+
+procedure TapAssertTrue(
+  ACase          : TTestCase;
+  const AMessage : string;
+  const Expected : string;
+  const Actual   : string
+);
+
+procedure TapAssertTrue(
+  ACase          : TTestCase;
+  const AMessage : string;
+  const Expected : integer;
+  const Actual   : integer
+);
+
+procedure TapAssertTrue(
+  ACase          : TTestCase;
+  const AMessage : string;
+  const Expected : double;
+  const Actual   : double;
+  const epsilon  : double
+);
+
+procedure TapAssertTrue(
+  ACase          : TTestCase;
+  const AMessage : string;
+  const Expected : TIntArray;
+  const Actual   : TIntArray
+);
+
+procedure TapAssertTrue(
+  ACase          : TTestCase;
+  const AMessage : string;
+  const Expected : TStrArray;
+  const Actual   : TStrArray
+);
+
+procedure TapAssertTrue(
+  ACase          : TTestCase;
+  const AMessage : string;
+  const Expected : TIntArray2D;
+  const Actual   : TIntArray2D
+);
+
+
 function EncodeJsonMessage(const AMessage : string; const Expected : boolean; const Actual : boolean) : string;
 function EncodeJsonMessage(const AMessage : string; const Expected : string;  const Actual : string ) : string;
 function EncodeJsonMessage(const AMessage : string; const Expected : integer; const Actual : integer) : string;
@@ -22,7 +72,7 @@ function EncodeJsonMessage(const AMessage : string; const Expected : TStrArray; 
 
 implementation
 
-uses FpJson, SysUtils;
+uses FpJson, SysUtils, Math;
 
 function CompareArrays(const ArrayOne, ArrayTwo : TIntArray) : boolean;
 var
@@ -246,6 +296,91 @@ begin
   JOBJECT.Free;
 
   result := JsonMessage;
+end;
+
+procedure TapAssertTrue(
+  ACase          : TTestCase;
+  const AMessage : string;
+  const Expected : boolean;
+  const Actual   : boolean
+);
+var JsonMsg : string;
+begin
+  JsonMsg := EncodeJsonMessage(AMessage, Expected, Actual);
+  ACase.AssertTrue(JsonMsg, Expected = Actual);
+end;
+
+procedure TapAssertTrue(
+  ACase          : TTestCase;
+  const AMessage : string;
+  const Expected : string;
+  const Actual   : string
+);
+var JsonMsg : string;
+begin
+  JsonMsg := EncodeJsonMessage(AMessage, Expected, Actual);
+  ACase.AssertTrue(JsonMsg, Expected = Actual);
+end;
+
+procedure TapAssertTrue(
+  ACase          : TTestCase;
+  const AMessage : string;
+  const Expected : integer;
+  const Actual   : integer
+);
+var JsonMsg : string;
+begin
+  JsonMsg := EncodeJsonMessage(AMessage, Expected, Actual);
+  ACase.AssertTrue(JsonMsg, Expected = Actual);
+end;
+
+procedure TapAssertTrue(
+  ACase          : TTestCase;
+  const AMessage : string;
+  const Expected : double;
+  const Actual   : double;
+  const epsilon  : double
+);
+var JsonMsg : string;
+begin
+  JsonMsg := EncodeJsonMessage(AMessage, Expected, Actual);
+  ACase.AssertTrue(JsonMsg, SameValue(Expected, Actual, epsilon));
+end;
+
+procedure TapAssertTrue(
+  ACase          : TTestCase;
+  const AMessage : string;
+  const Expected : TIntArray;
+  const Actual   : TIntArray
+);
+var JsonMsg : string;
+begin
+  JsonMsg := EncodeJsonMessage(AMessage, Expected, Actual);
+  ACase.AssertTrue(JsonMsg, CompareArrays(Expected, Actual));
+end;
+
+procedure TapAssertTrue(
+  ACase          : TTestCase;
+  const AMessage : string;
+  const Expected : TStrArray;
+  const Actual   : TStrArray
+);
+var JsonMsg : string;
+begin
+  JsonMsg := EncodeJsonMessage(AMessage, Expected, Actual);
+  ACase.AssertTrue(JsonMsg, CompareArrays(Expected, Actual));
+end;
+
+procedure TapAssertTrue(
+  ACase          : TTestCase;
+  const AMessage : string;
+  const Expected : TIntArray2D;
+  const Actual   : TIntArray2D
+);
+var JsonMsg : string;
+begin
+  JsonMsg := EncodeJsonMessage(AMessage, Expected, Actual);
+  ACase.AssertTrue(JsonMsg, Compare2DArrays(Expected, Actual));
 end;
 
 end.

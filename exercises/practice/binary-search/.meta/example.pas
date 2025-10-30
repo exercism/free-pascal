@@ -5,15 +5,15 @@ unit BinarySearch;
 interface
 
 type
-  IntArray = Array Of Integer;
+  TIntArray = Array Of Integer;
 
-function find(const AArray: IntArray; AValue : integer) : integer;
+function find(const AArray: TIntArray; const AValue : integer) : integer;
 
 implementation
 
 uses SysUtils;
 
-function find(const AArray: IntArray; AValue : integer) : integer;
+function find(const AArray: TIntArray; const AValue : integer) : integer;
 var
   i, j, mid : integer;
   WasFound  : boolean;

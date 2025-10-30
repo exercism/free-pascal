@@ -4,18 +4,17 @@ unit LargestSeriesProduct;
 
 interface
 
-function LargestProduct(const digits : string; const span: integer) : integer;
+function LargestProduct(const digits : string; const span : integer) : integer;
 
 implementation
 
 uses SysUtils, Character;
 
-function LargestProduct(const digits : string; const span: integer) : integer;
+function LargestProduct(const digits : string; const span : integer) : integer;
 var
   chr                       : string;
   i, j, product, MaxProduct : integer;
 begin
-
   if span < 0 then
     raise Exception.Create('span must not be negative');
 
@@ -37,7 +36,6 @@ begin
     end;
 
   result := MaxProduct;
-
 end;
 
 end.

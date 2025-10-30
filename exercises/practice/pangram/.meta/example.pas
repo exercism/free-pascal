@@ -4,7 +4,7 @@ unit Pangram;
 
 interface
 
-function IsPangram(const sentence: string) : boolean;
+function IsPangram(const sentence : string) : boolean;
 
 implementation
 
@@ -16,7 +16,7 @@ var
   temp     : string;
   i, ascii : integer;
 
-function IsPangram(const sentence: string) : boolean;
+function IsPangram(const sentence : string) : boolean;
 begin
 
   for i := low(alpha) to high(alpha) do
