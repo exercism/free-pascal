@@ -1,15 +1,27 @@
 # Tests
 
-<!-- TODO: write document
+The ```make``` utility is a dependency to run the tests.
 
-  This document should describe everything related to running tests in the track.
+From within the exercise directory, type in a console/terminal:
 
-  If your track uses skipped tests, this document can explain why thet is used and
-  how to unskip tests.
+```sh
+make
+```
 
-  This document can also link to the testing framework documentation.
+If you didn't even touch the exercise solution file, you'll see a message like:
 
-  The contents of this document are displayed on the track's documentation
-  page at `https://exercism.org/docs/tracks/<track>/tests`.
+```
+Please implement your solution.
+```
 
-  See https://exercism.org/docs/building/tracks/docs for more information. -->
+So, remove this line before start to write your solution.
+
+By default only the first test is executed.
+
+To run all tests, type:
+
+```sh
+make test=all
+```
+
+All tests must have an "ok" status for the solution to be accepted.
