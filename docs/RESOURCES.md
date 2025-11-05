@@ -1,13 +1,17 @@
 # Resources
 
-<!-- TODO: write document
+- [Basic Pascal Tutorial][basic-pascal-tutorial].
+- [Free Pascal videos][free-pascal-videos].
+- [Pascal Tutorial][pascal-tutorial].
+- [User's Guide][user-guide].
+- [Language Reference Guide][fpc-reference-guide].
+- [Run-Time Library (RTL) Reference][rtl-reference].
+- [Modern Object Pascal Introduction for Programmers][https://castle-engine.io/modern_pascal].
 
-  This document should link to useful resources.
-
-  Feel free to link to any good resources you know, whether they
-  be websites, videos, mailing lists, etc.
-
-  The contents of this document are displayed on the track's documentation
-  page at `https://exercism.org/docs/tracks/<track>/resources`.
-
-  See https://exercism.org/docs/building/tracks/docs for more information. -->
+[basic-pascal-tutorial]: https://wiki.freepascal.org/Basic_Pascal_Tutorial
+[free-pascal-videos]: https://wiki.freepascal.org/Free_Pascal_videos
+[pascal-tutorial]: https://www.tutorialspoint.com/pascal/index.htm
+[user-guide]: https://www.freepascal.org/docs-html/current/user/user.html
+[fpc-reference-guide]: https://www.freepascal.org/docs-html/current/ref/ref.html
+[rtl-reference]: https://www.freepascal.org/docs-html/current/rtl/index.html
+[modern_pascal]: https://castle-engine.io/modern_pascal
