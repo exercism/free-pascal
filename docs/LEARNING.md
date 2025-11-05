@@ -1,13 +1,26 @@
 # Learning
 
-<!-- TODO: write document
+The Pascal programming language has a long history, and much of the online documentation is geared towards beginners. Most of these tutorials deal with console programs, where you print information to the screen and/or read user input. For example, one of the most common beginner tutorial is a program to print 'Hello World' on the screen:
 
-  This document should link to learning resources.
+```pascal
+program HelloWorld;
+begin
+  writeln('Hello World!');
+end.
+```
 
-  Feel free to link to any good learning resources you know, whether they
-  be websites, blogs, books, videos or courses.
+When executed, from a console/terminal, this program will print 'Hello World' on the screen.
 
-  The contents of this document are displayed on the track's documentation
-  page at `https://exercism.org/docs/tracks/<track>/learning`.
+Here at Exercism, we use automated testing to ensure your solutions are correct, and therefore we need to use a **unit** instead of a **program**. The main difference is that you'll need to return a value from a function instead of print something to terminal:
 
-  See https://exercism.org/docs/building/tracks/docs for more information. -->
+```pascal
+writeln('Hello World!');
+```
+
+became
+
+```pascal
+result := 'Hello World!'
+```
+
+The write/writeln commands are still useful for displaying information or obtaining a textual representation of the output of a command, a mathematical operation, etc.
