@@ -1,6 +1,6 @@
 unit FPCUnitTAPReporter;
 
-{$mode ObjFPC}
+{$mode ObjFPC}{$H+}
 
 interface
 
