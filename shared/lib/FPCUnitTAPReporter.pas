@@ -106,6 +106,8 @@ end;
 
 procedure TCustomResultWriter.AddError(ATest: TTest; AError: TTestFailure);
 begin
+  inc(FTestCount);
+  FTestPassed := false;
   if (AError.ExceptionClassName = 'ENotImplemented') and
      (AError.ExceptionMessage = 'Please implement your solution.') then
   begin
