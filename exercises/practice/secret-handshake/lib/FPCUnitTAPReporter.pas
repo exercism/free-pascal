@@ -101,7 +101,6 @@ begin
   else writeln('    expect: ', LExpected);
 
   writeln('  ...');
-
 end;
 
 procedure TCustomResultWriter.AddError(ATest: TTest; AError: TTestFailure);
@@ -124,6 +123,7 @@ begin
   writeln('  ---');
   writeln(format('  message: "%s"', [AError.ExceptionMessage]));
   writeln('  severity: error');
+  writeln('  ...');
 end;
 
 {$HINTS OFF} // - Hint: Parameter "ATest" not used
