@@ -103,6 +103,15 @@ begin
   writeln('  ...');
 end;
 
+procedure PrintDumpExceptionBackTrace;
+var LTextFile : TextFile;
+begin
+  assign(LTextFile, '');
+  rewrite(LTextFile);
+  DumpExceptionBackTrace(LTextFile);
+  close(LTextFile);
+end;
+
 procedure TCustomResultWriter.AddError(ATest: TTest; AError: TTestFailure);
 begin
   inc(FTestCount);
@@ -114,16 +123,16 @@ begin
     halt;
   end;
 
-  writeln(
-    format(
-      'not ok %d - %s # EXCEPTION: %s',
-      [FTestCount, ATest.TestName, AError.ExceptionMessage]
-    )
-  );
+  writeln(format('not ok %d - %s', [FTestCount, ATest.TestName]));
   writeln('  ---');
-  writeln(format('  message: "%s"', [AError.ExceptionMessage]));
+  writeln('  message: |');
+  writeln('    ' + 'An unhandled exception occurred:');
+  writeln(
+    format('    %s: %s', [AError.ExceptionClassName, AError.ExceptionMessage])
+  );
   writeln('  severity: error');
   writeln('  ...');
+  PrintDumpExceptionBackTrace;
 end;
 
 {$HINTS OFF} // - Hint: Parameter "ATest" not used
