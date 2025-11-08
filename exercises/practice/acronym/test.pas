@@ -15,19 +15,24 @@ begin
 
   RunAll := false;
 
-  case ParamStr(1) of
-    '-l', '--list' :
-      begin
-        for i := 0 to GetTestRegistry.CountTestCases - 1 do
-          writeln(i + 1, ': ',
-                  GetTestRegistry.Test[0].GetChildTest(i).TestName
-          );
-        exit;
-      end;
-    '-a', '--all', 'all', '-all' : RunAll := true;
-    otherwise
+  if ParamCount > 0 then
     begin
-      if TryStrToInt(ParamStr(1), TestNumber) then
+      if (ParamStr(1) = '--list') or (ParamStr(1) = 'list') then
+        begin
+          for i := 0 to GetTestRegistry.CountTestCases - 1 do
+            begin
+              writeln(
+                i + 1, ': ',
+                GetTestRegistry.Test[0].GetChildTest(i).TestName
+              );
+            end;
+          exit;
+        end
+      else if (ParamStr(1) = '--all') or (ParamStr(1) = 'all') then
+        begin
+          RunAll := true
+        end
+      else if TryStrToInt(ParamStr(1), TestNumber) then
         begin
           if (TestNumber < 1) or
              (TestNumber > GetTestRegistry.CountTestCases) then
@@ -43,7 +48,6 @@ begin
           exit;
         end;
     end;
-  end;
 
   TestResult := TTestResult.Create;
 
