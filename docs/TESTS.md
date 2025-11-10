@@ -25,3 +25,11 @@ make test=all
 ```
 
 All tests must have an "ok" status for the solution to be accepted.
+
+It's possible to choose a single test to run by passing the corresponding number, for example:
+
+```sh
+make test=2
+```
+
+would only execute the second test.
