@@ -1,0 +1,18 @@
+{
+  "authors": [
+    "jimmytty"
+  ],
+  "files": {
+    "solution": [
+      "Clock.pas"
+    ],
+    "test": [
+      "TestCases.pas"
+    ],
+    "example": [
+      ".meta/example.pas"
+    ]
+  },
+  "blurb": "Implement a clock that handles times without dates.",
+  "source": "Pairing session with Erin Drummond"
+}
