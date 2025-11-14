@@ -414,6 +414,14 @@
         "practices": [],
         "prerequisites": [],
         "difficulty": 3
+      },
+      {
+        "slug": "custom-set",
+        "name": "Custom Set",
+        "uuid": "988e8c95-2d56-4f5d-9f12-ead0af29ffa1",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 3
       }
     ]
   },
