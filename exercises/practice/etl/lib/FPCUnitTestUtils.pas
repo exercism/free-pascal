@@ -75,13 +75,13 @@ procedure TapAssertTrue(
   const Actual   : TCharIntDict
 );
 
-{ function EncodeJsonMessage(const AMessage : string; const Expected : boolean; const Actual : boolean) : string; }
-{ function EncodeJsonMessage(const AMessage : string; const Expected : string;  const Actual : string ) : string; }
-{ function EncodeJsonMessage(const AMessage : string; const Expected : integer; const Actual : integer) : string; }
-{ function EncodeJsonMessage(const AMessage : string; const Expected : single;  const Actual : single ) : string; }
-{ function EncodeJsonMessage(const AMessage : string; const Expected : TIntArray;   const Actual : TIntArray  ) : string; }
-{ function EncodeJsonMessage(const AMessage : string; const Expected : TIntArray2D; const Actual : TIntArray2D) : string; }
-{ function EncodeJsonMessage(const AMessage : string; const Expected : TStrArray;   const Actual : TStrArray  ) : string; }
+function EncodeJsonMessage(const AMessage : string; const Expected : boolean; const Actual : boolean) : string;
+function EncodeJsonMessage(const AMessage : string; const Expected : string;  const Actual : string ) : string;
+function EncodeJsonMessage(const AMessage : string; const Expected : integer; const Actual : integer) : string;
+function EncodeJsonMessage(const AMessage : string; const Expected : single;  const Actual : single ) : string;
+function EncodeJsonMessage(const AMessage : string; const Expected : TIntArray;   const Actual : TIntArray  ) : string;
+function EncodeJsonMessage(const AMessage : string; const Expected : TIntArray2D; const Actual : TIntArray2D) : string;
+function EncodeJsonMessage(const AMessage : string; const Expected : TStrArray;   const Actual : TStrArray  ) : string;
 
 implementation
 

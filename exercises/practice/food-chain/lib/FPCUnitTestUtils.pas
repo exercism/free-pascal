@@ -2,14 +2,21 @@ unit FPCUnitTestUtils;
 
 {$MODE ObjFPC}{$H+}
 
+{$WARN 4046 OFF}
+{$WARN 5024 OFF}
+{$WARN 5062 OFF}
+{$WARN 5071 OFF}
+{$WARN 6058 OFF}
+
 interface
 
-uses FPCUnit;
+uses FPCUnit, Generics.Collections;
 
 type
   TIntArray   = Array Of Integer;
   TIntArray2D = Array Of Array Of Integer;
   TStrArray   = Array Of String;
+  TCharIntDict = Specialize TDictionary<Char, Integer>;
 
 procedure TapAssertTrue(
   ACase          : TTestCase;
@@ -61,6 +68,12 @@ procedure TapAssertTrue(
   const Actual   : TIntArray2D
 );
 
+procedure TapAssertTrue(
+  ACase          : TTestCase;
+  const AMessage : string;
+  const Expected : TCharIntDict;
+  const Actual   : TCharIntDict
+);
 
 function EncodeJsonMessage(const AMessage : string; const Expected : boolean; const Actual : boolean) : string;
 function EncodeJsonMessage(const AMessage : string; const Expected : string;  const Actual : string ) : string;
@@ -141,6 +154,27 @@ begin
   result := true;
 end;
 
+function CompareTDictionaries(const DictOne, DictTwo : TCharIntDict) : boolean;
+var
+  key    : char;
+  { KvPair : TCharIntDict.TDictionaryPair; }
+begin
+  if DictOne.Count <> DictTwo.Count then
+    begin
+      result := false;
+      exit;
+    end;
+  for key in DictOne.Keys do
+    begin
+      if not(DictTwo.ContainsKey(key)) or (DictTwo[key] <> DictOne[key]) then
+        begin
+          result := false;
+          exit;
+        end;
+    end;
+  result := true;
+end;
+
 function EncodeJsonMessage(const AMessage: string; const Expected : boolean; const Actual : boolean) : string;
 var
   JObject     : TJSONObject;
@@ -151,7 +185,7 @@ begin
   JObject.Add('expected', Expected);
   JObject.Add('actual', Actual);
   JsonMessage := JObject.AsJson;
-  JOBJECT.Free;
+  JObject.Free;
   result := JsonMessage;
 end;
 
@@ -165,7 +199,7 @@ begin
   JObject.Add('expected', Expected);
   JObject.Add('actual', Actual);
   JsonMessage := JObject.AsJson;
-  JOBJECT.Free;
+  JObject.Free;
   result := JsonMessage;
 end;
 
@@ -179,7 +213,7 @@ begin
   JObject.Add('expected', Expected);
   JObject.Add('actual', Actual);
   JsonMessage := JObject.AsJson;
-  JOBJECT.Free;
+  JObject.Free;
   result := JsonMessage;
 end;
 
@@ -193,7 +227,7 @@ begin
   JObject.Add('expected', Expected);
   JObject.Add('actual', Actual);
   JsonMessage := JObject.AsJson;
-  JOBJECT.Free;
+  JObject.Free;
   result := JsonMessage;
 end;
 
@@ -222,7 +256,7 @@ begin
   JObject.Add('actual', JArray);
 
   JsonMessage := JObject.AsJson;
-  JOBJECT.Free;
+  JObject.Free;
 
   result := JsonMessage;
 end;
@@ -263,7 +297,7 @@ begin
   JObject.Add('actual', JOuterArray);
 
   JsonMessage := JObject.AsJson;
-  JOBJECT.Free;
+  JObject.Free;
 
   result := JsonMessage;
 end;
@@ -293,8 +327,33 @@ begin
   JObject.Add('actual', JArray);
 
   JsonMessage := JObject.AsJson;
-  JOBJECT.Free;
+  JObject.Free;
 
+  result := JsonMessage;
+end;
+
+
+function EncodeJsonMessage(const AMessage : string; const Expected, Actual : TCharIntDict) : string;
+var
+  JObject     : TJSONObject;
+  JsonMessage : string;
+  JExpected   : TJSONObject;
+  JActual     : TJSONObject;
+  KvPair      : TCharIntDict.TDictionaryPair;
+begin
+  JObject := TJSONObject.Create;
+  JObject.Add('message', AMessage);
+
+  JExpected := TJSONObject.Create;
+  for KvPair in Expected do JExpected.Add(KvPair.Key, KvPair.Value);
+  JObject.Add('expected', JExpected);
+
+  JActual := TJSONObject.Create;
+  for KvPair in Actual do JActual.Add(KvPair.Key, KvPair.Value);
+  JObject.Add('actual', JActual);
+
+  JsonMessage := JObject.AsJson;
+  JObject.Free;
   result := JsonMessage;
 end;
 
@@ -381,6 +440,18 @@ var JsonMsg : string;
 begin
   JsonMsg := EncodeJsonMessage(AMessage, Expected, Actual);
   ACase.AssertTrue(JsonMsg, Compare2DArrays(Expected, Actual));
+end;
+
+procedure TapAssertTrue(
+  ACase          : TTestCase;
+  const AMessage : string;
+  const Expected : TCharIntDict;
+  const Actual   : TCharIntDict
+);
+var JsonMsg : string;
+begin
+  JsonMsg := EncodeJsonMessage(AMessage, Expected, Actual);
+  ACase.AssertTrue(JsonMsg, CompareTDictionaries(Expected, Actual));
 end;
 
 end.

@@ -54,16 +54,22 @@ begin
     try
       JData     := GetJSON(AFailure.ExceptionMessage);
       LMessage  := JData.FindPath('message').AsString;
-      if GetEnumName(
-           TypeInfo(TJSONtype), ord(JData.FindPath('expected').JSONType)
-         ) = 'jtArray' then
-        LExpected := JData.FindPath('expected').FormatJSON
-      else LExpected := JData.FindPath('expected').AsString;
-      if GetEnumName(
+      case
+        GetEnumName(
+          TypeInfo(TJSONtype), ord(JData.FindPath('expected').JSONType)
+        ) of
+        'jtArray', 'jtObject' :
+          LExpected := JData.FindPath('expected').FormatJSON;
+        otherwise LExpected := JData.FindPath('expected').AsString;
+      end;
+      case
+        GetEnumName(
            TypeInfo(TJSONtype), ord(JData.FindPath('actual').JSONType)
-         ) = 'jtArray' then
-        LGot := JData.FindPath('actual').FormatJSON
-      else LGot := JData.FindPath('actual').AsString;
+         ) of
+        'jtArray', 'jtObject' :
+          LGot := JData.FindPath('actual').FormatJSON
+        otherwise LGot := JData.FindPath('actual').AsString;
+      end;
     finally
       JData.Free;
     end
