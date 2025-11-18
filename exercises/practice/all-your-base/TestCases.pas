@@ -36,13 +36,12 @@ implementation
 
 uses AllYourBase;
 
-type IntArray = Array Of Integer;
 procedure TapAssertExpectionMessage(
   ACase             : TTestCase ;
   const AMessage    : string    ;
   const Expected    : string    ;
   const InputBase   : integer   ;
-  const InputDigits : IntArray  ;
+  const InputDigits : TIntArray  ;
   const OutputBase  : integer
 );
 var

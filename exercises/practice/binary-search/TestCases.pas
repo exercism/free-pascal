@@ -26,7 +26,6 @@ implementation
 
 uses BinarySearch;
 
-type TIntArray = Array Of Integer;
 procedure TapAssertExpectionMessage(
   ACase          : TTestCase ;
   const AMessage : string    ;
