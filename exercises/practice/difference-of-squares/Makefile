@@ -2,7 +2,7 @@ SHELL       = /bin/bash
 MAKEFLAGS  += --no-print-directory
 DESTDIR     = build
 EXECUTABLE  = $(DESTDIR)/test
-COMMAND     = fpc -l- -v0 -g -gl -Cr -Sehnw -Fu./lib test.pas -FE"./$(DESTDIR)"
+COMMAND     = fpc -l- -v0 -g -gl -Sa -Cr -Sehnw -Fu./lib test.pas -FE"./$(DESTDIR)"
 
 .ONESHELL:
 
