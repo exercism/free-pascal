@@ -23,8 +23,6 @@ implementation
 
 uses PascalsTriangle;
 
-{ type TIntArray2D = Array Of Array Of Integer; }
-
 // 9920ce55-9629-46d5-85d6-4201f4a4234d
 procedure PascalsTriangleTest.zero_rows;
 begin
