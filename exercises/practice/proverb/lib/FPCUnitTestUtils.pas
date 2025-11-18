@@ -42,6 +42,13 @@ procedure TapAssertTrue(
 procedure TapAssertTrue(
   ACase          : TTestCase;
   const AMessage : string;
+  const Expected : UInt64;
+  const Actual   : UInt64
+);
+
+procedure TapAssertTrue(
+  ACase          : TTestCase;
+  const AMessage : string;
   const Expected : double;
   const Actual   : double;
   const epsilon  : double
@@ -75,13 +82,14 @@ procedure TapAssertTrue(
   const Actual   : TCharIntDict
 );
 
-function EncodeJsonMessage(const AMessage : string; const Expected : boolean; const Actual : boolean) : string;
-function EncodeJsonMessage(const AMessage : string; const Expected : string;  const Actual : string ) : string;
-function EncodeJsonMessage(const AMessage : string; const Expected : integer; const Actual : integer) : string;
-function EncodeJsonMessage(const AMessage : string; const Expected : single;  const Actual : single ) : string;
-function EncodeJsonMessage(const AMessage : string; const Expected : TIntArray;   const Actual : TIntArray  ) : string;
-function EncodeJsonMessage(const AMessage : string; const Expected : TIntArray2D; const Actual : TIntArray2D) : string;
-function EncodeJsonMessage(const AMessage : string; const Expected : TStrArray;   const Actual : TStrArray  ) : string;
+function EncodeJsonMessage(const AMessage : string; const Expected, Actual : boolean) : string;
+function EncodeJsonMessage(const AMessage : string; const Expected, Actual : string ) : string;
+function EncodeJsonMessage(const AMessage : string; const Expected, Actual : integer) : string;
+function EncodeJsonMessage(const AMessage : string; const Expected, Actual : UInt64)  : string;
+function EncodeJsonMessage(const AMessage : string; const Expected, Actual : single ) : string;
+function EncodeJsonMessage(const AMessage : string; const Expected, Actual : TIntArray  ) : string;
+function EncodeJsonMessage(const AMessage : string; const Expected, Actual : TIntArray2D) : string;
+function EncodeJsonMessage(const AMessage : string; const Expected, Actual : TStrArray  ) : string;
 
 implementation
 
@@ -175,7 +183,7 @@ begin
   result := true;
 end;
 
-function EncodeJsonMessage(const AMessage: string; const Expected : boolean; const Actual : boolean) : string;
+function EncodeJsonMessage(const AMessage: string; const Expected, Actual : boolean) : string;
 var
   JObject     : TJSONObject;
   JsonMessage : string;
@@ -189,7 +197,7 @@ begin
   result := JsonMessage;
 end;
 
-function EncodeJsonMessage(const AMessage : string; const Expected : string; const Actual : string) : string;
+function EncodeJsonMessage(const AMessage : string; const Expected, Actual : string) : string;
 var
   JObject     : TJSONObject;
   JsonMessage : string;
@@ -203,7 +211,7 @@ begin
   result := JsonMessage;
 end;
 
-function EncodeJsonMessage(const AMessage : string; const Expected : integer; const Actual : integer) : string;
+function EncodeJsonMessage(const AMessage : string; const Expected, Actual : integer) : string;
 var
   JObject     : TJSONObject;
   JsonMessage : string;
@@ -217,7 +225,7 @@ begin
   result := JsonMessage;
 end;
 
-function EncodeJsonMessage(const AMessage : string; const Expected : single; const Actual : single) : string;
+function EncodeJsonMessage(const AMessage : string; const Expected, Actual : UInt64) : string;
 var
   JObject     : TJSONObject;
   JsonMessage : string;
@@ -231,7 +239,21 @@ begin
   result := JsonMessage;
 end;
 
-function EncodeJsonMessage(const AMessage : string; const Expected : TIntArray; const Actual : TIntArray) : string;
+function EncodeJsonMessage(const AMessage : string; const Expected, Actual : single) : string;
+var
+  JObject     : TJSONObject;
+  JsonMessage : string;
+begin
+  JObject := TJSONObject.Create;
+  JObject.Add('message', AMessage);
+  JObject.Add('expected', Expected);
+  JObject.Add('actual', Actual);
+  JsonMessage := JObject.AsJson;
+  JObject.Free;
+  result := JsonMessage;
+end;
+
+function EncodeJsonMessage(const AMessage : string; const Expected, Actual : TIntArray) : string;
 var
   JObject     : TJSONObject;
   JArray      : TJSONArray;
@@ -261,7 +283,7 @@ begin
   result := JsonMessage;
 end;
 
-function EncodeJsonMessage(const AMessage : string; const Expected : TIntArray2D; const Actual : TIntArray2D) : string;
+function EncodeJsonMessage(const AMessage : string; const Expected, Actual : TIntArray2D) : string;
 var
   JObject     : TJSONObject;
   JOuterArray : TJSONArray;
@@ -302,7 +324,7 @@ begin
   result := JsonMessage;
 end;
 
-function EncodeJsonMessage(const AMessage : string; const Expected : TStrArray;   const Actual : TStrArray  ) : string;
+function EncodeJsonMessage(const AMessage : string; const Expected, Actual : TStrArray  ) : string;
 var
   JObject     : TJSONObject;
   JArray      : TJSONArray;
@@ -392,6 +414,19 @@ begin
   JsonMsg := EncodeJsonMessage(AMessage, Expected, Actual);
   ACase.AssertTrue(JsonMsg, Expected = Actual);
 end;
+
+procedure TapAssertTrue(
+  ACase          : TTestCase;
+  const AMessage : string;
+  const Expected : UInt64;
+  const Actual   : UInt64
+);
+var JsonMsg : string;
+begin
+  JsonMsg := EncodeJsonMessage(AMessage, Expected, Actual);
+  ACase.AssertTrue(JsonMsg, Expected = Actual);
+end;
+
 
 procedure TapAssertTrue(
   ACase          : TTestCase;
