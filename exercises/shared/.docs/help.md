@@ -1,21 +1,13 @@
 # Help
 
-<!-- TODO: write document
+There are some online resources where you can try to get help:
 
-  This document should contain track-specific instructions on how to get help when
-  the student is stuck.
+- [FPC-Pascal users discussions][mailing-list].
+- [Forum » Free Pascal » Beginners][forum-beginners].
+- [Stack Overflow][stackoverflow]
+- [Reddit][reddit]
 
-  The instructions should be short and to the point.
-
-  You could link to resources like Gitter channels, forums or mailing lists:
-  whatever can help a student become unstuck.
-
-  This document should **not** link to Exercism-wide (track-agnostic) help resources,
-  as those resources will automatically be included in the HELP.md file.
-
-  The links in this document can overlap with those in docs/LEARNING.md or docs/RESOURCES.md
-
-  When a student downloads an exercise via the CLI, this file's contents are
-  included into the HELP.md file.
-
-  See https://exercism.org/docs/building/tracks/shared-files for more information. -->
+[mailing-list]: https://lists.freepascal.org/cgi-bin/mailman/listinfo/fpc-pascal
+[forum-beginners]: https://forum.lazarus.freepascal.org/index.php/board,61.0.html
+[stackoverflow]: https://stackoverflow.com/questions/tagged/freepascal
+[reddit]: https://www.reddit.com/r/freepascal/
