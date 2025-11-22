@@ -123,22 +123,6 @@
         "difficulty": 3
       },
       {
-        "slug": "crypto-square",
-        "name": "Crypto Square",
-        "uuid": "7fe9a7bf-f27f-4675-b4d7-9ff2664ced48",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 3
-      },
-      {
-        "slug": "custom-set",
-        "name": "Custom Set",
-        "uuid": "988e8c95-2d56-4f5d-9f12-ead0af29ffa1",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 3
-      },
-      {
         "slug": "dnd-character",
         "name": "D&D Character",
         "uuid": "f60948f1-1b3c-48d8-957b-d241229ff99d",
@@ -187,22 +171,6 @@
         "difficulty": 3
       },
       {
-        "slug": "flower-field",
-        "name": "Flower Field",
-        "uuid": "b0c9bcb5-1667-4f21-b3ab-bf8106d94f41",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 3
-      },
-      {
-        "slug": "food-chain",
-        "name": "Food Chain",
-        "uuid": "2f804abe-c7b5-4155-b363-6c18d4fa169f",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 3
-      },
-      {
         "slug": "gigasecond",
         "name": "Gigasecond",
         "uuid": "58c071b2-e671-458c-93bd-4480b98b16a0",
@@ -214,14 +182,6 @@
         "slug": "grains",
         "name": "Grains",
         "uuid": "2a83b6fe-0e6f-4c87-b17c-bcb2003ce481",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 3
-      },
-      {
-        "slug": "grep",
-        "name": "Grep",
-        "uuid": "4d4adf29-ae22-4192-b303-ebb8620b3b43",
         "practices": [],
         "prerequisites": [],
         "difficulty": 3
@@ -243,41 +203,9 @@
         "difficulty": 3
       },
       {
-        "slug": "largest-series-product",
-        "name": "Largest Series Product",
-        "uuid": "13eae711-30f8-4b64-bf85-7be7a8b306f4",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 3
-      },
-      {
         "slug": "leap",
         "name": "Leap",
         "uuid": "23b6eaa2-d1f3-4757-8aa3-e12467411b03",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 3
-      },
-      {
-        "slug": "luhn",
-        "name": "Luhn",
-        "uuid": "3e7cea87-ba2b-4bb4-b179-4a2b754e9759",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 3
-      },
-      {
-        "slug": "matching-brackets",
-        "name": "Matching Brackets",
-        "uuid": "034eb200-8c79-41df-a433-180060472baa",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 3
-      },
-      {
-        "slug": "meetup",
-        "name": "Meetup",
-        "uuid": "2136f6c6-31a8-4a5f-8ee1-6b126d2abf2a",
         "practices": [],
         "prerequisites": [],
         "difficulty": 3
@@ -299,14 +227,6 @@
         "difficulty": 3
       },
       {
-        "slug": "pascals-triangle",
-        "name": "Pascal's Triangle",
-        "uuid": "216301f6-350f-4986-b9bd-1e880181c3f4",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 3
-      },
-      {
         "slug": "perfect-numbers",
         "name": "Perfect Numbers",
         "uuid": "df0c069f-7cf2-41a5-ae5b-300be52162f8",
@@ -318,14 +238,6 @@
         "slug": "phone-number",
         "name": "Phone Number",
         "uuid": "281e6f75-c639-4ae3-a7ee-859f2e8ce6bf",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 3
-      },
-      {
-        "slug": "pig-latin",
-        "name": "Pig Latin",
-        "uuid": "115d2a32-16a7-406a-9ae0-830f63756eff",
         "practices": [],
         "prerequisites": [],
         "difficulty": 3
@@ -387,22 +299,6 @@
         "difficulty": 3
       },
       {
-        "slug": "roman-numerals",
-        "name": "Roman Numerals",
-        "uuid": "0c3e3a12-f992-4ee1-b683-a9d4666b2c21",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 3
-      },
-      {
-        "slug": "run-length-encoding",
-        "name": "Run-Length Encoding",
-        "uuid": "4c646a63-2687-4e44-8b89-0a752bf6bcef",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 3
-      },
-      {
         "slug": "scrabble-score",
         "name": "Scrabble Score",
         "uuid": "b0d679af-7890-4cde-b0e4-302668f7f310",
@@ -459,9 +355,113 @@
         "difficulty": 3
       },
       {
+        "slug": "pascals-triangle",
+        "name": "Pascal's Triangle",
+        "uuid": "216301f6-350f-4986-b9bd-1e880181c3f4",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 4
+      },
+      {
         "slug": "all-your-base",
         "name": "All Your Base",
         "uuid": "f2a9227f-e36f-4f41-aee9-ab0640a198cf",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
+      },
+      {
+        "slug": "crypto-square",
+        "name": "Crypto Square",
+        "uuid": "7fe9a7bf-f27f-4675-b4d7-9ff2664ced48",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
+      },
+      {
+        "slug": "custom-set",
+        "name": "Custom Set",
+        "uuid": "988e8c95-2d56-4f5d-9f12-ead0af29ffa1",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
+      },
+      {
+        "slug": "flower-field",
+        "name": "Flower Field",
+        "uuid": "b0c9bcb5-1667-4f21-b3ab-bf8106d94f41",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
+      },
+      {
+        "slug": "food-chain",
+        "name": "Food Chain",
+        "uuid": "2f804abe-c7b5-4155-b363-6c18d4fa169f",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
+      },
+      {
+        "slug": "grep",
+        "name": "Grep",
+        "uuid": "4d4adf29-ae22-4192-b303-ebb8620b3b43",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
+      },
+      {
+        "slug": "largest-series-product",
+        "name": "Largest Series Product",
+        "uuid": "13eae711-30f8-4b64-bf85-7be7a8b306f4",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
+      },
+      {
+        "slug": "luhn",
+        "name": "Luhn",
+        "uuid": "3e7cea87-ba2b-4bb4-b179-4a2b754e9759",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
+      },
+      {
+        "slug": "matching-brackets",
+        "name": "Matching Brackets",
+        "uuid": "034eb200-8c79-41df-a433-180060472baa",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
+      },
+      {
+        "slug": "meetup",
+        "name": "Meetup",
+        "uuid": "2136f6c6-31a8-4a5f-8ee1-6b126d2abf2a",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
+      },
+      {
+        "slug": "pig-latin",
+        "name": "Pig Latin",
+        "uuid": "115d2a32-16a7-406a-9ae0-830f63756eff",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
+      },
+      {
+        "slug": "roman-numerals",
+        "name": "Roman Numerals",
+        "uuid": "0c3e3a12-f992-4ee1-b683-a9d4666b2c21",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
+      },
+      {
+        "slug": "run-length-encoding",
+        "name": "Run-Length Encoding",
+        "uuid": "4c646a63-2687-4e44-8b89-0a752bf6bcef",
         "practices": [],
         "prerequisites": [],
         "difficulty": 5
