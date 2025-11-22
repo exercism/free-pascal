@@ -1,0 +1,32 @@
+{
+  "docs": [
+    {
+      "uuid": "e8892f2c-9d7b-46c3-9255-70cfe30b70d5",
+      "slug": "installation",
+      "path": "docs/INSTALLATION.md",
+      "title": "Installing FreePascal locally",
+      "blurb": "Learn how to install FreePascal locally to solve Exercism's exercises on your own machine"
+    },
+    {
+      "uuid": "670e175f-c76b-4f9a-8354-03711ee672ca",
+      "slug": "learning",
+      "path": "docs/LEARNING.md",
+      "title": "How to learn FreePascal",
+      "blurb": "An overview of how to get started from scratch with FreePascal"
+    },
+    {
+      "uuid": "46415d73-bf82-455e-a811-c39dabe65094",
+      "slug": "tests",
+      "path": "docs/TESTS.md",
+      "title": "Testing on the FreePascal track",
+      "blurb": "Learn how to test your FreePascal exercises on Exercism"
+    },
+    {
+      "uuid": "e0d361c9-6ce3-48fa-b5ce-1e6b7711cffd",
+      "slug": "resources",
+      "path": "docs/RESOURCES.md",
+      "title": "Useful FreePascal resources",
+      "blurb": "A collection of useful resources to help you master FreePascal"
+    }
+  ]
+}
