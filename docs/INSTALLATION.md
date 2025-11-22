@@ -5,5 +5,5 @@ If it's not available for your system/platform or if you want to install the Fre
 
 For other installation options and/or a more detailed description, please visit [Installing the Free Pascal Compiler - Free Pascal wiki][fpc-install-wiki].
 
-[fpc-download]: https://www.freepascal.org/download.html)
+[fpc-download]: https://www.freepascal.org/download.html
 [fpc-install-wiki]: https://wiki.freepascal.org/Installing_the_Free_Pascal_Compiler
