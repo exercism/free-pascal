@@ -4,23 +4,6 @@ declare bindir
 bindir=$(realpath "$(dirname "$0")")
 cd "${bindir%/*}" || exit 1
 
-declare makefile=''
-read -r -d $'\0' makefile  << 'END_OF_MAKEFILE'
-SHELL      = /bin/bash
-BASENAME   = $(shell basename "$$PWD" | sed -r 's/(^|-)([a-z])/\U\2/g')
-COMMAND    = fpc -l- -v0 -Sehnw -Fu./lib test.pas
-JQ_ERROR   = "[ERROR] authors not set\n"
-test-stub:
-\t@$(COMMAND) && ./test
-\t@rm -f *.o *.ppu
-test:
-\t@jq -M -r '.authors | length | if . < 1 then ($(JQ_ERROR) | halt_error) else empty end' ./.meta/config.json
-\t@cp ./.meta/example.pas $(BASENAME).pas
-\t@$(COMMAND) && ./test --all
-END_OF_MAKEFILE
-declare -r tab=$'\t'
-makefile="${makefile//\\t/$tab}"
-
 declare -i fails
 fails=0
 
@@ -30,16 +13,24 @@ cp -r exercises/practice/* build/ || exit 1
 
 for path in build/*; do
     pushd "$path" > /dev/null || exit 1
-    echo "$makefile" > Makefile
-    echo -n "[EXERCISE] $(basename "$path")... "
+    solution_file="$(sed -r 's/(^|-)([a-z])/\U\2/g' <<< "${path#*/}").pas"
+    echo -n "[EXERCISE] ${path#*/}..."
+    jq -M -r '
+      .authors | length |
+      if . < 1 then
+        ("[ERROR] authors not set\n" | halt_error)
+      else
+        empty
+      end
+    ' ./.meta/config.json || (( fails += 1 ))
     make_test_stub=$(
-        make test-stub 2>&1 |
+        make -B test=all 2>&1 |
             sed -e '1{/^TAP version 14$/d}' \
                 -e '2{/^1\.\.[0-9]\+$/d}' \
                 -e '3{/^not ok 0 - Please implement your solution.$/d}'
-        )
+    )
     if [[ "$path" == 'build/hello-world' ]]; then
-        if ! grep -q '^not ok 1 - SayHi$' <<<"$make_test_stub"; then
+        if ! grep -q '^not ok 1 - SayHi$' <<< "$make_test_stub"; then
             echo 'stub file fail'
             echo "$make_test_stub"
             (( fails += 1 ))
@@ -51,8 +42,9 @@ for path in build/*; do
         echo "$make_test_stub"
         (( fails += 1 ))
     else
+        cp ./.meta/example.pas "$solution_file"
         make_test_example=$(
-            make -B test 2>&1 |
+            make -B test=all 2>&1 |
                 sed -e '1{/^TAP version 14$/d}' \
                     -e '2{/^1\.\.[0-9]\+$/d}' \
                     -e '/^ok [0-9]\+ - [0-9A-Za-z_]\+$/d'
@@ -69,6 +61,6 @@ for path in build/*; do
     popd > /dev/null || exit 1
 done
 
-rm -fr build
+# rm -fr build
 
 test $fails -eq 0 || exit 1
