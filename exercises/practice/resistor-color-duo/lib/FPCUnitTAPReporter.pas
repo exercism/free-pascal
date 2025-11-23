@@ -43,8 +43,8 @@ end;
 
 procedure TCustomResultWriter.AddFailure(ATest: TTest; AFailure: TTestFailure);
 var
-  JData                     : TJSONData;
-  LMessage, LGot, LExpected : string;
+  JData                   : TJSONData;
+  LMessage, LGot, LExpect : string;
 begin
 
   FTestPassed := false;
@@ -56,11 +56,11 @@ begin
       LMessage  := JData.FindPath('message').AsString;
       case
         GetEnumName(
-          TypeInfo(TJSONtype), ord(JData.FindPath('expected').JSONType)
+          TypeInfo(TJSONtype), ord(JData.FindPath('expect').JSONType)
         ) of
         'jtArray', 'jtObject' :
-          LExpected := JData.FindPath('expected').FormatJSON;
-        otherwise LExpected := JData.FindPath('expected').AsString;
+          LExpect := JData.FindPath('expect').FormatJSON;
+        otherwise LExpect := JData.FindPath('expect').AsString;
       end;
       case
         GetEnumName(
@@ -99,12 +99,12 @@ begin
   else
     writeln('    got: ', LGot);
 
-  if pos(#10, LExpected) > 0 then
+  if pos(#10, LExpect) > 0 then
     begin
-      writeln('    expected: |');
-      writeln('      ' + ReplaceStr(LExpected, #10, #10 + '      '));
+      writeln('    expect: |');
+      writeln('      ' + ReplaceStr(LExpect, #10, #10 + '      '));
     end
-  else writeln('    expect: ', LExpected);
+  else writeln('    expect: ', LExpect);
 
   writeln('  ...');
 end;
