@@ -30,19 +30,20 @@ begin
   repeat
     begin
       inc(i);
-      if LastChar = AString[i] then
+      if (i <= length(AString)) and (LastChar = AString[i]) then
         inc(count)
       else
         begin
           if count = 1 then
             encoded := encoded + LastChar
           else
-              encoded := encoded + format('%d%s', [count, LastChar]);
+            encoded := encoded + format('%d%s', [count, LastChar]);
+          if i > length(AString) then break;
           LastChar := AString[i];
           count    := 1;
         end;
     end
-  until i > length(AString);
+  until false;
 
   result := encoded;
 end;
