@@ -30,16 +30,14 @@ copy_example_or_examplar_to_solution() {
 }
 
 pull_docker_image() {
-    # shellcheck disable=SC1083
-    docker pull exercism/free-pascal-test-runner ||
-        die $'Could not find the `exercism/free-pascal-test-runner` Docker image.\nCheck the test runner docs at https://exercism.org/docs/building/tooling/test-runners for more information.'
+    docker pull "${image}" ||
+        die $'Could not find the `'"${image}"$'` Docker image.\nCheck the test runner docs at https://exercism.org/docs/building/tooling/test-runners for more information.'
 }
 
 run_tests() {
     local slug
     slug="${1}"
 
-    # shellcheck disable=SC1083
     docker run \
         --rm \
         --network none \
@@ -47,7 +45,7 @@ run_tests() {
         --mount type=bind,src="${PWD}",dst=/solution \
         --mount type=bind,src="${PWD}",dst=/output \
         --mount type=tmpfs,dst=/tmp \
-        exercism/free-pascal-test-runner "${slug}" /solution /output
+        "${image}" "${slug}" /solution /output
     jq -e '.status == "pass"' "${PWD}/results.json" >/dev/null 2>&1
 }
 
@@ -87,7 +85,19 @@ verify_exercises() {
     ((count > 0)) || die 'no matching exercises found!'
 }
 
-pull_docker_image
+image=''
+while getopts :i: opt; do
+    case $opt in
+        i) image=$OPTARG ;;
+        ?) echo >&2 "Unknown option: -$OPTARG"; exit 1 ;;
+    esac
+done
+shift "$((OPTIND - 1))"
+
+if [[ -z "${image}" ]]; then
+    image="exercism/free-pascal-test-runner"
+    pull_docker_image
+fi
 
 exercise_slug="${1:-*}"
 verify_exercises "${exercise_slug}"
