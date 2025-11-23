@@ -61,6 +61,4 @@ for path in build/*; do
     popd > /dev/null || exit 1
 done
 
-# rm -fr build
-
 test $fails -eq 0 || exit 1
