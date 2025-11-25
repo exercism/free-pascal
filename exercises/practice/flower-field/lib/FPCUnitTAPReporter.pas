@@ -9,9 +9,10 @@ uses FPCUnit, TestUtils;
 type
   TCustomResultWriter = class(TNoRefCountObject, ITestListener)
     private
-      FTestCasesCount  : integer;
-      FTestCount       : integer;
-      FTestPassed      : boolean;
+      FTestCasesCount    : integer;
+      FTestCount         : integer;
+      FTestPassed        : boolean;
+      FTestFailuresCount : integer;
     public
       constructor Create;
       destructor Destroy; override;
@@ -21,17 +22,19 @@ type
       procedure EndTest(ATest: TTest);
       procedure StartTestSuite(ATestSuite: TTestSuite);
       procedure EndTestSuite(ATestSuite: TTestSuite);
+      function HasFailures : boolean;
   end;
 
 implementation
 
 uses TestRegistry, SysUtils, FpJson, JSONParser, StrUtils, TypInfo;
 
-constructor TCustomResultWriter.Create ;
+constructor TCustomResultWriter.Create;
 begin
-  FTestCasesCount := GetTestRegistry.CountTestCases;
-  FTestCount      := 0;
-  FTestPassed     := true;
+  FTestCasesCount    := GetTestRegistry.CountTestCases;
+  FTestCount         := 0;
+  FTestPassed        := true;
+  FTestFailuresCount := 0;
 
   writeln('TAP version 14');
   writeln(format('1..%d', [FTestCasesCount]));
@@ -46,9 +49,9 @@ var
   JData                   : TJSONData;
   LMessage, LGot, LExpect : string;
 begin
-
-  FTestPassed := false;
   inc(FTestCount);
+  inc(FTestFailuresCount);
+  FTestPassed := false;
 
   try
     try
@@ -121,12 +124,13 @@ end;
 procedure TCustomResultWriter.AddError(ATest: TTest; AError: TTestFailure);
 begin
   inc(FTestCount);
+  inc(FTestFailuresCount);
   FTestPassed := false;
   if (AError.ExceptionClassName = 'ENotImplemented') and
      (AError.ExceptionMessage = 'Please implement your solution.') then
   begin
     writeln(format('not ok %d - %s', [0, AError.ExceptionMessage]));
-    halt;
+    halt(1);
   end;
 
   writeln(format('not ok %d - %s', [FTestCount, ATest.TestName]));
@@ -168,5 +172,10 @@ procedure TCustomResultWriter.EndTestSuite(ATestSuite: TTestSuite);
 begin
 end;
 {$HINTS ON}
+
+function TCustomResultWriter.HasFailures : boolean;
+begin
+  result := FTestFailuresCount > 0;
+end;
 
 end.
