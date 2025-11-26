@@ -27,7 +27,8 @@ for path in build/*; do
         make -B test=all 2>&1 |
             sed -e '1{/^TAP version 14$/d}' \
                 -e '2{/^1\.\.[0-9]\+$/d}' \
-                -e '3{/^not ok 0 - Please implement your solution.$/d}'
+                -e '3{/^not ok 0 - Please implement your solution.$/d}' \
+                -e '4{/^make: \*\*\* \[Makefile:[0-9]\+: test\] Error [0-9]\+$/d}'
     )
     if [[ "$path" == 'build/hello-world' ]]; then
         if ! grep -q '^not ok 1 - SayHi$' <<< "$make_test_stub"; then

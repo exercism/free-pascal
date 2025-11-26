@@ -10,6 +10,7 @@ var
   TestResult    : TTestResult;
   RunAll        : boolean;
   TestNumber    : integer = 0;
+  HasFail       : boolean;
   i             : integer;
 begin
 
@@ -71,9 +72,12 @@ begin
   try
     TestResult.AddListener(FResultWriter);
     GetTestRegistry.Run(TestResult);
+    HasFail := FResultWriter.HasFailures;
   finally
     FResultWriter.Free;
     TestResult.Free;
+
+  if HasFail then halt(1);
 end;
 
 end.
