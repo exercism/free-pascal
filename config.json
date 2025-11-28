@@ -195,6 +195,14 @@
         "difficulty": 3
       },
       {
+        "slug": "isbn-verifier",
+        "name": "ISBN Verifier",
+        "uuid": "ee04c0a8-9f4c-44a0-a128-3e31a9d6a1c6",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 3
+      },
+      {
         "slug": "isogram",
         "name": "Isogram",
         "uuid": "17e54544-566b-4cda-89a5-48c8da0ee81a",
@@ -206,6 +214,14 @@
         "slug": "leap",
         "name": "Leap",
         "uuid": "23b6eaa2-d1f3-4757-8aa3-e12467411b03",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 3
+      },
+      {
+        "slug": "matrix",
+        "name": "Matrix",
+        "uuid": "dce69631-d5a0-4030-a7b3-3d108efdc39d",
         "practices": [],
         "prerequisites": [],
         "difficulty": 3
@@ -481,14 +497,6 @@
         "practices": [],
         "prerequisites": [],
         "difficulty": 5
-      },
-      {
-        "slug": "isbn-verifier",
-        "name": "ISBN Verifier",
-        "uuid": "ee04c0a8-9f4c-44a0-a128-3e31a9d6a1c6",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 3
       }
     ]
   },
