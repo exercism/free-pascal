@@ -50,6 +50,15 @@
         "prerequisites": [],
         "difficulty": 2,
         "status": "deprecated"
+      },        
+      {
+        "slug": "trinary",
+        "name": "Trinary",
+        "uuid": "fd61bef1-09d2-433d-ad6c-bb126e19439a",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2,
+        "status": "deprecated"
       },
       {
         "slug": "acronym",
