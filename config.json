@@ -43,6 +43,15 @@
         "difficulty": 1
       },
       {
+        "slug": "trinary",
+        "name": "Trinary",
+        "uuid": "fd61bef1-09d2-433d-ad6c-bb126e19439a",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2,
+        "status": "deprecated"
+      },
+      {
         "slug": "acronym",
         "name": "Acronym",
         "uuid": "64f922db-4e41-4f11-9707-fe21998c5fea",
