@@ -43,6 +43,24 @@
         "difficulty": 1
       },
       {
+        "slug": "binary",
+        "name": "Binary",
+        "uuid": "caaca116-410d-44d0-ba62-d080686bbbab",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2,
+        "status": "deprecated"
+      },        
+      {
+        "slug": "trinary",
+        "name": "Trinary",
+        "uuid": "fd61bef1-09d2-433d-ad6c-bb126e19439a",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2,
+        "status": "deprecated"
+      },
+      {
         "slug": "acronym",
         "name": "Acronym",
         "uuid": "64f922db-4e41-4f11-9707-fe21998c5fea",
@@ -222,6 +240,14 @@
         "slug": "line-up",
         "name": "Line Up",
         "uuid": "7d7ad43c-9978-47d9-b997-cd12ac2641f8",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 3
+      },
+      {
+        "slug": "nth-prime",
+        "name": "Nth Prime",
+        "uuid": "750d91a2-7a09-465e-9303-1b9b3ddc0c43",
         "practices": [],
         "prerequisites": [],
         "difficulty": 3
