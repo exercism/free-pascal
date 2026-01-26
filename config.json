@@ -43,6 +43,15 @@
         "difficulty": 1
       },
       {
+        "slug": "binary",
+        "name": "Binary",
+        "uuid": "caaca116-410d-44d0-ba62-d080686bbbab",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2,
+        "status": "deprecated"
+      },        
+      {
         "slug": "trinary",
         "name": "Trinary",
         "uuid": "fd61bef1-09d2-433d-ad6c-bb126e19439a",
@@ -199,6 +208,14 @@
         "slug": "hamming",
         "name": "Hamming",
         "uuid": "01453426-678f-483c-b6f8-6cfc4061eda8",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 3
+      },
+      {
+        "slug": "isbn-verifier",
+        "name": "ISBN Verifier",
+        "uuid": "ee04c0a8-9f4c-44a0-a128-3e31a9d6a1c6",
         "practices": [],
         "prerequisites": [],
         "difficulty": 3
@@ -490,14 +507,6 @@
         "practices": [],
         "prerequisites": [],
         "difficulty": 5
-      },
-      {
-        "slug": "isbn-verifier",
-        "name": "ISBN Verifier",
-        "uuid": "ee04c0a8-9f4c-44a0-a128-3e31a9d6a1c6",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 3
       }
     ]
   },
