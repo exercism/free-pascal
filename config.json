@@ -50,7 +50,7 @@
         "prerequisites": [],
         "difficulty": 2,
         "status": "deprecated"
-      },        
+      },
       {
         "slug": "trinary",
         "name": "Trinary",
@@ -411,6 +411,14 @@
         "practices": [],
         "prerequisites": [],
         "difficulty": 4
+      },
+      {
+        "slug": "affine-cipher",
+        "name": "Affine Cipher",
+        "uuid": "e0127be0-4664-44d0-9fbf-6fd9d9d944e0",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
       },
       {
         "slug": "all-your-base",
