@@ -237,17 +237,17 @@
         "difficulty": 3
       },
       {
-        "slug": "matrix",
-        "name": "Matrix",
-        "uuid": "dce69631-d5a0-4030-a7b3-3d108efdc39d",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 3
-      },        
-      {
         "slug": "line-up",
         "name": "Line Up",
         "uuid": "7d7ad43c-9978-47d9-b997-cd12ac2641f8",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 3
+      },
+      {
+        "slug": "matrix",
+        "name": "Matrix",
+        "uuid": "dce69631-d5a0-4030-a7b3-3d108efdc39d",
         "practices": [],
         "prerequisites": [],
         "difficulty": 3
@@ -539,6 +539,14 @@
         "practices": [],
         "prerequisites": [],
         "difficulty": 5
+      },
+      {
+        "slug": "connect",
+        "name": "Connect",
+        "uuid": "44f59484-d71d-439f-aa67-19ffa08ad2f0",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 8
       }
     ]
   },

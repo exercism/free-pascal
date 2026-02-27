@@ -1,0 +1,17 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "Connect.pas"
+    ],
+    "test": [
+      "TestCases.pas"
+    ],
+    "example": [
+      ".meta/example.pas"
+    ]
+  },
+  "blurb": "Compute the result for a game of Hex / Polygon."
+}
