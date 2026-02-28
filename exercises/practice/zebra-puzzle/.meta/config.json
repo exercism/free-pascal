@@ -1,0 +1,19 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "ZebraPuzzle.pas"
+    ],
+    "test": [
+      "TestCases.pas"
+    ],
+    "example": [
+      ".meta/example.pas"
+    ]
+  },
+  "blurb": "Solve the zebra puzzle.",
+  "source": "Wikipedia",
+  "source_url": "https://en.wikipedia.org/wiki/Zebra_Puzzle"
+}
