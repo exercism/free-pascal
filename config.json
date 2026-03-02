@@ -541,6 +541,14 @@
         "difficulty": 5
       },
       {
+        "slug": "connect",
+        "name": "Connect",
+        "uuid": "44f59484-d71d-439f-aa67-19ffa08ad2f0",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 8
+      },
+      {
         "slug": "zebra-puzzle",
         "name": "Zebra Puzzle",
         "uuid": "b691648f-229c-419e-a4a7-6fdda00db5d9",
