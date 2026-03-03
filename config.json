@@ -301,6 +301,14 @@
         "difficulty": 3
       },
       {
+        "slug": "prime-factors",
+        "name": "Prime Factors",
+        "uuid": "666dbc7f-a9a0-444b-9e3a-ebe9bc53fc6b",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 3
+      },
+      {
         "slug": "protein-translation",
         "name": "Protein Translation",
         "uuid": "b3ce29eb-d6f5-4d7a-ae6e-c846106056d7",
