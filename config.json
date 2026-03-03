@@ -589,6 +589,14 @@
         "difficulty": 6
       },
       {
+        "slug": "rectangles",
+        "name": "Rectangles",
+        "uuid": "6cd0e27c-7098-4594-b523-727cfd77a9a2",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 7
+      },
+      {
         "slug": "connect",
         "name": "Connect",
         "uuid": "44f59484-d71d-439f-aa67-19ffa08ad2f0",

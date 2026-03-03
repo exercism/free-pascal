@@ -1,0 +1,17 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "Rectangles.pas"
+    ],
+    "test": [
+      "TestCases.pas"
+    ],
+    "example": [
+      ".meta/example.pas"
+    ]
+  },
+  "blurb": "Count the rectangles in an ASCII diagram."
+}
