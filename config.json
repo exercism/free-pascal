@@ -605,6 +605,14 @@
         "difficulty": 6
       },
       {
+        "slug": "book-store",
+        "name": "Book Store",
+        "uuid": "34f951b2-d379-48be-acc8-8bafc411ca9a",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 7
+      },
+      {
         "slug": "rectangles",
         "name": "Rectangles",
         "uuid": "6cd0e27c-7098-4594-b523-727cfd77a9a2",
