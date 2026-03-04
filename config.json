@@ -565,6 +565,14 @@
         "difficulty": 5
       },
       {
+        "slug": "pythagorean-triplet",
+        "name": "Pythagorean Triplet",
+        "uuid": "fc25d6e6-34ca-4ceb-bc5e-394cff5cd418",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
+      },
+      {
         "slug": "roman-numerals",
         "name": "Roman Numerals",
         "uuid": "0c3e3a12-f992-4ee1-b683-a9d4666b2c21",
