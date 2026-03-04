@@ -581,6 +581,14 @@
         "difficulty": 5
       },
       {
+        "slug": "change",
+        "name": "Change",
+        "uuid": "12729eeb-5129-4c4e-99be-fb9ad623d21a",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 6
+      },
+      {
         "slug": "intergalactic-transmission",
         "name": "Intergalactic Transmission",
         "uuid": "ced440b4-018b-435a-8962-727f4ddafbcd",
