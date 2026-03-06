@@ -2,6 +2,9 @@
   "authors": [
     "jimmytty"
   ],
+  "contributors": [
+    "keiravillekode"
+  ],
   "files": {
     "solution": [
       "BinarySearch.pas"
