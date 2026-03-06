@@ -629,6 +629,14 @@
         "difficulty": 5
       },
       {
+        "slug": "split-second-stopwatch",
+        "name": "Split-Second Stopwatch",
+        "uuid": "358454a9-3368-44d9-bd3f-6b8a59d72212",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
+      },
+      {
         "slug": "change",
         "name": "Change",
         "uuid": "12729eeb-5129-4c4e-99be-fb9ad623d21a",
