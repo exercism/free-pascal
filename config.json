@@ -469,6 +469,14 @@
         "difficulty": 4
       },
       {
+        "slug": "robot-simulator",
+        "name": "Robot Simulator",
+        "uuid": "189e3b7f-6b74-4333-b0f9-b3b4a218f899",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 4
+      },
+      {
         "slug": "affine-cipher",
         "name": "Affine Cipher",
         "uuid": "e0127be0-4664-44d0-9fbf-6fd9d9d944e0",
