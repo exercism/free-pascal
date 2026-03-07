@@ -15,6 +15,7 @@ type
     procedure smallest_abundant_number_is_classified_correctly;
     procedure medium_abundant_number_is_classified_correctly;
     procedure large_abundant_number_is_classified_correctly;
+    procedure perfect_square_abundant_number_is_classified_correctly;
     procedure smallest_prime_deficient_number_is_classified_correctly;
     procedure smallest_non_prime_deficient_number_is_classified_correctly;
     procedure medium_deficient_number_is_classified_correctly;
@@ -82,6 +83,12 @@ end;
 procedure PerfectNumbersTest.large_abundant_number_is_classified_correctly;
 begin
   TapAssertTrue(Self, 'Large abundant number is classified correctly', 'abundant', PerfectNumbers.classify(33550335));
+end;
+
+// 05f15b93-849c-45e9-9c7d-1ea131ef7d10
+procedure PerfectNumbersTest.perfect_square_abundant_number_is_classified_correctly;
+begin
+  TapAssertTrue(Self, 'Perfect square abundant number is classified correctly', 'abundant', PerfectNumbers.classify(196));
 end;
 
 // e610fdc7-2b6e-43c3-a51c-b70fb37413ba
