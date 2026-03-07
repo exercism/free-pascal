@@ -493,6 +493,14 @@
         "difficulty": 5
       },
       {
+        "slug": "binary-search-tree",
+        "name": "Binary Search Tree",
+        "uuid": "d793d039-4e6a-4d69-9dab-59e53c40efe6",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
+      },
+      {
         "slug": "crypto-square",
         "name": "Crypto Square",
         "uuid": "7fe9a7bf-f27f-4675-b4d7-9ff2664ced48",
