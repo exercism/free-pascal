@@ -621,6 +621,14 @@
         "difficulty": 5
       },
       {
+        "slug": "rational-numbers",
+        "name": "Rational Numbers",
+        "uuid": "0b668123-8bca-4dbb-aedf-658a58153ea9",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
+      },
+      {
         "slug": "roman-numerals",
         "name": "Roman Numerals",
         "uuid": "0c3e3a12-f992-4ee1-b683-a9d4666b2c21",
