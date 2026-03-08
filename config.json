@@ -725,6 +725,14 @@
         "difficulty": 8
       },
       {
+        "slug": "satellite",
+        "name": "Satellite",
+        "uuid": "30454fbb-8a13-4328-89ba-e94be873b3c1",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 8
+      },
+      {
         "slug": "zebra-puzzle",
         "name": "Zebra Puzzle",
         "uuid": "b691648f-229c-419e-a4a7-6fdda00db5d9",
