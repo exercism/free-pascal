@@ -52,6 +52,22 @@
         "status": "deprecated"
       },
       {
+        "slug": "darts",
+        "name": "Darts",
+        "uuid": "4e6d7139-d262-4804-bc44-c279db0f0b12",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
+        "slug": "leap",
+        "name": "Leap",
+        "uuid": "23b6eaa2-d1f3-4757-8aa3-e12467411b03",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
         "slug": "trinary",
         "name": "Trinary",
         "uuid": "fd61bef1-09d2-433d-ad6c-bb126e19439a",
@@ -149,14 +165,6 @@
         "difficulty": 3
       },
       {
-        "slug": "darts",
-        "name": "Darts",
-        "uuid": "4e6d7139-d262-4804-bc44-c279db0f0b12",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 3
-      },
-      {
         "slug": "diamond",
         "name": "Diamond",
         "uuid": "43a0f86b-25a4-4993-a906-7fdf8a179a7f",
@@ -232,14 +240,6 @@
         "slug": "kindergarten-garden",
         "name": "Kindergarten Garden",
         "uuid": "32a2e84a-3011-4798-bab1-6b5ce916e4d2",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 3
-      },
-      {
-        "slug": "leap",
-        "name": "Leap",
-        "uuid": "23b6eaa2-d1f3-4757-8aa3-e12467411b03",
         "practices": [],
         "prerequisites": [],
         "difficulty": 3
