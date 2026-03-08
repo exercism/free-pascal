@@ -677,6 +677,14 @@
         "difficulty": 6
       },
       {
+        "slug": "circular-buffer",
+        "name": "Circular Buffer",
+        "uuid": "d6fe3f93-136f-48ac-a0cb-2b77e9d944c8",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 6
+      },
+      {
         "slug": "intergalactic-transmission",
         "name": "Intergalactic Transmission",
         "uuid": "ced440b4-018b-435a-8962-727f4ddafbcd",
