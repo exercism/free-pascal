@@ -501,6 +501,14 @@
         "difficulty": 5
       },
       {
+        "slug": "complex-numbers",
+        "name": "Complex Numbers",
+        "uuid": "ba4369a8-48f1-4793-bc3f-ea1b15ed42a4",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
+      },
+      {
         "slug": "crypto-square",
         "name": "Crypto Square",
         "uuid": "7fe9a7bf-f27f-4675-b4d7-9ff2664ced48",
