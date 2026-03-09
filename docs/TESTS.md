@@ -1,5 +1,11 @@
 # Tests
 
+Most tests check that, by assigning to [result] or by passing a value to [exit], you return the expected value.
+
+Some tests check that you [raise] the expected exception.
+
+## Running the tests
+
 The ```make``` utility is a dependency to run the tests.
 
 From within the exercise directory, type in a console/terminal:
@@ -33,3 +39,7 @@ make test=2
 ```
 
 would only execute the second test.
+
+[result]: https://www.freepascal.org/docs-html/3.2.2/ref/refse94.html
+[exit]: https://www.freepascal.org/docs-html/3.2.2/rtl/system/exit.html
+[raise]: https://www.freepascal.org/docs-html/3.2.2/ref/refse118.html
