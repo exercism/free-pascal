@@ -1,0 +1,6 @@
+  case ceil(x * x + y * y) of
+    0..1:    exit(10);
+    2..25:   exit(5);
+    26..100: exit(1);
+  else       exit(0);
+  end;

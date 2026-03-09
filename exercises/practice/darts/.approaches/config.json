@@ -1,0 +1,22 @@
+{
+  "introduction": {
+    "authors": ["keiravillekode"],
+    "contributors": []
+  },
+  "approaches": [
+    {
+      "uuid": "bc0e09fb-e09a-4729-969c-2d3041670ce5",
+      "slug": "if",
+      "title": "Using If Statements",
+      "blurb": "Use if-statements to check scoring boundaries for a dart throw.",
+      "authors": ["keiravillekode"]
+    },
+    {
+      "uuid": "29d140df-9ced-4236-a090-4e9137549c03",
+      "slug": "case",
+      "title": "Using a Case Statement",
+      "blurb": "Round up with ceil and compare with case ranges.",
+      "authors": ["keiravillekode"]
+    }
+  ]
+}

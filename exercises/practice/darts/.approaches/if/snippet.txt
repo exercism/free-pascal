@@ -1,0 +1,5 @@
+  r := hypot(x, y);
+  if      r <= 1  then result := 10
+  else if r <= 5  then result :=  5
+  else if r <= 10 then result :=  1
+  else                 result :=  0;
