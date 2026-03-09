@@ -6,7 +6,7 @@ Some tests check that you [raise] the expected exception.
 
 ## Running the tests
 
-The ```make``` utility is a dependency to run the tests.
+The `make` utility is a dependency to run the tests.
 
 From within the exercise directory, type in a console/terminal:
 
