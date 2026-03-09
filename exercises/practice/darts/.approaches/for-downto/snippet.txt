@@ -1,0 +1,8 @@
+  s := x * x + y * y;
+  result := 0;
+  for index := high(points) downto low(points) do
+    begin
+      if s > squares[index] then
+        break;
+      result := points[index];
+    end;

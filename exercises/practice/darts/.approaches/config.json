@@ -17,6 +17,21 @@
       "title": "Using a Case Statement",
       "blurb": "Round up with ceil and compare with case ranges.",
       "authors": ["keiravillekode"]
+    },
+    {
+      "uuid": "3c5626a3-cff7-4bda-ab6b-014ab87f3cb8",
+      "slug": "for-in",
+      "title": "Using a For-in Statement",
+      "blurb": "Loop over a table of circles.",
+      "authors": ["keiravillekode"]
+    },
+    {
+      "uuid": "38277d67-57f0-4842-8f41-9e461a9910b1",
+      "slug": "for-downto",
+      "title": "Using a For-downto Statement",
+      "blurb": "Iterate an index backwards.",
+      "authors": ["keiravillekode"]
+
     }
   ]
 }

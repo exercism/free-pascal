@@ -5,12 +5,13 @@ Among them are:
 
 - Using `If` Statements
 - Using a `Case` Statement
+- Using a `For-in` Statement
+- Using a `For-downto` Statement
 
-<br>
-
-The scoring areas are _concentric circles_, so distances `sqrt(x * x + y * y)` from the center need to be checked in order to properly score a throw.
+The scoring areas are _concentric circles_, so to properly score a throw the distance `sqrt(x * x + y * y)` from the center needs to be compared with circle radii.
 
 Darts that fall on a _boundary_ are scored based on the area _closer to center_.
+
 
 ## Approach: Using `If` Statements
 
@@ -30,6 +31,7 @@ end;
 ```
 
 For more information, check the [if approach][approach-if].
+
 
 ## Approach: Using a `Case` Statement
 
@@ -53,5 +55,67 @@ end;
 
 For more information, check the [case approach][approach-case].
 
-[approach-if]: https://exercism.org/tracks/pascal/exercises/darts/approaches/if
-[approach-case]:  https://exercism.org/tracks/pascal/exercises/darts/approaches/case
+
+## Approach: Using a `For-in` Statement
+
+We loop over a table of circles, and exit when we find a circle that contains the point.
+
+```pascal
+const
+  circles : Array of TCircle = (
+    (radius: 1; points: 10),
+    (radius: 5; points: 5),
+    (radius: 10; points: 1)
+  );
+
+function score(const x : single; const y : single) : uint8;
+var
+  r : single;
+  circle : TCircle;
+begin
+  r := sqrt(x * x + y * y);
+  for circle in circles do
+    if r <= circle.radius then
+      exit(circle.points);
+
+  exit(0);
+end;
+```
+
+For more information, check the [for-in approach][approach-for-in].
+
+
+## Approach: Using a `For-downto` Statement
+
+We iterate an index backwards, stopping when we find a circle that does not contain the point.
+
+```pascal
+const
+  squares : Array of single = (1, 25, 100);
+  points : Array of uint8 = (10, 5, 1);
+
+function score(const x : single; const y : single) : uint8;
+var
+  s : single;
+  index : integer;
+begin
+  s := x * x + y * y;
+
+  result := 0;
+  for index := high(points) downto low(points) do
+    begin
+      if s > squares[index] then
+        break;
+
+      result := points[index];
+    end;
+end;
+```
+
+For more information, check the [for-downto approach][approach-for-downto].
+
+
+[approach-if]: https://exercism.org/tracks/free-pascal/exercises/darts/approaches/if
+[approach-case]:  https://exercism.org/tracks/free-pascal/exercises/darts/approaches/case
+[approach-for-in]: https://exercism.org/tracks/free-pascal/exercises/darts/approaches/for-in
+[approach-for-downto]:  https://exercism.org/tracks/free-pascal/exercises/darts/approaches/for-downto
