@@ -1,20 +1,20 @@
-# Using String Concatenation
+# Using `Concat`
 
 ```pascal
+uses StrUtils;
+
 function TwoFer(const name : string) : string;
 begin
-  if name = '' then
-    exit('One for you, one for me.');
-
-  result := 'One for ' + name + ', one for me.';
+  result := Concat('One for ', IfThen(name = '', 'you', name), ', one for me.');
 end;
 ```
 
-An [`if`][if] statement checks whether `name` is empty.
-If so, [`exit`][exit] returns the result immediately with `"you"` in place of a name.
+[`IfThen`][ifthen] from `StrUtils` takes a boolean condition and two string values,
+returning the first when the condition is true and the second when it is false.
+Here it returns `'you'` when `name` is empty, and `name` otherwise.
 
-Otherwise, the [`+` operator][operator] concatenates string fragments around the supplied name.
+[`Concat`][concat] from `System` joins any number of strings into one,
+avoiding the need for a `Format` call or an intermediate variable.
 
-[if]: https://www.freepascal.org/docs-html/3.2.2/ref/refsu57.html
-[exit]: https://www.freepascal.org/docs-html/3.2.2/rtl/system/exit.html
-[operator]: https://www.freepascal.org/docs-html/3.2.2/ref/refsu47.html
+[ifthen]: https://www.freepascal.org/docs-html/3.2.2/rtl/strutils/ifthen.html
+[concat]: https://www.freepascal.org/docs-html/3.2.2/rtl/system/concat.html

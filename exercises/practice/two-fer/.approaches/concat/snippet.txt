@@ -1,4 +1,1 @@
-  if name = '' then
-    exit('One for you, one for me.');
-
-  result := 'One for ' + name + ', one for me.';
+  result := Concat('One for ', IfThen(name = '', 'you', name), ', one for me.');

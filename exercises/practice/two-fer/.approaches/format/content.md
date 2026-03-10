@@ -12,7 +12,7 @@ begin
   else
     who := name;
   end;
-  result := format('One for %s, one for me.', [who]);
+  result := Format('One for %s, one for me.', [who]);
 end;
 ```
 
