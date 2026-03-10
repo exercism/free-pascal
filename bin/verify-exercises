@@ -4,14 +4,17 @@ declare bindir
 bindir=$(realpath "$(dirname "$0")")
 cd "${bindir%/*}" || exit 1
 
+exercise_slug="${1:-*}"
+
 declare -i fails
 fails=0
 
 rm -fr build
 mkdir -p build || exit 1
-cp -r exercises/practice/* build/ || exit 1
 
-for path in build/*; do
+for exercise_dir in exercises/practice/${exercise_slug}; do
+    cp -r "$exercise_dir" build/ || exit 1
+    path="build/$(basename "$exercise_dir")"
     pushd "$path" > /dev/null || exit 1
     solution_file="$(sed -r 's/(^|-)([a-z])/\U\2/g' <<< "${path#*/}").pas"
     echo -n "[EXERCISE] ${path#*/}..."
@@ -23,12 +26,14 @@ for path in build/*; do
         empty
       end
     ' ./.meta/config.json || (( fails += 1 ))
+    make_output=$(make -B test=all 2>&1)
     make_test_stub=$(
-        make -B test=all 2>&1 |
-            sed -e '1{/^TAP version 14$/d}' \
-                -e '2{/^1\.\.[0-9]\+$/d}' \
-                -e '3{/^not ok 0 - Please implement your solution.$/d}' \
-                -e '4{/^make: \*\*\* \[Makefile:[0-9]\+: test\] Error [0-9]\+$/d}'
+        sed \
+            -e '1{/^TAP version 14$/d}' \
+            -e '2{/^1\.\.[0-9]\+$/d}' \
+            -e '3{/^not ok 0 - Please implement your solution.$/d}' \
+            -e '4{/^make: \*\*\* \[Makefile:[0-9]\+: test\] Error [0-9]\+$/d}' \
+            <<< "$make_output"
     )
     if [[ "$path" == 'build/hello-world' ]]; then
         if ! grep -q '^not ok 1 - SayHi$' <<< "$make_test_stub"; then
@@ -43,13 +48,16 @@ for path in build/*; do
         echo "$make_test_stub"
         (( fails += 1 ))
     else
+        make clean
         cp ./.meta/example.pas "$solution_file"
+        make_output=$(make -B test=all 2>&1)
         make_test_example=$(
-            make -B test=all 2>&1 |
-                sed -e '1{/^TAP version 14$/d}' \
-                    -e '2{/^1\.\.[0-9]\+$/d}' \
-                    -e '/^ok [0-9]\+ - [0-9A-Za-z_]\+$/d'
-            )
+            sed \
+                -e '1{/^TAP version 14$/d}' \
+                -e '2{/^1\.\.[0-9]\+$/d}' \
+                -e '/^ok [0-9]\+ - [0-9A-Za-z_]\+$/d' \
+                <<< "$make_output"
+        )
         if [[ "$make_test_example" == '' ]]; then
             echo 'pass'
         else
