@@ -1,0 +1,6 @@
+  function withinCircle(const radius : single) : boolean;
+  begin
+    result := x * x + y * y <= radius * radius;
+  end;
+...
+  result := 5 * Ord(withinCircle(1)) + 4 * Ord(withinCircle(5)) + Ord(withinCircle(10));

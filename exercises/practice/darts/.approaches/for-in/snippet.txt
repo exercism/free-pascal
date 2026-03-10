@@ -1,0 +1,8 @@
+  circles : Array of TCircle = (
+    (radius: 1; points: 10),
+    (radius: 5; points: 5),
+    (radius: 10; points: 1)
+
+  for circle in circles do
+    if r <= circle.radius then
+      exit(circle.points);
