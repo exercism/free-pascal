@@ -1,0 +1,6 @@
+  case name of
+    '': who := 'you';
+  else
+    who := name;
+  end;
+  result := Format('One for %s, one for me.', [who]);

@@ -1,0 +1,1 @@
+  result := Concat('One for ', IfThen(name = '', 'you', name), ', one for me.');

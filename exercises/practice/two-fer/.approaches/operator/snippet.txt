@@ -1,0 +1,4 @@
+  if name = '' then
+    exit('One for you, one for me.');
+
+  result := 'One for ' + name + ', one for me.';
