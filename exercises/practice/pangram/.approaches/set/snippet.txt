@@ -1,0 +1,4 @@
+  found := [];
+  for i := low(sentence) to high(sentence) do
+    Include(found, LowerCase(sentence[i]));
+  result := ['a'..'z'] <= found;

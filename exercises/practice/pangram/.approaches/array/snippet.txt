@@ -1,0 +1,8 @@
+  j := 1;
+  while j <= Length(sentence) do
+  begin
+    c := LowerCase(sentence[j]);
+    if c in ['a'..'z'] then
+      seen[ord(c) - ord('a')] := true;
+    Inc(j);
+  end;
