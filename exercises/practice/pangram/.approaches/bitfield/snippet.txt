@@ -1,0 +1,7 @@
+  letters := 0;
+  for c in sentence do
+    if c in ['a'..'z'] then
+      letters := letters or (1 shl (ord(c) - ord('a')))
+    else if c in ['A'..'Z'] then
+      letters := letters or (1 shl (ord(c) - ord('A')));
+  result := letters = $3FFFFFF;

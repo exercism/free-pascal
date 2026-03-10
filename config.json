@@ -68,6 +68,14 @@
         "difficulty": 2
       },
       {
+        "slug": "pangram",
+        "name": "Pangram",
+        "uuid": "39b6d6e7-5e32-482f-949e-96f6323456bd",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
         "slug": "trinary",
         "name": "Trinary",
         "uuid": "fd61bef1-09d2-433d-ad6c-bb126e19439a",
@@ -272,14 +280,6 @@
         "slug": "nucleotide-count",
         "name": "Nucleotide Count",
         "uuid": "aca1d4cd-748f-421e-ba64-9215583ee5dc",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 3
-      },
-      {
-        "slug": "pangram",
-        "name": "Pangram",
-        "uuid": "39b6d6e7-5e32-482f-949e-96f6323456bd",
         "practices": [],
         "prerequisites": [],
         "difficulty": 3
