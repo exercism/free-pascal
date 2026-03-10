@@ -20,9 +20,15 @@ If you didn't even touch the exercise solution file, you'll see a message like:
 Please implement your solution.
 ```
 
-So, remove this line before start to write your solution.
+So, remove this line before starting to write your solution.
 
 By default only the first test is executed.
+
+```text
+TAP version 14
+1..10
+ok 1 - ...
+```
 
 To run all tests, type:
 
@@ -30,7 +36,22 @@ To run all tests, type:
 make test=all
 ```
 
-All tests must have an "ok" status for the solution to be accepted.
+```text
+TAP version 14
+1..10
+ok 1 - empty_sentence
+ok 2 - perfect_lower_case
+ok 3 - only_lower_case
+ok 4 - missing_the_letter_x
+ok 5 - missing_the_letter_h
+ok 6 - with_underscores
+ok 7 - with_numbers
+ok 8 - missing_letters_replaced_by_numbers
+ok 9 - mixed_case_and_punctuation
+ok 10 - am_and_AM_are_26_different_characters_but_not_a_pangram
+```
+
+Once all tests pass, you're finished with the exercise and can submit the solution.
 
 It's possible to choose a single test to run by passing the corresponding number, for example:
 
