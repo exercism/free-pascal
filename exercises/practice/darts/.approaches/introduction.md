@@ -7,6 +7,7 @@ Among them are:
 - Using a `Case` Statement
 - Using a `For-in` Statement
 - Using a `For-downto` Statement
+- Using `Ord`
 
 The scoring areas are _concentric circles_, so to properly score a throw the distance `sqrt(x * x + y * y)` from the center needs to be compared with circle radii.
 
@@ -115,7 +116,26 @@ end;
 For more information, check the [for-downto approach][approach-for-downto].
 
 
+## Approach: Using `Ord`
+
+A nested function closes over the outer parameters `x` and `y`, and `Ord` converts its boolean result to 0 or 1, giving the score as a weighted sum with no `if` statements.
+
+```pascal
+function score(const x : single; const y : single) : uint8;
+  function withinCircle(const radius : single) : boolean;
+  begin
+    result := x * x + y * y <= radius * radius;
+  end;
+begin
+  result := 5 * Ord(withinCircle(1)) + 4 * Ord(withinCircle(5)) + Ord(withinCircle(10));
+end;
+```
+
+For more information, check the [ord approach][approach-ord].
+
+
 [approach-if]: https://exercism.org/tracks/free-pascal/exercises/darts/approaches/if
 [approach-case]:  https://exercism.org/tracks/free-pascal/exercises/darts/approaches/case
 [approach-for-in]: https://exercism.org/tracks/free-pascal/exercises/darts/approaches/for-in
 [approach-for-downto]:  https://exercism.org/tracks/free-pascal/exercises/darts/approaches/for-downto
+[approach-ord]: https://exercism.org/tracks/free-pascal/exercises/darts/approaches/ord
