@@ -77,6 +77,14 @@
         "status": "deprecated"
       },
       {
+        "slug": "two-fer",
+        "name": "Two-Fer",
+        "uuid": "3d2032a7-b47d-4e98-8cf8-a8d72201aa58",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
         "slug": "acronym",
         "name": "Acronym",
         "uuid": "64f922db-4e41-4f11-9707-fe21998c5fea",
@@ -448,14 +456,6 @@
         "slug": "triangle",
         "name": "Triangle",
         "uuid": "c3f41452-338b-4fe7-bb49-b6765cf76e1c",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 3
-      },
-      {
-        "slug": "two-fer",
-        "name": "Two-Fer",
-        "uuid": "3d2032a7-b47d-4e98-8cf8-a8d72201aa58",
         "practices": [],
         "prerequisites": [],
         "difficulty": 3

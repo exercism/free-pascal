@@ -1,7 +1,8 @@
 {
   "introduction": {
-    "authors": ["keiravillekode"],
-    "contributors": []
+    "authors": [
+      "keiravillekode"
+    ]
   },
   "approaches": [
     {
@@ -9,14 +10,18 @@
       "slug": "concat",
       "title": "Using String Concatenation",
       "blurb": "Use the + operator to concatenate strings.",
-      "authors": ["keiravillekode"]
+      "authors": [
+        "keiravillekode"
+      ]
     },
     {
       "uuid": "636355ad-6e65-4204-b6d4-642552cbd954",
       "slug": "format",
       "title": "Using Format",
       "blurb": "Use the Format function from SysUtils.",
-      "authors": ["keiravillekode"]
+      "authors": [
+        "keiravillekode"
+      ]
     }
   ]
 }
