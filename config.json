@@ -485,6 +485,14 @@
         "difficulty": 4
       },
       {
+        "slug": "saddle-points",
+        "name": "Saddle Points",
+        "uuid": "6cc62716-b866-4046-8eaf-9c1988ecc78c",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 4
+      },
+      {
         "slug": "affine-cipher",
         "name": "Affine Cipher",
         "uuid": "e0127be0-4664-44d0-9fbf-6fd9d9d944e0",
