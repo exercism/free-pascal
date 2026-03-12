@@ -1,7 +1,8 @@
 {
   "introduction": {
-    "authors": ["keiravillekode"],
-    "contributors": []
+    "authors": [
+      "keiravillekode"
+    ]
   },
   "approaches": [
     {
@@ -9,21 +10,27 @@
       "slug": "set",
       "title": "Using a Set of Char",
       "blurb": "Collect seen characters into a set of char and test subset membership.",
-      "authors": ["keiravillekode"]
+      "authors": [
+        "keiravillekode"
+      ]
     },
     {
       "uuid": "59807da6-df1d-430b-a55c-fcdd8dad3516",
       "slug": "bitfield",
       "title": "Using a Bit Field",
       "blurb": "Track seen letters with a longword bit field and compare to a 26-bit mask.",
-      "authors": ["keiravillekode"]
+      "authors": [
+        "keiravillekode"
+      ]
     },
     {
       "uuid": "0db168c1-23a8-4829-974d-2bba65f3f76a",
       "slug": "array",
       "title": "Using an Array of Boolean",
       "blurb": "Track seen letters in a fixed Array [0..25] of Boolean indexed by character arithmetic.",
-      "authors": ["keiravillekode"]
+      "authors": [
+        "keiravillekode"
+      ]
     }
   ]
 }
