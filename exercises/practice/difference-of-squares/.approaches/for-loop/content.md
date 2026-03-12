@@ -45,7 +45,7 @@ The [`result`][result] variable holds the function's return value.
 Assigning `result := acc * acc` squares the accumulated sum and sets the return value.
 
 [for]: https://www.freepascal.org/docs-html/3.2.2/ref/refsu58.html
-[var]: https://www.freepascal.org/docs-html/3.2.2/ref/refse21.html
+[var]: https://www.freepascal.org/docs-html/3.2.2/ref/refse22.html
 [assign]: https://www.freepascal.org/docs-html/3.2.2/ref/refsu52.html
 [longint]: https://www.freepascal.org/docs-html/3.2.2/ref/refsu4.html
 [result]: https://www.freepascal.org/docs-html/3.2.2/ref/refse94.html

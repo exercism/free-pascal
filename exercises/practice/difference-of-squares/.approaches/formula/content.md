@@ -39,6 +39,6 @@ A local variable `s` is used in `SquareOfSum` to compute the intermediate sum be
 `SumOfSquares` needs no intermediate variable because its result is a single expression.
 
 [formula]: https://en.wikipedia.org/wiki/Triangular_number
-[div]: https://www.freepascal.org/docs-html/3.2.2/ref/refsu45.html
+[div]: https://www.freepascal.org/docs-html/3.2.2/ref/refsu44.html
 [real]: https://www.freepascal.org/docs-html/3.2.2/ref/refsu5.html
 [longint]: https://www.freepascal.org/docs-html/3.2.2/ref/refsu4.html
