@@ -1,0 +1,4 @@
+  if year mod 100 = 0 then
+    result := year mod 400 = 0
+  else
+    result := year mod 4 = 0;
