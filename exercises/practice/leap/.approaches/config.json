@@ -1,0 +1,27 @@
+{
+  "introduction": {
+    "authors": [
+      "keiravillekode"
+    ]
+  },
+  "approaches": [
+    {
+      "uuid": "664327d3-6d44-4e6c-a4ba-145e8173d3e6",
+      "slug": "boolean-chain",
+      "title": "Using a Boolean Chain",
+      "blurb": "Combine mod and boolean operators into a single expression.",
+      "authors": [
+        "keiravillekode"
+      ]
+    },
+    {
+      "uuid": "86594914-7460-4fb4-b77c-5b953f57835d",
+      "slug": "if-then-else",
+      "title": "Using If-Then-Else",
+      "blurb": "Branch on divisibility by 100, then test 400 or 4 separately.",
+      "authors": [
+        "keiravillekode"
+      ]
+    }
+  ]
+}
