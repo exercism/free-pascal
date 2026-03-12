@@ -1,7 +1,8 @@
 {
   "introduction": {
-    "authors": ["keiravillekode"],
-    "contributors": []
+    "authors": [
+      "keiravillekode"
+    ]
   },
   "approaches": [
     {
@@ -9,21 +10,27 @@
       "slug": "operator",
       "title": "Using the + Operator",
       "blurb": "Use the + operator to concatenate strings.",
-      "authors": ["keiravillekode"]
+      "authors": [
+        "keiravillekode"
+      ]
     },
     {
       "uuid": "636355ad-6e65-4204-b6d4-642552cbd954",
       "slug": "format",
       "title": "Using Format",
       "blurb": "Use the Format function from SysUtils.",
-      "authors": ["keiravillekode"]
+      "authors": [
+        "keiravillekode"
+      ]
     },
     {
       "uuid": "b6f46f5e-0e0f-4ca1-baec-5a2a46f7b1ae",
       "slug": "concat",
       "title": "Using Concat",
       "blurb": "Use IfThen from StrUtils and Concat to build the result.",
-      "authors": ["keiravillekode"]
+      "authors": [
+        "keiravillekode"
+      ]
     }
   ]
 }

@@ -493,6 +493,14 @@
         "difficulty": 4
       },
       {
+        "slug": "twelve-days",
+        "name": "Twelve Days",
+        "uuid": "292e3dc4-dc73-4b34-a887-3ec15dca8665",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 4
+      },
+      {
         "slug": "affine-cipher",
         "name": "Affine Cipher",
         "uuid": "e0127be0-4664-44d0-9fbf-6fd9d9d944e0",
