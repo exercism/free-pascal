@@ -1,0 +1,4 @@
+  acc := 0;
+  for i := 1 to number do
+    acc := acc + i;
+  result := acc * acc;

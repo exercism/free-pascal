@@ -1,0 +1,27 @@
+{
+  "introduction": {
+    "authors": [
+      "keiravillekode"
+    ]
+  },
+  "approaches": [
+    {
+      "uuid": "0c307f07-cab6-4c78-a4c5-08e0fb1cd652",
+      "slug": "for-loop",
+      "title": "Using For Loops",
+      "blurb": "Accumulate sums iteratively with for loops.",
+      "authors": [
+        "keiravillekode"
+      ]
+    },
+    {
+      "uuid": "de97028e-f871-4a72-b4ec-2ff4f6e2b1f1",
+      "slug": "formula",
+      "title": "Using Closed-Form Formulas",
+      "blurb": "Compute results directly with mathematical formulas and integer division.",
+      "authors": [
+        "keiravillekode"
+      ]
+    }
+  ]
+}
