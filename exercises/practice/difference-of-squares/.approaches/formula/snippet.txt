@@ -1,0 +1,4 @@
+  s := number * (number + 1) div 2;
+  result := s * s;
+...
+  result := number * (number + 1) * (2 * number + 1) div 6;
