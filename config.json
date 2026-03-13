@@ -741,6 +741,14 @@
         "difficulty": 6
       },
       {
+        "slug": "flatten-array",
+        "name": "Flatten Array",
+        "uuid": "c35890d0-b216-42ad-80e7-d8f041873c9f",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 6
+      },
+      {
         "slug": "intergalactic-transmission",
         "name": "Intergalactic Transmission",
         "uuid": "ced440b4-018b-435a-8962-727f4ddafbcd",
