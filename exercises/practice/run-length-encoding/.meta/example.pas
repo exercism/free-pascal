@@ -6,7 +6,6 @@ interface
 
 function encode(const AString : string) : string;
 function decode(const AString : string) : string;
-function consistency(const AString : string) : string;
 
 implementation
 
@@ -78,11 +77,6 @@ begin
   until i >= length(AString);
 
   result := decoded;
-end;
-
-function consistency(const AString : string) : string;
-begin
-  result := decode(encode(AString));
 end;
 
 end.
