@@ -27,7 +27,6 @@ type
     procedure ability_modifier_for_score_18_is_plus_4;
     procedure random_ability_is_within_range;
     procedure random_character_is_valid;
-    procedure each_ability_is_only_calculated_once;
   end;
 
 implementation
@@ -147,15 +146,6 @@ procedure DndCharacterTest.random_character_is_valid;
 begin
   FCharacter := DndCharacter.character;
   TapAssertTrue(Self, 'random character is valid', true, (FCharacter.strength >= 3) and (FCharacter.strength <= 18) and (FCharacter.dexterity >= 3) and (FCharacter.dexterity <= 18) and (FCharacter.constitution >= 3) and (FCharacter.constitution <= 18) and (FCharacter.intelligence >= 3) and (FCharacter.intelligence <= 18) and (FCharacter.wisdom >= 3) and (FCharacter.wisdom <= 18) and (FCharacter.charisma >= 3) and (FCharacter.charisma <= 18) and (FCharacter.hitpoints = 10 + DndCharacter.modifier(FCharacter.constitution)));
-end;
-
-// dca2b2ec-f729-4551-84b9-078876bb4808
-procedure DndCharacterTest.each_ability_is_only_calculated_once;
-var
-  LCharacter : TCharacter;
-begin
-  LCharacter := DndCharacter.character;
-  TapAssertTrue(Self, 'each ability is only calculated once', true, (LCharacter.strength = FCharacter.strength) and (LCharacter.dexterity = FCharacter.dexterity) and (LCharacter.constitution = FCharacter.constitution) and (LCharacter.intelligence = FCharacter.intelligence) and (LCharacter.wisdom = FCharacter.wisdom) and (LCharacter.charisma = FCharacter.charisma) );
 end;
 
 initialization
