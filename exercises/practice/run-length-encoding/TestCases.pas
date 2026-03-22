@@ -102,8 +102,14 @@ end;
 
 // 2a762efd-8695-4e04-b0d6-9736899fbc16
 procedure RunLengthEncodingTest.encode_followed_by_decode_gives_original_string;
+
+  function consistency(const AString : string) : string;
+  begin
+    result := RunLengthEncoding.decode(RunLengthEncoding.encode(AString));
+  end;
+
 begin
-  TapAssertTrue(Self, 'encode followed by decode gives original string', 'zzz ZZ  zZ', RunLengthEncoding.consistency('zzz ZZ  zZ'));
+  TapAssertTrue(Self, 'encode followed by decode gives original string', 'zzz ZZ  zZ', consistency('zzz ZZ  zZ'));
 end;
 
 initialization
