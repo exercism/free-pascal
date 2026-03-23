@@ -23,7 +23,7 @@ var
   j    : byte = 0;
 begin
   result := [[]];
-  for LRow in SplitString(AString, '\n') do
+  for LRow in SplitString(AString, #10) do
     begin
       inc(i);
       SetLength(result, i);
