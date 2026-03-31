@@ -16,6 +16,8 @@ type
     procedure illegal_diagonal_does_not_make_a_winner;
     procedure nobody_wins_crossing_adjacent_angles;
     procedure x_wins_crossing_from_left_to_right;
+    procedure x_wins_with_left_hand_dead_end_fork;
+    procedure x_wins_with_right_hand_dead_end_fork;
     procedure o_wins_crossing_from_top_to_bottom;
     procedure x_wins_using_a_convoluted_path;
     procedure x_wins_using_a_spiral_path;
@@ -119,6 +121,34 @@ begin
     '    . O X .'
   ];
   TapAssertTrue(Self, 'X wins crossing from left to right', 'X', Connect.winner(board));
+end;
+
+// 495e33ed-30a9-4012-b46e-d7c4d5fe13c3
+procedure ConnectTest.x_wins_with_left_hand_dead_end_fork;
+var
+  board          : TStrArray = ();
+begin
+  board := [
+    '. . X .',
+    ' X X . .',
+    '  . X X X',
+    '   O O O O'
+  ];
+  TapAssertTrue(Self, 'X wins with left-hand dead end fork', 'X', Connect.winner(board));
+end;
+
+// ab167ab0-4a98-4d0f-a1c0-e1cddddc3d58
+procedure ConnectTest.x_wins_with_right_hand_dead_end_fork;
+var
+  board          : TStrArray = ();
+begin
+  board := [
+    '. . X X',
+    ' X X . .',
+    '  . X X .',
+    '   O O O O'
+  ];
+  TapAssertTrue(Self, 'X wins with right-hand dead end fork', 'X', Connect.winner(board));
 end;
 
 // 73d1eda6-16ab-4460-9904-b5f5dd401d0b
