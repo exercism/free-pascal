@@ -1,0 +1,7 @@
+  for c in LowerCase(sentence) do
+    if c in ['a'..'z'] then
+      if tally.ContainsKey(c) then
+        tally[c] := tally[c] + 1
+      else
+        tally.Add(c, 1);
+  result := tally.Count = 26;

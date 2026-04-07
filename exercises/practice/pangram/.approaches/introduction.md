@@ -6,6 +6,7 @@ Among them are:
 - Using a `Set of Char`
 - Using a Bit Field
 - Using an Array of Boolean
+- Using a Generic Dictionary
 
 
 ## Approach: Using a `Set of Char`
@@ -86,6 +87,35 @@ end;
 For more information, check the [array approach][approach-array].
 
 
+## Approach: Using a Generic Dictionary
+
+Tally seen letters in a `TDictionary<Char, Integer>` from `Generics.Collections` and check whether the count reaches 26.
+
+```pascal
+function IsPangram(const sentence : string) : boolean;
+var
+  tally : TCharIntDict;
+  c : char;
+begin
+  tally := TCharIntDict.Create;
+  try
+    for c in LowerCase(sentence) do
+      if c in ['a'..'z'] then
+        if tally.ContainsKey(c) then
+          tally[c] := tally[c] + 1
+        else
+          tally.Add(c, 1);
+    result := tally.Count = 26;
+  finally
+    tally.Free;
+  end;
+end;
+```
+
+For more information, check the [dictionary approach][approach-dictionary].
+
+
 [approach-set]: https://exercism.org/tracks/free-pascal/exercises/pangram/approaches/set
 [approach-bitfield]: https://exercism.org/tracks/free-pascal/exercises/pangram/approaches/bitfield
 [approach-array]: https://exercism.org/tracks/free-pascal/exercises/pangram/approaches/array
+[approach-dictionary]: https://exercism.org/tracks/free-pascal/exercises/pangram/approaches/dictionary

@@ -31,6 +31,15 @@
       "authors": [
         "keiravillekode"
       ]
+    },
+    {
+      "uuid": "c1eddb7a-4fff-47ba-bcf5-2394711c6a19",
+      "slug": "dictionary",
+      "title": "Using a Generic Dictionary",
+      "blurb": "Tally seen letters in a generic TDictionary<Char, Integer> and check the count reaches 26.",
+      "authors": [
+        "keiravillekode"
+      ]
     }
   ]
 }
