@@ -1,0 +1,8 @@
+while temp > 1 do
+begin
+  inc(count);
+  if temp mod 2 = 0 then
+    temp := temp div 2
+  else
+    temp := temp * 3 + 1;
+end;

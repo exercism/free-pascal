@@ -52,6 +52,14 @@
         "status": "deprecated"
       },
       {
+        "slug": "collatz-conjecture",
+        "name": "Collatz Conjecture",
+        "uuid": "79a0f3bc-24f5-4e83-8a37-7f8534d52c6f",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
         "slug": "darts",
         "name": "Darts",
         "uuid": "4e6d7139-d262-4804-bc44-c279db0f0b12",
@@ -168,14 +176,6 @@
         "slug": "clock",
         "name": "Clock",
         "uuid": "14eb0676-f938-480a-bbe0-effe976b059b",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 3
-      },
-      {
-        "slug": "collatz-conjecture",
-        "name": "Collatz Conjecture",
-        "uuid": "79a0f3bc-24f5-4e83-8a37-7f8534d52c6f",
         "practices": [],
         "prerequisites": [],
         "difficulty": 3
