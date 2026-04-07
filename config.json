@@ -669,6 +669,14 @@
         "difficulty": 5
       },
       {
+        "slug": "relative-distance",
+        "name": "Relative Distance",
+        "uuid": "4cf16f0e-982d-47de-9bf6-7154adb27ee4",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
+      },
+      {
         "slug": "roman-numerals",
         "name": "Roman Numerals",
         "uuid": "0c3e3a12-f992-4ee1-b683-a9d4666b2c21",
