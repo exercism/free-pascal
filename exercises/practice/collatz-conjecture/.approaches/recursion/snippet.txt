@@ -1,0 +1,6 @@
+if n = 1 then
+  result := count
+else if (n and 1) = 0 then
+  result := countSteps(n shr 1, count + 1)
+else
+  result := countSteps(n * 3 + 1, count + 1);

@@ -1,0 +1,36 @@
+{
+  "introduction": {
+    "authors": [
+      "keiravillekode"
+    ]
+  },
+  "approaches": [
+    {
+      "uuid": "9d34ab83-5f17-4c20-9032-968b8882ab52",
+      "slug": "while-loop",
+      "title": "While loop",
+      "blurb": "Use a while loop with mod, div, and inc.",
+      "authors": [
+        "keiravillekode"
+      ]
+    },
+    {
+      "uuid": "79b2dd9d-07c9-4910-ab91-e541cafc81ae",
+      "slug": "repeat-until",
+      "title": "Repeat-until",
+      "blurb": "Use repeat-until post-condition loop.",
+      "authors": [
+        "keiravillekode"
+      ]
+    },
+    {
+      "uuid": "0a9eb0af-8082-4798-8776-7478caa2098e",
+      "slug": "recursion",
+      "title": "Recursion",
+      "blurb": "Use a recursive function with bitwise operations.",
+      "authors": [
+        "keiravillekode"
+      ]
+    }
+  ]
+}

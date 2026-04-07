@@ -1,0 +1,8 @@
+repeat
+  if temp mod 2 <> 0 then begin
+    temp := (temp * 3 + 1);
+    inc(result);
+  end;
+  temp := temp div 2;
+  inc(result);
+until temp = 1;
