@@ -1,4 +1,6 @@
-# Hints
+# Instructions append
+
+## Hints
 
 Assign the value of an [expression] to `result` to complete this exercise.
 
