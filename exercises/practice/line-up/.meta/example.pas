@@ -5,7 +5,7 @@ unit LineUp;
 interface
 
 function FormatMessage(
-  const name : ShortString; const number : byte
+  const name : ShortString; const number : Word
 ) : ShortString;
 
 implementation
@@ -13,11 +13,11 @@ implementation
 uses SysUtils, Math;
 
 function FormatMessage(
-  const name : ShortString; const number : byte
+  const name : ShortString; const number : Word
 ) : ShortString;
 var
   suffix, ordinal : ShortString;
-  tmpnum          : byte;
+  tmpnum          : Word;
 begin
   tmpnum := IfThen(byte(number mod 100) in [11, 12, 13], number + 3, number);
   suffix := 'th';
