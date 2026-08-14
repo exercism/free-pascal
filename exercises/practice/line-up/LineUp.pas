@@ -5,7 +5,7 @@ unit LineUp;
 interface
 
 function FormatMessage(
-  const name : ShortString; const number : byte
+  const name : ShortString; const number : Word
 ) : ShortString;
 
 implementation
@@ -13,7 +13,7 @@ implementation
 uses SysUtils;
 
 function FormatMessage(
-  const name : ShortString; const number : byte
+  const name : ShortString; const number : Word
 ) : ShortString;
 begin
 

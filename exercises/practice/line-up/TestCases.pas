@@ -23,11 +23,17 @@ type
     procedure format_non_exceptional_ordinal_numeral_12;
     procedure format_non_exceptional_ordinal_numeral_13;
     procedure format_exceptional_ordinal_numeral_21;
+    procedure format_exceptional_ordinal_numeral_22_ending_in_nd_even_though_it_is_a_multiple_of_11;
+    procedure format_exceptional_ordinal_numeral_33_ending_in_rd_even_though_it_is_a_multiple_of_11;
+    procedure format_exceptional_ordinal_numeral_52_ending_in_nd_even_though_it_is_a_multiple_of_13;
     procedure format_exceptional_ordinal_numeral_62;
+    procedure format_non_exceptional_ordinal_numeral_72_ending_in_nd_even_though_it_is_a_multiple_of_12;
+    procedure format_exceptional_ordinal_numeral_91_ending_in_st_even_though_it_is_a_multiple_of_13;
     procedure format_exceptional_ordinal_numeral_100;
     procedure format_exceptional_ordinal_numeral_101;
     procedure format_non_exceptional_ordinal_numeral_112;
     procedure format_exceptional_ordinal_numeral_123;
+    procedure format_large_number_972_ending_in_nd_even_though_it_is_a_multiple_of_12;
   end;
 
 implementation
@@ -118,10 +124,40 @@ begin
   TapAssertTrue(Self, 'format exceptional ordinal numeral 21', 'Washi, you are the 21st customer we serve today. Thank you!', LineUp.FormatMessage('Washi', 21));
 end;
 
+// a98e2e22-ab41-4557-a7c2-efedc19c16da
+procedure LineUpTest.format_exceptional_ordinal_numeral_22_ending_in_nd_even_though_it_is_a_multiple_of_11;
+begin
+  TapAssertTrue(Self, 'format exceptional ordinal numeral 22 ending in nd even though it is a multiple of 11', 'Ingrid, you are the 22nd customer we serve today. Thank you!', LineUp.FormatMessage('Ingrid', 22));
+end;
+
+// ab45d2fb-e0ee-4016-b605-76917584db0a
+procedure LineUpTest.format_exceptional_ordinal_numeral_33_ending_in_rd_even_though_it_is_a_multiple_of_11;
+begin
+  TapAssertTrue(Self, 'format exceptional ordinal numeral 33 ending in rd even though it is a multiple of 11', 'Mario, you are the 33rd customer we serve today. Thank you!', LineUp.FormatMessage('Mario', 33));
+end;
+
+// c9243603-9f17-45b3-9a41-db9ebdbf08e1
+procedure LineUpTest.format_exceptional_ordinal_numeral_52_ending_in_nd_even_though_it_is_a_multiple_of_13;
+begin
+  TapAssertTrue(Self, 'format exceptional ordinal numeral 52 ending in nd even though it is a multiple of 13', 'Quentin, you are the 52nd customer we serve today. Thank you!', LineUp.FormatMessage('Quentin', 52));
+end;
+
 // 74ee2317-0295-49d2-baf0-d56bcefa14e3
 procedure LineUpTest.format_exceptional_ordinal_numeral_62;
 begin
   TapAssertTrue(Self, 'format exceptional ordinal numeral 62', 'Nayra, you are the 62nd customer we serve today. Thank you!', LineUp.FormatMessage('Nayra', 62));
+end;
+
+// 3f6c408c-4331-42b6-bb6c-3ad0823e568a
+procedure LineUpTest.format_non_exceptional_ordinal_numeral_72_ending_in_nd_even_though_it_is_a_multiple_of_12;
+begin
+  TapAssertTrue(Self, 'format non-exceptional ordinal numeral 72 ending in nd even though it is a multiple of 12', 'Ugo, you are the 72nd customer we serve today. Thank you!', LineUp.FormatMessage('Ugo', 72));
+end;
+
+// 8db52cd9-9689-413f-a812-6c36fcfd0d07
+procedure LineUpTest.format_exceptional_ordinal_numeral_91_ending_in_st_even_though_it_is_a_multiple_of_13;
+begin
+  TapAssertTrue(Self, 'format exceptional ordinal numeral 91 ending in st even though it is a multiple of 13', 'Boris, you are the 91st customer we serve today. Thank you!', LineUp.FormatMessage('Boris', 91));
 end;
 
 // b37c332d-7f68-40e3-8503-e43cbd67a0c4
@@ -146,6 +182,12 @@ end;
 procedure LineUpTest.format_exceptional_ordinal_numeral_123;
 begin
   TapAssertTrue(Self, 'format exceptional ordinal numeral 123', 'Yma, you are the 123rd customer we serve today. Thank you!', LineUp.FormatMessage('Yma', 123));
+end;
+
+// 6792c54e-59a7-4faf-839a-c4bb61014229
+procedure LineUpTest.format_large_number_972_ending_in_nd_even_though_it_is_a_multiple_of_12;
+begin
+  TapAssertTrue(Self, 'format large number 972 ending in nd even though it is a multiple of 12', 'Elias, you are the 972nd customer we serve today. Thank you!', LineUp.FormatMessage('Elias', 972));
 end;
 
 initialization
