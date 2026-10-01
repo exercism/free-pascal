@@ -26,7 +26,8 @@ type
     procedure foldr_empty_list;
     procedure foldr_direction_independent_function_applied_to_non_empty_list;
     procedure reverse_empty_list;
-    procedure reverse_non_empty_list;
+    procedure reverse_non_empty_even_length_list;
+    procedure reverse_non_empty_odd_length_list;
     procedure reverse_list_of_lists_is_not_flattened;
     procedure foldl_direction_dependent_function_applied_to_non_empty_list;
     procedure foldr_direction_dependent_function_applied_to_non_empty_list;
@@ -252,14 +253,25 @@ begin
 end;
 
 // fcc03d1e-42e0-4712-b689-d54ad761f360
-procedure ListOpsTest.reverse_non_empty_list;
+procedure ListOpsTest.reverse_non_empty_even_length_list;
 const
   list: TIntArray = (1, 3, 5, 7);
 var
   actual: TIntArray;
 begin
   actual := TIntListOps.reverse(list);
-  TapAssertTrue(Self, 'non-empty list', TIntArray([7, 5, 3, 1]), actual);
+  TapAssertTrue(Self, 'non-empty even-length list', TIntArray([7, 5, 3, 1]), actual);
+end;
+
+// 64d77184-5f74-4845-b158-545d2dd2df98
+procedure ListOpsTest.reverse_non_empty_odd_length_list;
+const
+  list: TIntArray = (1, 3, 5, 7, 9, 11, 13);
+var
+  actual: TIntArray;
+begin
+  actual := TIntListOps.reverse(list);
+  TapAssertTrue(Self, 'non-empty odd-length list', TIntArray([13, 11, 9, 7, 5, 3, 1]), actual);
 end;
 
 // 40872990-b5b8-4cb8-9085-d91fc0d05d26
