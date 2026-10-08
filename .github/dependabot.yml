@@ -3,11 +3,17 @@ version: 2
 updates:
 
   # Keep dependencies for GitHub Actions up-to-date
-  - package-ecosystem: 'github-actions'
-    directory: '/'
+  - package-ecosystem: github-actions
+    directory: /
     groups:
       github-actions:
         patterns:
-          - "*"  # Group all Actions updates into a single larger pull request
+          - *  # Group all Actions updates into a single larger pull request
     schedule:
-      interval: 'monthly'
+      interval: monthly
+
+  # Enable updates to the dependencies of our Dockerfile
+  - package-ecosystem: docker
+    directory: /
+    schedule:
+      interval: monthly
