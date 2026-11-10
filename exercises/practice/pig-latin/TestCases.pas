@@ -170,10 +170,10 @@ begin
   TapAssertTrue(Self, 'y as second letter in two letter word', 'ymay', PigLatin.translate('my'));
 end;
 
-// 44616581-5ce3-4a81-82d0-40c7ab13d2cf
+// 44616581-5ce3-4a81-82d0-40c7ab13d2d1
 procedure PigLatinTest.a_whole_phrase;
 begin
-  TapAssertTrue(Self, 'a whole phrase', 'ickquay astfay unray', PigLatin.translate('quick fast run'));
+  TapAssertTrue(Self, 'a whole phrase', 'ywhay oday idssquay enjoyay xraysay', PigLatin.translate('why do squids enjoy xrays'));
 end;
 
 initialization
